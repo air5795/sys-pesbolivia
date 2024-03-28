@@ -1,0 +1,348 @@
+.titTabla {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #003366;
+	background-color: #DFE3E8;
+	text-align: center;
+}
+.titTablaLeft {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #003366;
+	background-color: #DFE3E8;
+	text-align: left;
+	padding-left: 5px;
+}
+.titTablaRight {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #003366;
+	background-color: #DFE3E8;
+	text-align: right;
+	padding-left: 5px;
+}
+.itemCelda {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000033;
+	padding-left: 9px;
+}
+.itemCelda2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #003366;
+	text-align: left;
+  padding-left: 5px;
+}
+.itemCelda2R {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #003366;
+	text-align: right;
+  padding-left: 5px;
+}
+.usuario {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #003366;
+	text-align: left;
+}
+.usuarioCenter {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #003366;
+	text-align: center;
+}
+.usuarioRight {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #003366;
+	text-align: right;
+}
+
+.usuarioAcceso {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #003366;
+	text-align: center
+}
+.usuarioPequeno {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000033;
+  ;
+}
+.titTablaHelp {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #003366;
+	background-color: #FFCC66;
+	text-align: left;
+	padding-left: 10px;
+}
+.error {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FF0000;
+	text-align: left;
+	padding-left: 4px;
+
+}
+.celdaUsuario {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #336699;
+	padding-left: 9px;
+  text-align: left;
+}
+.itemLoggin {
+  font-weight: bold;
+  font-size: 12px;
+  color: #336699;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 9px;
+}
+.row1 {background-color:#f7f7f7;}
+.row0 {background-color:white;}   
+
+
+
+
+
+
+
+
+.titCelda {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.texCelda {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+}
+.tituloAzul {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #003366;
+	padding-left: 6px;
+}
+.itemCelda {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000033;
+	padding-left: 9px;
+}
+.itemCeldaTit {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #009999;
+}
+.linkCelda {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #000066;
+	text-decoration: underline;
+}
+.menuIzq {
+	font-family: Geneva, Arial, Helvetica, san-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #0000FF;
+	padding-left: 5px;	
+}
+.menuIzqSub {
+	font-family: Geneva, Arial, Helvetica, san-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #003366;
+	padding-left: 9px;
+}
+.menuIzqSubSel {
+	font-family: Geneva, Arial, Helvetica, san-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #003366;
+	padding-left: 9px;
+}
+.menuIzqSel {
+	font-family: Geneva, Arial, Helvetica, san-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #CC0033;
+	padding-left: 5px;
+}
+.menuIzqSubSub {
+	font-family: Geneva, Arial, Helvetica, san-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #003366;
+	padding-left: 13px;
+}
+.menuIzqSubSubSel {
+	font-family: Geneva, Arial, Helvetica, san-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #003366;
+	padding-left: 13px;
+}
+.navegacion {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	font-weight: normal;
+	color: #0066CC;
+}
+
+
+.titTabla_bak {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #83A7D5;
+	text-align: center;
+}
+
+
+
+.titTablas {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #A6ABB4;
+	text-align: center;
+}
+.lineaGris {
+	border: #CCCCCC;
+}
+.itemCombo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000033;
+	padding-left: 0px;
+}
+.texError {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #FF0000;
+}
+.texAzul {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #003366;
+	padding-left: 6px;
+}
+
+.itemCelda2_bak {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #009999;
+}
+
+.style10 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #000000;
+	font-weight: bold;
+}
+.style24 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; color: #FFFFFF; }
+.style28 {font-family: Arial, Helvetica, sans-serif}
+.style29 {font-size: 12px}
+.style33 {font-size: 9px}
+.style35 {font-family: Arial, Helvetica, sans-serif; font-size: 9px; padding-left: 4px; }
+.style39 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.style42 {font-size: 10px}
+.style44 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #000000; }
+.style48 {color: #000000}
+.style49 {font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #000000; font-weight: bold; }
+.style51 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #000000; }
+.style52 {color: #999999}
+.style54 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #999999; }
+.style64 {font-family: Arial, Helvetica, sans-serif; font-size: 9px; color: #000000; }
+.style65 {font-family: Arial, Helvetica, sans-serif; font-size: 10px; }
+.style22 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #FF0000; }
+.style67 {font-family: Arial, Helvetica, sans-serif; font-size: 10px; color: #000000; }
+.style69 {font-size: 20px}
+.style70 {font-family: Arial,sans-serif; font-size: 10px; }
+.style72 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; font-weight: bold; }
+.style73 {font-size: 8px}
+.style28 {font-family: Arial, Helvetica, sans-serif}
+.style29 {font-size: 12px}
+.style33 {font-size: 9px}
+.style35 {font-family: Arial, Helvetica, sans-serif; font-size: 9px; }
+.style39 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.style42 {font-size: 10px}
+.style44 {font-family: Arial, Helvetica, sans-serif; font-size: 12px; color: #000000; }
+.style51 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #000000; }
+.style65 {font-family: Arial, Helvetica, sans-serif; font-size: 10px; }
+.Estilo26 {font-size: 11px}
+.style351 {font-family: Arial, sans-serif; font-size: 9px; }
+.style49 {font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #000000; font-weight: bold; }
+.Estilo36 {	color: #000000;
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 9px;
+}
+.Estilo38 {font-family: Arial, Helvetica, sans-serif; font-size: 9px; color: #999999; }
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+}
+.Estilo43 {font-family: Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; }
+.Estilo46 {color: #FF0000}
+.Estilo48 {font-size: 11px; font-family: Arial, Helvetica, sans-serif; }
+.Estilo48_2 {font-size: 11px; color: #000000; }
+.Estilo33 {font-weight: normal; color: #000000; font-family: Arial, Helvetica, sans-serif;}
+.Estilo34 {font-weight: normal}
+.Estilo35 {color: #000000; font-weight: normal;}
+.Estilo37 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #000033;
+	font-size: 11px;
+}
+.borderLineaIZQ {
+	PADDING-BOTTOM: 4px; BORDER-LEFT: #899dac 1px dotted
+}
+.piePagina {
+	FONT-WEIGHT: normal; FONT-SIZE: 9px; COLOR: #333333; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+
+.itemazul {
+	FONT-WEIGHT: bold; FONT-SIZE: 10px; COLOR: #000066; FONT-FAMILY: Geneva, Arial, Helvetica, san-serif
+}
+.textoInicio {font-family: Arial, Helvetica, sans-serif; font-size: 12px; padding-left: 5px; padding-right: 5px;}
