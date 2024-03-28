@@ -33,7 +33,7 @@
         <meta name="author" content="" />
         <link rel="shortcut icon" href="img/ICONO.png">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        <title>PONCELET</title>
+        <title>PES-BOLIVIA</title>
         
     </head>
     <body class="sb-nav-fixed">
@@ -71,7 +71,7 @@
 
                                 <div class="box">
                                     <div class="left-side">
-                                        <div class="box_topic">N° de Proyectos Comercializadora</div>
+                                        <div class="box_topic">N° de Compras PC</div>
                                         <div class="number"><?php echo $total2 ?></div>
                                         <div class="indicator">
                                             <i class="kk"></i>
@@ -84,7 +84,7 @@
 
                                 <div class="box">
                                     <div class="left-side">
-                                        <div class="box_topic">Experiencia Total en (bs) Comercializadora</div>
+                                        <div class="box_topic">Total Ingresos PC</div>
                                         <div class="number"><?php echo ''.number_format($total,2,'.',','). ' Bs' ?></div>
                                         <div class="indicator">
                                             <i class="kk"></i>
@@ -98,7 +98,7 @@
 
                                 <div class="box">
                                     <div class="left-side">
-                                        <div class="box_topic">N° de Proyectos Constructora</div>
+                                        <div class="box_topic">N° de compras PS4/PS5</div>
                                         <div class="number"><?php echo $total4 ?></div>
                                         <div class="indicator">
                                             <i class="k"></i>
@@ -112,7 +112,7 @@
 
                                 <div class="box">
                                     <div class="left-side">
-                                        <div class="box_topic">Experiencia Total en (bs) Constructora</div>
+                                        <div class="box_topic">Total Ingresos PS4/PS5</div>
                                         <div class="number"><?php echo ''.number_format($total3,2,'.',','). ' Bs' ?></div>
                                         <div class="indicator">
                                             <i class="k"></i>

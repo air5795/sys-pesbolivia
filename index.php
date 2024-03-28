@@ -2,6 +2,8 @@
 
 $alert = '';
 session_start();
+
+
 if (!empty($_SESSION['active'])) {
   header('location: sistema/');
 } else {
@@ -522,6 +524,8 @@ $(document).ready(function(){
     });
 });
 </script>
+
+
 
 </body>
 
