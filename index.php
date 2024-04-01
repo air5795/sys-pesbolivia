@@ -137,11 +137,7 @@ if (!empty($_SESSION['active'])) {
             <a href="extra.php" class="navbar-link"><i class="bi bi-dpad"></i> CONTENIDO EXTRA</a>
           </li>
 
-          <li>
-          <a type="button" class="navbar-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-<i class="bi bi-person-circle"></i> Inicia sesión
-</a>
-          </li>
+          
 
 
           
@@ -153,6 +149,9 @@ if (!empty($_SESSION['active'])) {
         </ul>
 
         <div class="wrapper">
+        <a style="text-align: center;" type="button" class="navbar-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<i class="bi bi-person-circle"></i> Inicia sesión
+</a> <hr>
           <a href="mailto:info@email.com" class="contact-link">pesbolivia2023@gmail.com</a>
 
           <a href="tel:001234567890" class="contact-link">79441119</a>
@@ -301,7 +300,7 @@ if (!empty($_SESSION['active'])) {
 
 
 <!-- Modal iniciar sesion--------------------------------------------------------------------------------->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
   <div class="modal-dialog " id="h">
     <div class="modal-content" style="
     background-color: #1b1a18;
@@ -356,36 +355,35 @@ if (!empty($_SESSION['active'])) {
 
           
         </div>
-        <div class="col-sm-6" id="formulario-registro" style="display: none; background-color: #dcefdd;padding: 30px;border-radius: 10px;color: #6e6e6e;">
+        <div class="col-sm-6" id="formulario-registro" style=" display:none; background-color: rgb(20 20 20);padding: 30px;border-radius: 30px;color: #78c99d;border: 1px solid #78c99d;">
         <h2>Registrarse</h2>
         <form action="" method="post" class="fields">
 
-                            <label for="nombre">Nombre</label>
-                            <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Introdusca su nombre">
-                            <label for="correo">Correo</label>
-                            <input class="form-control" type="email" name="correo" id="correo" placeholder="Introdusca su correo">
+                            <label for="nombre">Nombre y Apellidos</label>
+                            <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Introdusca su nombre" style="font-size: 18px;background-color: aquamarine;color: #393939;">
+                            <label for="correo">Correo Electronico</label>
+                            <input class="form-control" type="email" name="correo" id="correo" placeholder="Introdusca su correo" style="font-size: 18px;background-color: aquamarine;color: #393939;">
                             <label for="usuario">Usuario</label>
-                            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Introdusca su usuario">
-                            <label for="clave">Clave</label>
-                            <input class="form-control" type="password" name="clave" id="clave" placeholder="Introdusca su contraseña de acceso">
+                            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Introdusca un usuario" style="font-size: 18px;background-color: aquamarine;color: #393939;">
+                            <label for="clave">Constraseña</label>
+                            <input class="form-control" type="password" name="clave" id="clave" placeholder="Introdusca una contraseña de acceso" style="font-size: 18px;background-color: aquamarine;color: #393939;">
                             <hr class="w-100">
                             <!-- selector--> 
 
-                            <div class="input-group mb-3 ">
-                                <label class="input-group-text" for="inputGroupSelect01">Tipo de Usuario</label>
-                                <select class="form-select w-50"  name="rol" id="rol">
-                                    
-                                    <option value="1">Administrador</option>
-                                    <option value="2">Trabajador</option>
-                                    
-                                </select>
-                            </div>
+                            <div class="input-group mb-3">
+                              
+                              <select class="form-select w-50" name="rol" id="rol" style="display: none;">
+                                  <option value="2">Trabajador</option>
+                              </select>
+                              <input type="hidden" name="rol" value="2"> 
+                          </div>
+
                             <hr class="w-100">
 
                             <div class="center">
                                 <center>
                                 <div class=" align-self-center " role="alert" style=""> <?php echo isset ($alert) ? $alert :''; ?></div>
-                                <input type="submit" value="Crear Usuario" class="btn btn-success  border-0 w-50   " data-dismiss="alert" >
+                                <input type="submit" value="Crear Cuenta" class="btn btn-success  border-0 w-50   " data-dismiss="alert" >
                                 </center>
                                 
                             </div>

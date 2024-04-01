@@ -28,8 +28,8 @@ if (empty($_SESSION['active'])) {
                                 $tipo = 'Administrador';
                                 echo $_SESSION['nombre'] .' - ('.$tipo.')'; 
                             }else{
-                                $tipo = 'Trabajador';
-                                echo $_SESSION['nombre'] .' - ('.$tipo.')';
+                                $tipo = 'Usuario';
+                                echo $_SESSION['nombre'];
                             }   
 
                         ?>
@@ -45,44 +45,15 @@ if (empty($_SESSION['active'])) {
                                                     if ($_SESSION['iduser'] == 1 ) {
                                                     echo '<img style="width:35px; height:35px;" src="../img/ale.png" >';
                                                         //echo $_SESSION['iduser'];
+                                                    } else {
+                                                        echo '<img style="width:35px; height:35px;" src="../sistema/img/usuario.png" >';
                                                     }
-                                                    elseif ($_SESSION['iduser'] == 12 ) {
-                                                        echo '<img style="width:35px; height:35px;" src="../sistema/img/nicol.png" >';
-                                                            //echo $_SESSION['iduser'];
-                                                        }
-                                                        elseif ($_SESSION['iduser'] == 28 ) {
-                                                            echo '<img style="width:35px; height:35px;" src="../sistema/img/mavel.png" >';
-                                                                //echo $_SESSION['iduser'];
-                                                            }
-                                                            elseif ($_SESSION['iduser'] == 29 ) {
-                                                                echo '<img style="width:35px; height:35px;" src="../sistema/img/jazmin.png" >';
-                                                                    //echo $_SESSION['iduser'];
-                                                                } elseif ($_SESSION['iduser'] == 32 ) {
-                                                                    echo '<img style="width:35px; height:35px;" src="../sistema/img/edwin.png" >';
-                                                                        //echo $_SESSION['iduser'];
-                                                                    } elseif ($_SESSION['iduser'] == 34 ) {
-                                                                        echo '<img style="width:35px; height:35px;" src="../sistema/img/usuario.png" >';
-                                                                            //echo $_SESSION['iduser'];
-                                                                        }elseif ($_SESSION['iduser'] == 30 ) {
-                                                                            echo '<img style="width:35px; height:35px;" src="../sistema/img/alberto.png" >';
-                                                                                //echo $_SESSION['iduser'];
-                                                                            }elseif ($_SESSION['iduser'] == 35 ) {
-                                                                                echo '<img style="width:35px; height:35px;" src="../sistema/img/lucia.png" >';
-                                                                                    //echo $_SESSION['iduser'];
-                                                                                }elseif ($_SESSION['iduser'] == 36 ) {
-                                                                                    echo '<img style="width:35px; height:35px;" src="../sistema/img/cristian.png" >';
-                                                                                        //echo $_SESSION['iduser'];
-                                                                                    }elseif ($_SESSION['iduser'] == 37 ) {
-                                                                                        echo '<img style="width:35px; height:35px;" src="../sistema/img/denis.png" >';
-                                                                                            //echo $_SESSION['iduser'];
-                                                                                        }
-
-                                                
+                                                       
                                                 ?> </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="salir.php"><i class="fa-solid fa-circle-xmark"></i> Salir del Sistema</a></li>
+                        <li><a class="dropdown-item" href="salir.php"><i class="fa-solid fa-circle-xmark"></i> Cerrar Sesion</a></li>
                     </ul>
                 </li>
             </ul>
@@ -101,40 +72,60 @@ if (empty($_SESSION['active'])) {
                                 Inicio
                             </a>
 
-                            <?php
-                                if ($_SESSION['rol'] == 1 or $_SESSION['iduser'] == 12 or $_SESSION['iduser'] == 28 or $_SESSION['iduser'] == 29 or $_SESSION['iduser'] == 30 or $_SESSION['iduser'] == 34 or $_SESSION['iduser'] == 35 or $_SESSION['iduser'] == 36 ) {
-                            ?> 
+                            
 
                             
 
                             
 
                             <div class="sb-sidenav-menu-heading " style="color: #0fa37e; font-size: medium; text-transform: none; background-color: #38383869;">
-                            <i class="fa-solid fa-object-ungroup"></i> General</div>
+                            <i class="fa-solid fa-object-ungroup"></i> Menu</div>
 
                             
 
-                            <!-- lista de menu 1 -->
+                            <!-- lista de menu -->
                  
                             
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapsei" aria-expanded="false" aria-controls="pagesCollapseError">
-                            <div class="sb-nav-link-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
-                                Inventarios
+                            <div class="sb-nav-link-icon"><i class="bi bi-bag"></i></div>
+                                Gestor de Compras
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
                             <div class="collapse" id="pagesCollapsei" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <!--<a class="nav-link" href="categorias_i.php">Categorias mercaderia</a> 
                                     <a class="nav-link" href="inventario_i.php">Gestor Inventario</a>-->
-                                    <a class="nav-link" href="#">Inventario de Mercaderia</a>
-                                    <a class="nav-link" href="sub-inventarios-activos/">Inventario Activos Fijos</a>
+                                    
+                                   
+                                    
+                                    <a class="nav-link" href="sub-inventarios-activos/">Mis Compras</a>
+                                </nav>
+                            </div>
+
+
+
+
+                            
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseis" aria-expanded="false" aria-controls="pagesCollapseError">
+                            <div class="sb-nav-link-icon"><i class="bi bi-file-text"></i></div>
+                                Instalación
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="pagesCollapseis" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <!--<a class="nav-link" href="categorias_i.php">Categorias mercaderia</a> 
+                                    <a class="nav-link" href="inventario_i.php">Gestor Inventario</a>-->
+                                    
+                                    <a class="nav-link" href="sub-inventarios-activos/">Instalacion PC</a>
+                                    <a class="nav-link" href="sub-inventarios-activos/">Instalacion Ps4/Ps5</a>
                                 </nav>
                             </div>
 
 
                         <?php
-                        }
+                        
                         if ($_SESSION['rol'] == 1) {
                             # code..
                         

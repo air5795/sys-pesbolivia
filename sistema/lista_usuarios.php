@@ -21,7 +21,7 @@ include "../conexion.php";
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>SISPONCELET</title>
+    <title>PESBOLIVIA</title>
 
 </head>
 
@@ -50,7 +50,7 @@ include "../conexion.php";
                 <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Listado de Usuarios en Base de datos Poncelet
+                                Listado de Usuarios en Base de datos PESBOLIVIA
                             </div>
                             
 
@@ -185,7 +185,7 @@ include "../conexion.php";
         <footer class="py-4 bg-light mt-auto">
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; poncelet.bo@gmail.com @leiglesSoft</div>
+                    
                     <div>
 
                     </div>
