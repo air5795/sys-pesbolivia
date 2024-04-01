@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0.1') {
+if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.0.1'|| $_SERVER['SERVER_NAME'] == '192.168.100.19') {
     $entorno = 'local';
 } else {
     $entorno = 'produccion';

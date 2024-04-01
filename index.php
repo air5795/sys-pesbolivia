@@ -44,6 +44,15 @@ if (!empty($_SESSION['active'])) {
       }
     }
   }
+
+
+
+
+
+
+
+
+
 }
 ?>
 <!DOCTYPE html>
@@ -79,6 +88,7 @@ if (!empty($_SESSION['active'])) {
   -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style2.css">
   
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
@@ -126,6 +136,15 @@ if (!empty($_SESSION['active'])) {
           <li>
             <a href="extra.php" class="navbar-link"><i class="bi bi-dpad"></i> CONTENIDO EXTRA</a>
           </li>
+
+          <li>
+          <a type="button" class="navbar-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<i class="bi bi-person-circle"></i> Inicia sesión
+</a>
+          </li>
+
+
+          
 
           
 
@@ -202,6 +221,8 @@ if (!empty($_SESSION['active'])) {
 
 
 
+
+
       <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
         <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
       </button>
@@ -257,6 +278,22 @@ if (!empty($_SESSION['active'])) {
 
 
 <P></P>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  
 
 
@@ -265,14 +302,28 @@ if (!empty($_SESSION['active'])) {
 
 <!-- Modal iniciar sesion--------------------------------------------------------------------------------->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+  <div class="modal-dialog " id="h">
+    <div class="modal-content" style="
+    background-color: #1b1a18;
+    border-radius: 60px;
+">
       
       <div class="modal-body" style="margin: 10px;">
 
       <div class="row">
         <div class="col-sm-12" id="form-iniciar-sesion" style="padding: 30px;color: #6e6e6e;">
-        <h2>Iniciar Sesión</h2>
+        <center><img src="sistema/img/AIRPATCH.png" alt="Imagen" style="width: 40%;border-radius: 1000px;"></center><br>
+        <h2 style="text-align:center">Iniciar Sesión</h2>
+
+        
+          
+        
+
+        
+
+     
+
+
           <form action="" method="POST">
           <div class="mb-4">
               <label for="disabledTextInput" class="form-label font-weight-bold"><i class="bi bi-person"></i> Usuario</label>
@@ -282,25 +333,64 @@ if (!empty($_SESSION['active'])) {
               <label for="disabledTextInput" class="form-label font-weight-bold"><i class="bi bi-lock"></i> Contraseña</label>
               <input type="password" name="clave" id="disabledTextInput" class="form-control  border-0"  style="background-color: #e3e3e3;font-weight: 600;font-size:15px;">
             </div>
-            <div style="background-color: #fff400;color: #4f4f4f;padding: 0;font-weight: 600;border: 2px solid #ffb100;" class="alert form-text text-center"><?php echo isset($alert) ? $alert : ''; ?></div>
-            <button type="submit" class="btn btn-primary w-100 border-0" style="background-color: aquamarine;padding: 12px;">Iniciar Sesión <i class="bi bi-chevron-right"></i></button>
-            </fieldset>
-              <a class="btn btn-primary" href="#" id="enlace-registrarse" style="background-color: #fff50f;padding: 7px;border-radius: 10px;color: #505050;"><i class="bi bi-person-add"></i> Registrarse</a>
+            <div style="color: #4f4f4f;padding: 0;font-weight: 600;" 
+            class="alert form-text text-center"><?php echo isset($alert) ? $alert : ''; ?></div>
+
+            <div style="text-align:center">
+              <button type="submit" class="btn btn-primary w-100 " style="background-color: aquamarine;color:black;">Iniciar Sesión <i class="bi bi-chevron-right"></i></button>
+              
+              <a class="btn btn-primary" href="#" id="enlace-registrarse" style="background-color: #7fddff;color:black;">Registrarse <i class="bi bi-person-add"></i></a>
+            </div>
+<br>
+            <div style="text-align:right">
+            <a href="">Olvidaste tu contraseña <i class="bi bi-question-circle"></i></a>
+          </div>
+
+            
+
+            
               
           </form>
+
+
+
+          
         </div>
         <div class="col-sm-6" id="formulario-registro" style="display: none; background-color: #dcefdd;padding: 30px;border-radius: 10px;color: #6e6e6e;">
         <h2>Registrarse</h2>
-        <form action="registro_process.php" method="POST">
-            <label for="nombre">Nombre:</label>
-            <input class="form-control" type="text" id="nombre" name="nombre" style="font-size: 14px;" required>
-            <label for="email">Correo electrónico:</label>
-            <input class="form-control" type="email" id="email" name="email" style="font-size: 14px;" required>
-            <label for="contraseña">Contraseña:</label>
-            <input class="form-control" type="password" id="contraseña" name="contraseña" style="font-size: 14px;" required>
-            <hr>
-            <button class="btn btn-success w-100" type="submit" style="padding: 7px;border-radius: 10px;">Registrarse</button>
-        </form>
+        <form action="" method="post" class="fields">
+
+                            <label for="nombre">Nombre</label>
+                            <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Introdusca su nombre">
+                            <label for="correo">Correo</label>
+                            <input class="form-control" type="email" name="correo" id="correo" placeholder="Introdusca su correo">
+                            <label for="usuario">Usuario</label>
+                            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Introdusca su usuario">
+                            <label for="clave">Clave</label>
+                            <input class="form-control" type="password" name="clave" id="clave" placeholder="Introdusca su contraseña de acceso">
+                            <hr class="w-100">
+                            <!-- selector--> 
+
+                            <div class="input-group mb-3 ">
+                                <label class="input-group-text" for="inputGroupSelect01">Tipo de Usuario</label>
+                                <select class="form-select w-50"  name="rol" id="rol">
+                                    
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Trabajador</option>
+                                    
+                                </select>
+                            </div>
+                            <hr class="w-100">
+
+                            <div class="center">
+                                <center>
+                                <div class=" align-self-center " role="alert" style=""> <?php echo isset ($alert) ? $alert :''; ?></div>
+                                <input type="submit" value="Crear Usuario" class="btn btn-success  border-0 w-50   " data-dismiss="alert" >
+                                </center>
+                                
+                            </div>
+
+                       </form>
         </div>
       </div>
             
@@ -519,8 +609,49 @@ $(document).ready(function(){
     // Agregar evento de clic al enlace "Registrarse"
     $("#enlace-registrarse").click(function(event){
         event.preventDefault(); // Prevenir comportamiento predeterminado del enlace
+        $("#h").removeClass("").addClass("modal-lg");
         $("#form-iniciar-sesion").removeClass("col-sm-12").addClass("col-sm-6"); // Reducir el espacio del formulario de inicio de sesión
         $("#formulario-registro").show(); // Mostrar el formulario de registro
+        
+    });
+});
+</script>
+
+<script>
+$(document).ready(function(){
+    $('.fields').submit(function(e){
+        e.preventDefault(); // Evita que el formulario se envíe de forma convencional
+        
+        // Obtener los valores del formulario
+        var nombre = $('#nombre').val();
+        var correo = $('#correo').val();
+        var usuario = $('#usuario').val();
+        var clave = $('#clave').val();
+        var rol = $('#rol').val();
+        
+        // Enviar los datos mediante AJAX
+        $.ajax({
+            url: 'procesar_registro.php', // Cambia 'procesar_registro.php' por la ruta de tu archivo PHP para procesar el registro
+            type: 'POST',
+            data: {
+                nombre: nombre,
+                correo: correo,
+                usuario: usuario,
+                clave: clave,
+                rol: rol
+            },
+            success: function(response){
+                // Manejar la respuesta del servidor
+                console.log(response); // Puedes hacer algo más con la respuesta si es necesario
+                alert('Usuario registrado correctamente');
+                // Aquí podrías redirigir al usuario a otra página o realizar alguna otra acción
+            },
+            error: function(xhr, status, error){
+                // Manejar errores
+                console.error(error);
+                alert('Hubo un error al registrar el usuario. Por favor, inténtalo de nuevo.');
+            }
+        });
     });
 });
 </script>

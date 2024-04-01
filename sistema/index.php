@@ -4,7 +4,7 @@
     include "includes/header.php";
     include "../conexion.php"; 
 
-    $sql_suma_bs = mysqli_query($conexion, "SELECT SUM(monto_bs) FROM exp_general;");
+/*     $sql_suma_bs = mysqli_query($conexion, "SELECT SUM(monto_bs) FROM exp_general;");
                             $result_sum = mysqli_fetch_array($sql_suma_bs);
                             $total = $result_sum['SUM(monto_bs)']; 
 
@@ -18,7 +18,7 @@
 
                             $sql_tfila = mysqli_query($conexion, "SELECT COUNT(id_exp) FROM exp_general_c;");
                             $result_f = mysqli_fetch_array($sql_tfila);
-                            $total4 = $result_f['COUNT(id_exp)'];
+                            $total4 = $result_f['COUNT(id_exp)']; */
 
 ?>
 
@@ -36,7 +36,7 @@
         <title>PES-BOLIVIA</title>
         
     </head>
-    <body class="sb-nav-fixed">
+    <body class="sb-nav-fixed" >
     
 
         <!-- contenido del sistema-->
@@ -44,8 +44,8 @@
         <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4 p-2">
-                        <div class="alert alert-warning alert-dismissible fade show " role="alert" style="background-color: #ffffb2;border:none;"> 
-                             <?php echo $_SESSION['nombre']  ?>  <strong> Bienvenido al Sistema ! <br></strong> En este sistema encontraras una serie de herramientas para la automatizacion del manejo de la informacion en PONCELET.
+                        <div class="alert alert-warning alert-dismissible fade show " role="alert" style="background-color: #b2ffdb;border:none;color:#575757"> 
+                             <?php echo $_SESSION['nombre']  ?>  <strong> Bienvenido a PES BOLIVIA  ! 
                             <button type="button" class=" btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
 
@@ -53,18 +53,6 @@
 
                         
 
-                        <!--Home Content-->
-
-                        <?php
-                            $query = mysqli_query($conexion, "SELECT monto_ofertado,fecha,nombre  FROM proyectos_comer  order by fecha DESC limit 10");
-                            foreach ($query as $data) {
-                                $monto[]    = $data['monto_ofertado'];
-                                //$fecha[]    = $data['fecha'];
-                                $nombre[]   = $data['nombre'].' FECHA: '.$data['fecha'];
-
-                            }
-
-                        ?>
 
                         <div class="home-content">
                             <div class="overview-boxes">
@@ -72,55 +60,47 @@
                                 <div class="box">
                                     <div class="left-side">
                                         <div class="box_topic">N° de Compras PC</div>
-                                        <div class="number"><?php echo $total2 ?></div>
-                                        <div class="indicator">
-                                            <i class="kk"></i>
-                                            <span class="text">Comercializadora/PONCELET</span>
-                                        </div>
+                                        <div class="number">2</div>
+                                        
                                     </div>
-
-                                    <i class="fa-solid fa-cart-shopping cart"></i>
+                                    <img src="img/Steam_icon_logo.svg.png" width="20%" height="" >
+                                    
                                 </div>
 
                                 <div class="box">
                                     <div class="left-side">
                                         <div class="box_topic">Total Ingresos PC</div>
-                                        <div class="number"><?php echo ''.number_format($total,2,'.',','). ' Bs' ?></div>
-                                        <div class="indicator">
-                                            <i class="kk"></i>
-                                            <span class="text">Comercializadora/PONCELET</span>
-                                        </div>
+                                        <div class="number">100 Bs</div>
+                                    
+                                        
                                     </div>
 
-                                    <i class="fa-solid fa-cart-shopping cart"></i>
+                                    <img src="img/Steam_icon_logo.svg.png" width="20%" height="" >
                                 </div>
 
 
                                 <div class="box">
                                     <div class="left-side">
                                         <div class="box_topic">N° de compras PS4/PS5</div>
-                                        <div class="number"><?php echo $total4 ?></div>
-                                        <div class="indicator">
-                                            <i class="k"></i>
-                                            <span class="text">Constructora/PONCELET</span>
-                                        </div>
+                                        <div class="number">4</div>
+                                        
                                     </div>
+                                    <img src="img/2560px-PlayStation_logo.svg.png" width="20%" height="" >
+                                    
 
-                                    <i class="fa-solid fa-person-digging cons"></i>
+                                    
                                 </div>
 
 
                                 <div class="box">
                                     <div class="left-side">
                                         <div class="box_topic">Total Ingresos PS4/PS5</div>
-                                        <div class="number"><?php echo ''.number_format($total3,2,'.',','). ' Bs' ?></div>
-                                        <div class="indicator">
-                                            <i class="k"></i>
-                                            <span class="text">Constructora/PONCELET</span>
-                                        </div>
+                                        <div class="number">200 Bs</div>
+                                        
                                     </div>
+                                    <img src="img/2560px-PlayStation_logo.svg.png" width="20%" height="" >
 
-                                    <i class="fa-solid fa-person-digging cons"></i>
+                                   
                                 </div>
 
                                 
@@ -129,25 +109,12 @@
 
                         <hr>
 
-                        <?php 
-                                
-
-                                $sql_pro = mysqli_query($conexion, "SELECT COUNT(*) FROM proyectos_comer WHERE  estado = 'adjudicado';");
-                                $res = mysqli_fetch_array($sql_pro);
-                                $r = $res['COUNT(*)']; 
-
-                                ?>
+                        
 
 
                             
                                 
-                                <div class="card mb-4">
-                                    <div class="card-header alert alert-warning" style="background-color: #424242;border:none;">     
-                                        <strong class="alert alert-warning  " style="background-color: #424242;border:none;color:white"> <i class="fas fa-chart-area me-1"></i> Proyectos Pendientes de Pago Comercializadora :  <?PHP echo $r; ?> </strong>
-                                    </div>
-                                    <div class="card-body"><canvas id="myChart" width="150%" height="20%"></canvas></div>
-                                    <div style="background-color: #424242; color: white !important;" class="card-footer small text-muted">Actualizacion <?php echo date('d/m/y');?></div>
-                                </div>
+                               
                                 
                                 
                             
@@ -196,56 +163,7 @@
             </div>
         </div>
 
-        <script>
-
-    
-var data = {
-  labels: <?php echo json_encode($nombre) ?> ,
-  
-  datasets: [
-      {
-      stack:1,
-      label: "Monto Ofertado (Bs) :",
-      backgroundColor: [
-      'rgba(255, 99, 132, 0.2)',
-      'rgba(255, 159, 64, 0.2)',
-      'rgba(255, 205, 86, 0.2)',
-      'rgba(75, 192, 192, 0.2)',
-      'rgba(54, 162, 235, 0.2)',
-      'rgba(201, 203, 207, 0.2)'
-    ],
-    borderColor: [
-      'rgb(255, 99, 132)',
-      'rgb(255, 159, 64)',
-      'rgb(255, 205, 86)',
-      'rgb(75, 192, 192)',
-      'rgb(54, 162, 235)',
-      'rgb(201, 203, 207)'
-    ],
-      borderWidth: 1,
-      data: <?php echo json_encode($monto)?>,
-      yAxisID:1
-    },
-    
-    
-  ],
    
-};
-
-var options = {
-  indexAxis: "y",
-
-}
-
-Chart.defaults.font.size = 10;
-var ctx = document.getElementById("myChart").getContext("2d");
-var myBarChart = new Chart(ctx, {
-  type: 'bar',
-  data: data,
-  options: options
-});
-</script>
-
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
