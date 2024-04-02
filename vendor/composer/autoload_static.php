@@ -13,6 +13,10 @@ class ComposerStaticInitf0b0d49813ae1fad1776f84d437fa2fc
             'Spipu\\Html2Pdf\\' => 15,
             'Sabberworm\\CSS\\' => 15,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'M' => 
         array (
             'Masterminds\\' => 12,
@@ -39,6 +43,10 @@ class ComposerStaticInitf0b0d49813ae1fad1776f84d437fa2fc
         'Sabberworm\\CSS\\' => 
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Masterminds\\' => 
         array (

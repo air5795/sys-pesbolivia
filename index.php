@@ -62,6 +62,12 @@ if (!empty($_SESSION['active'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Incluir jQuery -->
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Incluir CSS de Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    
   
 
   <!-- 
@@ -96,6 +102,22 @@ if (!empty($_SESSION['active'])) {
     - preload images
   -->
 
+  <style>
+    /* Estilos personalizados para las notificaciones Toastr */
+        .toast {
+            font-size: 16px; /* Tamaño de letra deseado */
+        }
+
+        .toast-success {
+            background-color: #28a745 !important; /* Color verde */
+            color: #fff !important; /* Texto en blanco */
+        }
+        .toast-error {
+            background-color: #dc3545 !important; /* Color rojo */
+            color: #fff !important; /* Texto en blanco */
+        }
+        
+    </style>
 
 </head>
 
@@ -602,6 +624,18 @@ if (!empty($_SESSION['active'])) {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Incluir JavaScript de Toastr -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
+
+
+
+
+
+
+
   <script>
 $(document).ready(function(){
     // Agregar evento de clic al enlace "Registrarse"
@@ -629,7 +663,7 @@ $(document).ready(function(){
         
         // Enviar los datos mediante AJAX
         $.ajax({
-            url: 'procesar_registro.php', // Cambia 'procesar_registro.php' por la ruta de tu archivo PHP para procesar el registro
+            url: 'procesar_registro.php', // Ruta del archivo PHP para procesar el registro
             type: 'POST',
             data: {
                 nombre: nombre,
@@ -641,17 +675,25 @@ $(document).ready(function(){
             success: function(response){
                 // Manejar la respuesta del servidor
                 console.log(response); // Puedes hacer algo más con la respuesta si es necesario
-                alert('Usuario registrado correctamente');
-                // Aquí podrías redirigir al usuario a otra página o realizar alguna otra acción
+                if(response === "Registro exitoso") {
+                    toastr.success('Usuario registrado correctamente', 'Éxito');
+                    $("#h").removeClass("").removeClass("modal-lg");
+                    $("#form-iniciar-sesion").removeClass("col-sm-6").addClass("col-sm-12");
+                    $("#formulario-registro").hide();
+                    // Aquí podrías redirigir al usuario a otra página o realizar alguna otra acción
+                } else {
+                    toastr.error(response, 'Error');
+                }
             },
             error: function(xhr, status, error){
                 // Manejar errores
                 console.error(error);
-                alert('Hubo un error al registrar el usuario. Por favor, inténtalo de nuevo.');
+                toastr.error('Hubo un error al registrar el usuario. Por favor, inténtalo de nuevo.', 'Error');
             }
         });
     });
 });
+
 </script>
 
 

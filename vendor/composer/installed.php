@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => '__root__',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => 'f9f65c53c04809b55b236c5f7d7811e5e70e8ae7',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '2fe630f0b95867a8eb07770d1ca6431e6776d2d1',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         '__root__' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => 'f9f65c53c04809b55b236c5f7d7811e5e70e8ae7',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '2fe630f0b95867a8eb07770d1ca6431e6776d2d1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -52,6 +52,15 @@
             'reference' => '4498b5df7b08e8469f0f8279651ea5de9626ed02',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phenx/php-svg-lib',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'phpmailer/phpmailer' => array(
+            'pretty_version' => 'v6.9.1',
+            'version' => '6.9.1.0',
+            'reference' => '039de174cd9c17a8389754d3b877a2ed22743e18',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../phpmailer/phpmailer',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
