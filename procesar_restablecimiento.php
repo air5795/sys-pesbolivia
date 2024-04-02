@@ -1,5 +1,6 @@
 <?php
 include 'conexion.php'; // Incluye tu archivo de conexión a la base de datos
+$email = "";
 
 // Verificar si se recibieron los datos del formulario
 if(isset($_POST['password']) && isset($_POST['confirm_password'])) {

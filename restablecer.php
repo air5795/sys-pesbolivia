@@ -50,7 +50,7 @@ $(document).ready(function(){
             success: function(response){
                 alert(response); // Mostrar mensaje de éxito (puede ser un mensaje que envíes desde el servidor)
                 // Redirigir al usuario a la página de inicio de sesión u otra página relevante
-                window.location.href = 'pagina_de_inicio.php'; // Reemplaza 'pagina_de_inicio.php' con la URL de tu página de inicio
+                window.location.href = 'index.php'; // Reemplaza 'pagina_de_inicio.php' con la URL de tu página de inicio
             },
             error: function(xhr, status, error){
                 alert('Hubo un error al restablecer la contraseña. Por favor, inténtalo de nuevo.');
