@@ -364,7 +364,7 @@ if (!empty($_SESSION['active'])) {
             </div>
 <br>
             <div style="text-align:right">
-            <a href="">Olvidaste tu contraseña <i class="bi bi-question-circle"></i></a>
+            <a href="recuperar.php">Olvidaste tu contraseña <i class="bi bi-question-circle"></i></a>
           </div>
 
             

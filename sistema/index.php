@@ -147,9 +147,9 @@
                                         <p class="card-text" style="margin: 0; "> - Vallas Publicitarias</p>
                                         <p class="card-text" style="margin: 0; "> - Nuevos Estadios</p>
                                         <hr>
-                                        <a href="#" class="card-link btn btn-danger" style="font-size: x-large;"><i class="bi bi-bag"></i> Comprar Ahora </a>
+                                        
                                         <!-- <a href="#" class="card-link btn btn-success" style="font-size: x-large;"><i class="bi bi-eye"></i> Ver Informacion Detallada </a> -->
-                                        <button style="font-size: x-large;" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#pc">
+                                        <button style="font-size: x-large;" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#pc">
                                         <i class="bi bi-eye"></i> Ver detalles PC</button>
 
                                         <hr>
@@ -165,9 +165,9 @@
                                         <p class="card-text" style="margin: 0; "> - Vallas Publicitarias</p>
                                         <p class="card-text" style="margin: 0; "> - Nuevos Estadios</p>
                                         <hr>
-                                        <a href="#" class="card-link btn btn-danger" style="font-size: x-large;"><i class="bi bi-bag"></i> Comprar Ahora </a>
+                                        
                                         <!-- <a href="#" class="card-link btn btn-success" style="font-size: x-large;"><i class="bi bi-eye"></i> Ver Informacion Detallada </a> -->
-                                        <button style="font-size: x-large;" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ps4">
+                                        <button style="font-size: x-large;" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#ps4">
                                         <i class="bi bi-eye"></i> Ver detalles PS4/PS5</button>
 
                                         <hr>

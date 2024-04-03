@@ -12,8 +12,6 @@ if (empty($_SESSION['active'])) {
             <!-- Navbar Brand-->
             <center><img src="../sistema/img/logito.png" width="200px" ></center> 
             
-            
-            
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->

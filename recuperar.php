@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Contraseña</title>
-    <!-- Incluir Toastr CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!-- Incluir Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Incluir Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <body>
 
@@ -43,22 +43,6 @@ $(document).ready(function(){
     $('#form-recuperar-contrasena').submit(function(e){
         e.preventDefault(); // Evita que el formulario se envíe de forma convencional
         
-        alert('Se ha enviado el formulario'); // Agregar esta línea como prueba
-        
-        var email = $('#email').val();
-        
-        // Aquí puedes realizar una solicitud AJAX para enviar el correo de recuperación
-        // y mostrar una notificación Toastr para indicar si se envió correctamente o si hubo algún error
-    });
-});
-
-</script>
-
-<script>
-    $(document).ready(function(){
-    $('#form-recuperar-contrasena').submit(function(e){
-        e.preventDefault(); // Evita que el formulario se envíe de forma convencional
-        
         var email = $('#email').val();
         
         // Realizar solicitud AJAX para enviar el correo de recuperación
@@ -82,7 +66,6 @@ $(document).ready(function(){
         });
     });
 });
-
 </script>
 
 </body>

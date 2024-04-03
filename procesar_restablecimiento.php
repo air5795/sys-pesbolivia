@@ -1,9 +1,8 @@
 <?php
 include 'conexion.php'; // Incluye tu archivo de conexión a la base de datos
-$email = "";
 
 // Verificar si se recibieron los datos del formulario
-if(isset($_POST['password']) && isset($_POST['confirm_password'])) {
+if(isset($_POST['password'], $_POST['confirm_password'])) {
     // Obtener los valores del formulario
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
@@ -15,7 +14,12 @@ if(isset($_POST['password']) && isset($_POST['confirm_password'])) {
     }
     
     // Obtener el correo electrónico del usuario desde la URL
-    $email = $_GET['email'];
+    if(isset($_POST['email']) && !empty($_POST['email'])) {
+        $email = $_POST['email'];
+    } else {
+        echo 'El parámetro de correo electrónico está ausente o vacío en la URL.';
+        exit;
+    }
 
     // Encriptar la nueva contraseña con MD5
     $hashed_password = md5($password);
@@ -32,3 +36,4 @@ if(isset($_POST['password']) && isset($_POST['confirm_password'])) {
     echo 'Todos los campos son obligatorios';
 }
 ?>
+
