@@ -33,7 +33,7 @@ if (!empty($_SESSION['active'])) {
         $_SESSION['active'] = true;
         $_SESSION['iduser'] = $data['idusuario'];
         $_SESSION['nombre'] = $data['nombre'];
-        //$_SESSION['email'] = $data['email'];
+        $_SESSION['correo'] = $data['correo'];
         $_SESSION['user'] = $data['usuario'];
         $_SESSION['rol'] = $data['rol'];
 
@@ -382,13 +382,13 @@ if (!empty($_SESSION['active'])) {
         <form action="" method="post" class="fields">
 
                             <label for="nombre">Nombre y Apellidos</label>
-                            <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Introdusca su nombre" style="font-size: 18px;background-color: aquamarine;color: #393939;">
+                            <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Introdusca su nombre" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
                             <label for="correo">Correo Electronico</label>
-                            <input class="form-control" type="email" name="correo" id="correo" placeholder="Introdusca su correo" style="font-size: 18px;background-color: aquamarine;color: #393939;">
+                            <input class="form-control" type="email" name="correo" id="correo" placeholder="Introdusca su correo" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
                             <label for="usuario">Usuario</label>
-                            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Introdusca un usuario" style="font-size: 18px;background-color: aquamarine;color: #393939;">
+                            <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Introdusca un nombre de usuario" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
                             <label for="clave">Constraseña</label>
-                            <input class="form-control" type="password" name="clave" id="clave" placeholder="Introdusca una contraseña de acceso" style="font-size: 18px;background-color: aquamarine;color: #393939;">
+                            <input class="form-control" type="password" name="clave" id="clave" placeholder="Introdusca una contraseña de acceso" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
                             <hr class="w-100">
                             <!-- selector--> 
 
@@ -410,6 +410,7 @@ if (!empty($_SESSION['active'])) {
                                 
                             </div>
 
+                          
                        </form>
         </div>
       </div>

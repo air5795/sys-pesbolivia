@@ -9,21 +9,27 @@
     <!-- Incluir Toastr CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
-<body>
+<body style="background-color:#2b2b2b">
 
 <div class="container">
     <div class="row justify-content-center mt-5">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card" style="background-color: #1b1a18;color: white;">
                 <div class="card-header">Recuperar Contraseña</div>
-
+               
+                    <div style="text-align: center;">
+                    <img src="sistema/img/AIRPATCH.png" alt="" width="50%">
+                    </div>
                 <div class="card-body">
                     <form id="form-recuperar-contrasena">
                         <div class="form-group">
-                            <label for="email">Correo Electrónico</label>
+                            <label for="email">Correo Electrónico <span> </span></label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar Correo de Recuperación</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #01593b;border: none;width: 100%;">Enviar Correo de Recuperación</button> <br> <br>
+                        <a style="color: aquamarine;float: right;" href="index.php"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+</svg> Volver Atras </a>
                     </form>
                 </div>
             </div>

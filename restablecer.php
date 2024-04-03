@@ -9,15 +9,19 @@
     <!-- Incluir Toastr CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
-<body>
+<body style="background-color:#2b2b2b">
 
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="card">
+            <div class="card" style="background-color: #1b1a18;color: white;">
                 <div class="card-header">Restablecer Contraseña</div>
 
                 <div class="card-body">
+                    <div style="text-align: center;">
+                    <img src="sistema/img/AIRPATCH.png" alt="" width="50%">
+                    </div>
+                    
                     <form id="form-restablecer-contrasena">
                         <div class="form-group">
                             <label for="password">Nueva Contraseña</label>
@@ -28,7 +32,7 @@
                             <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
                             <input type="hidden" id="email" name="email" value="<?php echo htmlspecialchars($_GET['email']); ?>">
                         </div>
-                        <button type="submit" class="btn btn-primary">Restablecer Contraseña</button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #01593b;border: none;width: 100%;">Restablecer Contraseña</button>
                     </form>
                 </div>
             </div>

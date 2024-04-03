@@ -53,60 +53,28 @@
 
 <div class="container-fluid  fondo ">    
         <div class="row">
-            <div class="col-sm-4">
-                <h2><i class="fa-solid fa-database"></i> Activos Fijos </h2>
-                
+            <div class="col-sm-8">
+                <h2><i class="fa-solid fa-database"></i> COMPRAS - PES BOLIVIA </h2>
             </div>
-
-            <?php
-
-                $result=mysqli_query($conexion,"SELECT count(*) as total from activos_fijos");
-                $data=mysqli_fetch_assoc($result);
-                $data['total'];
-
-            ?>
-
-            <div class="col-sm-2">
-                <a class="btn btn-secondary w-100 disabled" href=""> <strong><i class="bi bi-box-seam"> </i>   </strong>  Activos Fijos Total = <?php echo $data['total']; ?> </a>
-            
-                
-            </div>
-
-
-            <div class="col-12 col-sm-2">
-    <!-- Example single danger button -->
-    <div class="dropdown">
-        <button class="btn btn-danger dropdown-toggle w-100" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-printer"></i> Imprimir
-        </button>
-        <ul class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="../pdf_activosFijos.php"><i class="bi bi-printer"></i> Imprimir QR's </a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"> <i class="bi bi-printer"></i> Lista de Inventario  </a></li>
-        </ul>
-    </div>
-</div>
-
-
 
             <div class="col-sm-2 ">
                 
                 <div class="text-center">
                     <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-outline-danger  w-100" data-bs-toggle="modal" data-bs-target="#modalcategoria" id="botonCrearCategorias">
-                        <i class="bi bi-tag"></i> Nueva Categoria
+                        <button style="background-color: #28c750;border: none;"type="button" class="btn btn-success  w-100" data-bs-toggle="modal" data-bs-target="#modalpagar" id="boton">
+                        <i class="bi bi-cash"></i> Efectuar Pago
                         </button>
                         
                 </div>
             </div>
-            
+
 
             <div class="col-sm-2 ">
                 
                 <div class="text-center">
                     <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-danger  w-100" data-bs-toggle="modal" data-bs-target="#modalproductos" id="botonCrear">
-                        <i class="bi bi-box-seam"></i> Nuevo Activo
+                        <button type="button" class="btn btn-success  w-100" data-bs-toggle="modal" data-bs-target="#modalproductos" id="botonCrear">
+                        <i class="bi bi-box-seam"></i> Solicitar Compra
                         </button>
                         
                 </div>
@@ -114,23 +82,26 @@
             
             
         </div>
+
+
+
+
         
-        <hr style="background-color: red;">
+        <hr style="background-color: green;">
 
         <div class="table-responsive" style="font-size: 11px; width:100%">
             <table id="datos_usuario" class="table table-hover" style="width:100%" >
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th width="25%">NOMBRE O DESCRIPCION</th>
-                        <th>CATEGORIA</th>
-                        <th>RESPONSABLE</th>
-                        <th>UBICACION</th>
+                        <th>N°compra</th>
+                        <th>USUARIO</th>
+                        <th>CORREO</th>
+                        <th>TIPO</th>
                         <th>ESTADO</th>
-                        <th>OBSERVACION</th>
+                        <th>FOTO</th>
                         <th>FECHA DE REGISTRO</th>
-                        <th width="5%">FOTO</th>
-                        <th>QR</th>
+                        
+                        
                         <th></th>
                         <th></th>
                     </tr>
@@ -161,78 +132,40 @@
                  
                     <div class="row">
 
-                        <div class="col-12">
-                            <label for="nombre" style="font-family: sans-serif;">Ingrese el Nombre o Descripción del activo <span style="color:red"> *</span></label>
-                            <input type="text" name="nombre" id="nombre" class="form-control form-control-sm">
-                        </div>
 
-
-                        <div class="col-6">
-                        <label for="categoria" style="font-family: sans-serif;">Seleccione Categoría del activo</label>
-                        <select name="categoria" id="categoria" class="form-select form-select-sm">
-                            <!-- Las opciones se cargarán dinámicamente con JavaScript -->
-                        </select>
-                    </div>
-
-
-
-
-
-                        <div class="col-6">
-                            <label for="responsable" style="font-family: sans-serif;">Ingrese Responsable del activo</label>
-                            <input type="text" name="responsable" id="responsable" class="form-control form-control-sm">
-                        </div>
-                        <div class="col-6">
-                            <label for="ubicacion" style="font-family: sans-serif;">Ingrese la Ubicacion del activo</label>
-                            <input type="text" name="ubicacion" id="ubicacion" class="form-control form-control-sm">
-                        </div>  
-                        <div class="col-6">
-                            <label for="estado" style="font-family: sans-serif;">Ingrese Estado del Activo <span style="color:red"> *</span></label>
-                            <select name="estado" id="estado" class="form-control form-control-sm">
+                       
+                
+                        <div class="col-sm-12">
+                            <label for="tipo" style="font-family: sans-serif;">Elija la Plataforma  <span style="color:red"> *</span></label>
+                            <select name="tipo" id="tipo" class="form-control form-control-sm">
                                 <option value="">Selecciona una Opcion</option>
-                                <option value="Nuevo">Nuevo</option>
-                                <option value="Semi-nuevo">Semi-nuevo</option>
-                                <option value="Usado">Usado</option>
-                                <option value="Mal-Estado">Mal-Estado</option>
+                                <option value="COMPUTADORA">Computadora Airpatch 2024</option>
+                                <option value="PS4/PS5">PS4/PS5 Option File 2024</option>
                             </select>
                         </div>
-                        <div class="col-12">
-                            <label for="observacion" style="font-family: sans-serif;">Ingresar Alguna Observacion del Activo (no obligatorio) </label>
-                            <input type="text" name="observacion" id="observacion" class="form-control form-control-sm">
-                        </div> 
+                                                
 
-
-                        
-                        
-
-                        <div class="col-6">
-                            <label for="foto" style="font-family: sans-serif;">Ingrese Foto</label>
+                        <div class="col-sm-12">
+                            <label for="foto" style="font-family: sans-serif;">Ingrese Foto o captura de comprobante de pago </label>
                             <input type="file" class="form-control form-control-sm" name="foto" id="foto">
                         </div>
-                        <div class="col-6">
+                        <div class="col-sm-12">
                             <span id="imagen-subida"></span>
                         </div>
-                        <div class="col-6">
-                            <span id="qr-subido"></span>
-                        </div>
-                        
-                        
-                        
 
                         
-
-
-
+                            <input type="hidden" name="usuario" id="usuario" class="form-control form-control-sm" value="<?php echo $_SESSION['user'] ?>">
+                            <input type="hidden" name="correo" id="correo" class="form-control form-control-sm" value="<?php echo $_SESSION['correo'] ?>">
+                            
                         
-
-                        
+ 
 
                     </div>
                     <div class="modal-footer">
                         <input type="hidden" name="id_activo" id="id_activo">
                         <input type="hidden" name="operacion" id="operacion">
 
-                        <input type="reset" value="Limpiar" class="btn btn-secondary"> 
+                        
                         <input type="submit" name="action" id="action" class="btn btn-success" value="Registrar">
                         
                     </div>
@@ -248,83 +181,6 @@
 
 
         </div>
-
-
-
-
-        <!-- Modal categoria -->
-<div class="modal fade" id="modalcategoria" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title2 fs-5" id="exampleModalLabel2"><i class="fa-solid fa-box"></i> Registro de Categorias</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: azure;"></button>
-            </div>
-            
-                <form action="" method="POST" id="formulario2" enctype="multipart/form-data">
-                    
-                    <div class="modal-content">
-
-                    <div class="modal-body">
-
-                    
-
-                 
-                    <div class="row">
-
-                        <div class="col-4">
-                            <label for="nombre_categoria" style="font-family: sans-serif;">Ingrese el Nombre de la categoria <span style="color:red"> *</span></label>
-                            <input type="text" name="nombre_categoria" id="nombre_categoria" class="form-control form-control-sm">
-                        </div>
-
-                        <div class="col-8">
-                        <div class="table-responsive" style="font-size: 11px; width:100%">
-                            <table id="datos_categoria" class="table table-hover table-striped" style="width:100%" >
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>NOMBRE DE LA CATEGORIA</th>
-                                        
-                                        <th></th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                            </table>
-                        </div>
-                        </div>
-
-     
-
-                    </div>
-                    <div class="modal-footer">
-                        <input type="hidden" name="id_categoria" id="id_categoria">
-                        <input type="hidden" name="operacion2" id="operacion2">
-
-                        <input type="reset" value="Limpiar" class="btn btn-secondary"> 
-                        <input type="submit" name="action2" id="action2" class="btn btn-success" value="Registrar">
-                        
-                    </div>
-                    </div>
-                    </div>
-                </form>
-            </div>
-
-
-            
-        </div>
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-<!-- modal editar categoria -->
 
 
 
@@ -397,23 +253,11 @@
 <script type="text/javascript">
         $(document).ready(function(){
 
-            // Función para recargar opciones del select en el segundo modal
-            function reloadCategoriaSelect() {
-                    $.ajax({
-                        url: "categorias.php",
-                        type: "POST",
-                        success: function (data) {
-                            // Actualizar opciones del select
-                            $('#categoria').html(data);
-                            $('#categoria').selectpicker('refresh'); // Actualizar selectpicker si estás utilizando Bootstrap Select
-                        }
-                    });
-                }
 
                 
                 $("#botonCrear").click(function(){
                 $("#formulario")[0].reset();
-                $(".modal-title").text("Crear Activo Fijo");
+                $(".modal-title").text("Solicitar Compra");
                 $("#action").val("Crear Activo");
                 $("#operacion").val("Crear");
                 $('#imagen-subida').html("");
