@@ -4,21 +4,34 @@
     include "includes/header.php";
     include "../conexion.php"; 
 
-/*     $sql_suma_bs = mysqli_query($conexion, "SELECT SUM(monto_bs) FROM exp_general;");
-                            $result_sum = mysqli_fetch_array($sql_suma_bs);
-                            $total = $result_sum['SUM(monto_bs)']; 
+/* numero de compras de computadora */
+$sql = mysqli_query($conexion, "SELECT COUNT(id_compra) FROM compras WHERE tipo='COMPUTADORA' and estado = 'aprobado';");
+$result_f = mysqli_fetch_array($sql);
+$PC = $result_f['COUNT(id_compra)']; 
+/* numero de compras de ps4/ps5 */
+$sql2 = mysqli_query($conexion, "SELECT COUNT(id_compra) FROM compras WHERE tipo='PS4/PS5' and estado = 'aprobado';");
+$result_f2 = mysqli_fetch_array($sql2);
+$PLAY = $result_f2['COUNT(id_compra)']; 
+/* compras pendientes */
+$sql3 = mysqli_query($conexion, "SELECT COUNT(id_compra) FROM compras WHERE estado = 'en espera';");
+$result_f3 = mysqli_fetch_array($sql3);
+$PENDIENTES = $result_f3['COUNT(id_compra)']; 
 
-                            $sql_tfila = mysqli_query($conexion, "SELECT COUNT(id_exp) FROM exp_general;");
-                            $result_f = mysqli_fetch_array($sql_tfila);
-                            $total2 = $result_f['COUNT(id_exp)']; 
+/* compras pendientes */
+$sql4 = mysqli_query($conexion, "SELECT COUNT(id_compra) FROM compras WHERE estado = 'aprobado';");
+$result_f4 = mysqli_fetch_array($sql4);
+$total_compras = $result_f4['COUNT(id_compra)']; 
 
-                            $sql_suma_bs = mysqli_query($conexion, "SELECT SUM(monto_bs) FROM exp_general_c;");
-                            $result_sum = mysqli_fetch_array($sql_suma_bs);
-                            $total3 = $result_sum['SUM(monto_bs)']; 
+/* saldos */
+$saldos_pc = $PC * 50 * 0.3;
+$saldos_play = $PLAY * 40 * 0.3;
+$saldo_pesboliviaPC = $PC * 50 * 0.1;
+$saldo_pesboliviaPLAY = $PLAY * 40 * 0.1;
 
-                            $sql_tfila = mysqli_query($conexion, "SELECT COUNT(id_exp) FROM exp_general_c;");
-                            $result_f = mysqli_fetch_array($sql_tfila);
-                            $total4 = $result_f['COUNT(id_exp)']; */
+$saldo_total = $saldos_pc + $saldos_play;
+$saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
+
+
 
 ?>
 
@@ -47,8 +60,10 @@
                     <div class="container-fluid px-4 p-2">
                         <div class="alert alert-warning alert-dismissible fade show " role="alert" style="background-color: #b2ffdb;border:none;color:#575757"> 
                              <?php echo $_SESSION['nombre']  ?>  <strong> Bienvenido a PES BOLIVIA  !  
-                            <button type="button" class=" btn-close " data-bs-dismiss="alert" aria-label="Close"></button> 
+                            <button type="button" class=" btn-close btn-sm " data-bs-dismiss="alert" aria-label="Close"></button> 
                         </div>
+
+                        
 
                         
 
@@ -59,6 +74,85 @@
                         <?php
                         if ($_SESSION['rol'] == 1 ) {
                         ?> 
+
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                            <div class="alert alert-info" role="alert">
+                                <h4 class="alert-heading">COMPRAS PENDIENTES!</h4>
+                                <hr> 
+                                <p class="mb-0">Compras pendientes de Verificacion <strong>
+                                    <?php echo '<button style="border-radius: 50px;" class="btn btn-info btn-sm"> <strong>' . $PENDIENTES . ' </strong> En espera </button>';?></strong></p>
+                            </div>
+
+                            </div>
+                            <div class="col-sm-3">
+
+                            <div class="alert alert-dark" role="alert">
+                                <h4 class="alert-heading">SALDO ACUMULADO</h4>
+                                <hr>
+                                <p class="mb-0"><strong>
+                                    <?php echo '<button style="border-radius: 50px;" class="btn btn-dark btn-sm w-50">' . number_format($saldo_total,2,'.',',') . ' Bs </button>';?></strong></p>
+                            </div>
+
+                            </div>
+
+                            <?php
+                                if ($_SESSION['user']!='admin') {
+                                    
+                                
+                            ?>
+
+
+                            <div class="col-sm-3">
+
+                            <div class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">SALDO PAGADO</h4>
+                                <hr>
+                                <p class="mb-0"> <strong>
+                                    <?php echo '<button style="border-radius: 50px;" class="btn btn-success btn-sm w-50">' . $PENDIENTES . '</button>';?></strong></p>
+                            </div>
+
+                            </div>
+
+                            <?php
+                                
+                                    
+                                } else {
+                                    
+                                
+                            ?>
+
+                            <div class="col-sm-3">
+
+                            <div class="alert alert-dark" role="alert">
+                                <h4 class="alert-heading">SALDO PES-BOLIVIA</h4>
+                                <hr>
+                                <p class="mb-0"> <strong>
+                                    <?php echo '<button style="border-radius: 50px;" class="btn btn-dark btn-sm w-50">' . number_format($saldo_totalPESBOLIVIA,2,'.',',') .  ' Bs </button>';?></strong></p>
+                            </div>
+
+                            </div>
+
+
+
+                        <?php
+                                
+                                    
+                            } 
+                        ?>
+
+                            
+                            
+
+                        </div>
+
+
+
+<hr>
+
+
+
 
                         
 
@@ -71,7 +165,9 @@
                                 <div class="box">
                                     <div class="left-side">
                                         <div class="box_topic">N° de Compras PC</div>
-                                        <div class="number">2</div>
+                                        <div class="number"> 
+                                            <?php echo $PC;?> 
+                                        </div>
                                         
                                     </div>
                                     <img src="img/Steam_icon_logo.svg.png" width="20%" height="" >
@@ -81,7 +177,15 @@
                                 <div class="box">
                                     <div class="left-side">
                                         <div class="box_topic">Total Ingresos PC</div>
-                                        <div class="number">100 Bs</div>
+                                        <div class="number">
+                                        <?php 
+                                        $COSTO_PC = 50;
+
+                                        $COSTO_TOTAL_PC = $PC * $COSTO_PC; 
+                                        echo ''.number_format($COSTO_TOTAL_PC,2,'.',','). ' Bs';
+                                        
+                                        ?> 
+                                        </div>
                                     
                                         
                                     </div>
@@ -93,7 +197,9 @@
                                 <div class="box">
                                     <div class="left-side">
                                         <div class="box_topic">N° de compras PS4/PS5</div>
-                                        <div class="number">4</div>
+                                        <div class="number">
+                                        <?php echo $PLAY;?> 
+                                        </div>
                                         
                                     </div>
                                     <img src="img/2560px-PlayStation_logo.svg.png" width="20%" height="" >
@@ -106,7 +212,15 @@
                                 <div class="box">
                                     <div class="left-side">
                                         <div class="box_topic">Total Ingresos PS4/PS5</div>
-                                        <div class="number">200 Bs</div>
+                                        <div class="number">
+                                        <?php 
+                                        $COSTO_PLAY = 40;
+
+                                        $COSTO_TOTAL_PLAY = $PLAY * $COSTO_PLAY; 
+                                        echo ''.number_format($COSTO_TOTAL_PLAY,2,'.',','). ' Bs';
+                                        
+                                        ?> 
+                                        </div>
                                         
                                     </div>
                                     <img src="img/2560px-PlayStation_logo.svg.png" width="20%" height="" >

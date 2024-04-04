@@ -9,13 +9,13 @@ include("funciones.php");
 
     
     $usuario_session = $_SESSION['user'];
-    
+  
 
     setlocale(LC_TIME, "spanish");
     $fecha = date("Y-m-d");
 
 
-if ($usuario_session == 'admin') {
+if ($_SESSION['rol'] == 1) {
     
     // Consulta SQL para obtener los datos del usuario
     $query = "SELECT * FROM compras ";

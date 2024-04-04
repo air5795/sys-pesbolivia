@@ -94,7 +94,7 @@
                 <thead>
                     <tr>
                         <?php
-                            if ($_SESSION['user'] == 'admin') {
+                            if ($_SESSION['rol'] == '1') {
                                 
                         ?>
                         <th>N°compra</th>
