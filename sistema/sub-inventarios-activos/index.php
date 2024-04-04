@@ -93,17 +93,41 @@
             <table id="datos_usuario" class="table table-hover" style="width:100%" >
                 <thead>
                     <tr>
+                        <?php
+                            if ($_SESSION['user'] == 'admin') {
+                                
+                        ?>
                         <th>N°compra</th>
                         <th>USUARIO</th>
                         <th>CORREO</th>
                         <th>TIPO</th>
+                        <th>FECHA DE SOLICITUD</th>
+                        <th width="5px">COMPROBANTE</th>
                         <th>ESTADO</th>
-                        <th>FOTO</th>
-                        <th>FECHA DE REGISTRO</th>
-                        
-                        
                         <th></th>
                         <th></th>
+
+
+                        <?php
+                                
+                            } else {
+
+
+                        ?>
+
+                        
+                        <th>TIPO DE PEDIDO</th>
+                        <th>FECHA DE SOLICITUD</th>
+                        <th>ESTADO</th>
+
+                        <?php
+                                
+                            } 
+
+
+                        ?>
+                        
+
                     </tr>
                 </thead>
             </table>
@@ -117,7 +141,7 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-box"></i> Registro de Activos</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-box"></i> SOLICITUD DE COMPRA</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: azure;"></button>
             </div>
             
@@ -258,7 +282,7 @@
                 $("#botonCrear").click(function(){
                 $("#formulario")[0].reset();
                 $(".modal-title").text("Solicitar Compra");
-                $("#action").val("Crear Activo");
+                $("#action").val("Solicitar Compra");
                 $("#operacion").val("Crear");
                 $('#imagen-subida').html("");
                 /* $('#pdf-subido').html("");
@@ -290,7 +314,7 @@
                 ],
                 "language": {
                 "decimal": "",
-                "emptyTable": "No hay registros",
+                "emptyTable": "No hay Compras",
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
                 "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
                 "infoFiltered": "(Filtrado de _MAX_ total entradas)",
@@ -322,12 +346,11 @@
             //Aquí código inserción
             $(document).on('submit', '#formulario', function(event){
             event.preventDefault();
-            var nombre = $('#nombre').val();
-            var categoria = $('#categoria').val();
-            var responsable = $('#responsable').val();
-            var ubicacion = $('#ubicacion').val();
-            var estado = $('#estado').val();
-            var observacion = $('#observacion').val();
+            var usuario = $('#usuario').val();
+            var correo = $('#tipo').val();
+            var tipo = $('#tipo').val();
+            /* var estado = $('#estado').val(); */
+            
             var extension = $('#foto').val().split('.').pop().toLowerCase();
             /* var extension2 = $('#ficha').val().split('.').pop().toLowerCase();
             var extension3 = $('#certificado').val().split('.').pop().toLowerCase(); */
@@ -343,7 +366,7 @@
 
            
             	
-		    if(nombre != '' && categoria != '' && responsable != '' && ubicacion != '' && estado != '' )
+		    if(usuario != '' && correo != '' && tipo != '')
                 {
                     $.ajax({
                         url:"crear.php",

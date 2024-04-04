@@ -3,18 +3,17 @@
 include("conexion.php");
 include("funciones.php");
 
-if (isset($_POST["id_activo"])) {
+if (isset($_POST["id_compra"])) {
     $salida = array();
-    $stmt = $conexion->prepare("SELECT * FROM activos_fijos WHERE id_activo = '".$_POST["id_activo"]."' LIMIT 1");
+    $stmt = $conexion->prepare("SELECT * FROM compras WHERE id_compra = '".$_POST["id_compra"]."' LIMIT 1");
     $stmt->execute();
     $resultado = $stmt->fetchAll();
     foreach($resultado as $fila){
-        $salida["nombre"] = $fila["nombre"];
-        $salida["categoria"] = $fila["categoria"];
-        $salida["responsable"] = $fila["responsable"];
-        $salida["ubicacion"] = $fila["ubicacion"];
+        $salida["usuario"] = $fila["usuario"];
+        $salida["correo"] = $fila["correo"];
+        $salida["tipo"] = $fila["tipo"];
         $salida["estado"] = $fila["estado"];
-        $salida["observacion"] = $fila["observacion"];
+        $salida["fecha"] = $fila["fecha"];
         
 
         /* FOTO */ 

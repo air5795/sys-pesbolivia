@@ -3,10 +3,6 @@
 include("conexion.php");
 include("funciones.php");
 
-require 'phpqrcode/qrlib.php';
-
-
-
 
 if ($_POST["operacion"] == "Crear") {
     $imagen = '';
@@ -21,27 +17,20 @@ if ($_POST["operacion"] == "Crear") {
     if ($_FILES["certificado"]["name"] != '') {
         $certificado = subir_certificado();
     } */
-    $stmt = $conexion->prepare("INSERT INTO activos_fijos(nombre, categoria, responsable, ubicacion, estado, observacion, foto)
-                                VALUES(:nombre, :categoria, :responsable, :ubicacion, :estado, :observacion, :foto )");
+    $stmt = $conexion->prepare("INSERT INTO compras(usuario, correo, tipo,foto)
+                                VALUES(:usuario, :correo, :tipo, :foto )");
 
     $resultado = $stmt->execute(
         array(
-            ':nombre'           => $_POST["nombre"],
-            ':categoria'            => $_POST["categoria"],
-            ':responsable'           => $_POST["responsable"],
-            ':ubicacion'               => $_POST["ubicacion"],
-            ':estado'               => $_POST["estado"],
-            ':observacion'             => $_POST["observacion"],
+            ':usuario'           => $_POST["usuario"],
+            ':correo'            => $_POST["correo"],
+            ':tipo'           => $_POST["tipo"],
             ':foto'             => $imagen
         )
     );
 
     if (!empty($resultado)) {
-        // Obtener el ID del activo fijo recién insertado
-        $lastInsertedID = $conexion->lastInsertId();
-
-        // Llamar a la función para generar y actualizar el código QR
-        generarActualizarQR($conexion, $lastInsertedID, $_POST["nombre"], $_POST["categoria"], $_POST["responsable"], $_POST["ubicacion"], $_POST["observacion"]);
+        echo 'Se registro Correctamente.';
     } else {
         echo 'Error al insertar el registro en la base de datos.';
     }
