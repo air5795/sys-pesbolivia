@@ -98,7 +98,7 @@ if (empty($_SESSION['active'])) {
                                     
                                    
                                     
-                                    <a class="nav-link" href="../sub-inventarios-activos">Mis Compras</a>
+                                    <a class="nav-link" href="../compras">Mis Compras</a>
                                 </nav>
                             </div>
 
@@ -113,8 +113,8 @@ if (empty($_SESSION['active'])) {
                                     <!--<a class="nav-link" href="categorias_i.php">Categorias mercaderia</a> 
                                     <a class="nav-link" href="inventario_i.php">Gestor Inventario</a>-->
                                     
-                                    <a class="nav-link" href="sub-inventarios-activos/">Instalacion PC</a>
-                                    <a class="nav-link" href="sub-inventarios-activos/">Instalacion Ps4/Ps5</a>
+                                    <a class="nav-link" href="instalacionpc/">Instalacion PC</a>
+                                    <a class="nav-link" href="instalacionpc/">Instalacion Ps4/Ps5</a>
                                 </nav>
                             </div>
 

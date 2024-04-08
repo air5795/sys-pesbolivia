@@ -251,40 +251,92 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
                                     </div>
                                     <div class="col-md-8">
                                     <div class="card-body" style="text-align: center;">
-                                        <h5 class="card-title">AIRPATCH 2024 PC</h5>
-                                        <HR></HR>
-                                        <p class="card-text" style="margin: 0; "> - Copa Simon Bolivar , Copa Paceña y Liga tigo </p>
-                                        <p class="card-text" style="margin: 0; "> - Kits Actualizados temporada 2024</p>
-                                        <p class="card-text" style="margin: 0; "> - Balon temporada 2024</p>
-                                        <p class="card-text" style="margin: 0; "> - Entrance temporada 2024</p>
-                                        <p class="card-text" style="margin: 0; "> - Faces Jugadores</p>
-                                        <p class="card-text" style="margin: 0; "> - Vallas Publicitarias</p>
-                                        <p class="card-text" style="margin: 0; "> - Nuevos Estadios</p>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                         
+                                        </div>
+                                        <div class="col-sm-6">
+                                        
+                                        </div>
+
+                                    </div>
+                                        
+
+                                        <hr>
+                                        
+                                        <div class="row  text-center">
+                                        <div class="col-sm-6">
+                                            <div class="card mb-4 rounded-3 shadow-sm" style="background-color: #e7e7e7;">
+                                            <div class="card-header py-3">
+                                                <h4 class="my-0 fw-normal">AIRPATCH 2024 PC</h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <h1 class="card-title pricing-card-title">50 Bs<small class="text-body-secondary fw-light">/anual</small></h1><hr>
+                                                <ul class="list-unstyled mt-3 mb-4">
+                                                <li>Temporada 2024 liga boliviana (copa Paceña, Liga Tigo)</li>
+                                                <li>Copa Simón Bolívar</li>
+                                                <li>Ambientación total 2024</li>
+                                                <li>Actualizaciones de errores y mejoras</li>
+                                                <li>Acceso a descarga en la nube del parche</li>
+                                                <li>Soporte en instalación</li>
+                                                <li>Libertadores 2024</li>
+                                                <li>Champions league 2024</li>
+                                                <li>Futura actualización Copa América</li>
+
+                                                
+                                                </ul>
+                                                <button type="button" class="w-100 btn btn-lg btn-outline-primary"><i class="bi bi-bag"></i> Comprar Ahora</button> <hr>
+                                                <button style="font-size: x-large;" type="button" class="btn btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#pc">
+                                                <i class="bi bi-eye"></i> Ver Novedades</button>
+
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="card mb-4 rounded-3 shadow-sm" ">
+                                            <div class="card-header py-3">
+                                                <h4 class="my-0 fw-normal">OPTION FILE AIRPATCH 2024 PS4/PS5 </h4>
+                                            </div>
+                                            <div class="card-body">
+                                                <h1 class="card-title pricing-card-title">40 Bs<small class="text-body-secondary fw-light">/anual</small></h1> <hr>
+                                                <ul class="list-unstyled mt-3 mb-4">
+                                                <li>Temporada 2024 liga boliviana</li>
+                                                <li>Plantillas 2024</li>
+                                                <li>Equipaciones 2024</li>
+                                                <li>Actualizaciones de errores y mejoras</li>
+                                                <li>Acceso a descarga en la nube del parche</li>
+                                                <li>Soporte en instalación</li>
+                                                <li>Libertadores 2024</li>
+                                                <li>Champions league 2024</li>
+                                                <li>Futura actualización Copa América</li>
+
+                                                
+                                                </ul>
+                                                <button type="button" class="w-100 btn btn-lg btn-outline-primary"><i class="bi bi-bag"></i> Comprar Ahora</button> <hr>
+                                               
+
+                                                <button style="font-size: x-large;" type="button" class="btn btn-outline-secondary  w-100" data-bs-toggle="modal" data-bs-target="#ps4">
+                                        <i class="bi bi-eye"></i> Ver Novedades</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    
+                                        </div>
+
+                                        <HR>
+
+                                        
+
+                                            
+
                                         <hr>
                                         
                                         <!-- <a href="#" class="card-link btn btn-success" style="font-size: x-large;"><i class="bi bi-eye"></i> Ver Informacion Detallada </a> -->
-                                        <button style="font-size: x-large;" type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#pc">
-                                        <i class="bi bi-eye"></i> Ver detalles PC</button>
-
-                                        <hr>
-
-                                        <h5 class="card-title">AIRPATCH 2024 ps4/ps5</h5>
-                                        <HR></HR>
-
-                                        <p class="card-text" style="margin: 0; "> - Copa Simon Bolivar , Copa Paceña y Liga tigo </p>
-                                        <p class="card-text" style="margin: 0; "> - Kits Actualizados temporada 2024</p>
-                                        <p class="card-text" style="margin: 0; "> - Balon temporada 2024</p>
-                                        <p class="card-text" style="margin: 0; "> - Entrance temporada 2024</p>
-                                        <p class="card-text" style="margin: 0; "> - Faces Jugadores</p>
-                                        <p class="card-text" style="margin: 0; "> - Vallas Publicitarias</p>
-                                        <p class="card-text" style="margin: 0; "> - Nuevos Estadios</p>
-                                        <hr>
                                         
-                                        <!-- <a href="#" class="card-link btn btn-success" style="font-size: x-large;"><i class="bi bi-eye"></i> Ver Informacion Detallada </a> -->
-                                        <button style="font-size: x-large;" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#ps4">
-                                        <i class="bi bi-eye"></i> Ver detalles PS4/PS5</button>
-
                                         <hr>
+
+                                        
                                     </div>
                                     </div>
                                 </div>

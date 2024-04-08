@@ -58,6 +58,12 @@ if ($_SESSION['rol'] == 1) {
             $estado = '<span style="font-size:12px;background-color:#cbff9a;text-align: left; color:#5a5a5a;" class="btn  w-100"><i class="bi bi-check"></i> COMPRA APROBADA </span>'.'<br/>';
         }
 
+        if ($fila['tipo'] == 'COMPUTADORA') {
+            $tipo = '<span style="font-size:12px;background-color:#939393;text-align: left; color:white;text-align:center" class="btn  w-100"> COMPUTADORA</span>'.'<br/>';
+        } else {
+            $tipo= '<span style="font-size:12px;background-color:#143885;text-align: left; color:white;text-align:center" class="btn  w-100"> PS4/PS5 </span>'.'<br/>';
+        }
+
        
 
 
@@ -66,7 +72,7 @@ if ($_SESSION['rol'] == 1) {
         $sub_array[] = $fila["id_compra"];
         $sub_array[] = $fila["usuario"];
         $sub_array[] = $fila["correo"];
-        $sub_array[] = $fila["tipo"];
+        $sub_array[] = $tipo;
         
         $sub_array[] = $fila["fecha"];
         $sub_array[] = $imagen;
@@ -74,7 +80,7 @@ if ($_SESSION['rol'] == 1) {
        /*  $sub_array[] = $ficha;
         $sub_array[] = $certificado; */
         $sub_array[] = '<button type="button" name="editar" id="'.$fila["id_compra"].'" class="btn btn-warning btn-sm boton-w  editar" style="background-color: #fbe806;color: #505050; color:#767676;"><i class="fa-solid fa-pencil"></i> </button>';
-        $sub_array[] = '<button type="button" name="borrar" id="'.$fila["id_compra"].'" class="btn btn-danger btn-sm boton-w borrar" style="background-color: #ff5757;color: #505050; color:white;"><i class="fa-solid fa-trash-can"></i> </button>';
+        
         $datos[] = $sub_array;
     }
 
@@ -140,6 +146,8 @@ if ($_SESSION['rol'] == 1) {
         $sub_array[] = $estado;
        /*  $sub_array[] = $ficha;
         $sub_array[] = $certificado; */
+
+        $sub_array[] = '<button type="button" name="borrar" id="'.$fila["id_compra"].'" class="btn btn-warning btn-sm boton-w  borrar" style="background-color: #fbe806;color: #505050; color:#767676;">CANCELAR SOLICITUD </button>';
        
         $datos[] = $sub_array;
     }

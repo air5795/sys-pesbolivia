@@ -52,6 +52,50 @@
 <!-- Contenedor tabla--> 
 
 <div class="container-fluid  fondo ">    
+
+
+
+
+                        <?php
+                            if ($_SESSION['rol'] != '1') {
+                                
+                        ?>
+
+        <div class="row">
+            <div class="col-sm-12">
+            
+            <div class="card">
+            <h5 class="card-header">Pasos para realizar la compra !</h5>
+            <div class="card-body">
+            
+
+            <ol>
+                <li>- Dar al boton Efectuar Pago</li>
+                <li>- Te saldra las formas de pago (Transferencia Bancaria , Tigo Money o QR) </li>
+                <li>- Realiza el pago y guarda tu comprobante (foto o captura de pantalla)</li>
+                <li>- Dar al Boton Solicitar Compra</li>
+                <li>- Coloca si quieres para (COMPUTADORA) O (PS4/PS5) y carga tu comprobante</li>
+                <li>- Envia Tu Solicitud (Esto puede demorar  30 min hasta 45 min , o ser inmediato)</li>
+                <li>- despues de esperar la solicitud entrar de nuevo a nuestra web con tu usuario y te saldra un mensaje donde dice estado en espera , que confirmara que se aprobo su solicitud. </li>
+                <li>- Si durante el tiempo esperado no cambio el estado (en espera),  comunicate por mensaje al numero 79441119 (por whatssap)</li>
+            </ol>
+            </div>
+            </div>
+
+            
+
+            </div>
+            
+
+        </div>
+
+                        <?php
+                            }
+                                
+                        ?>
+
+
+<hr>
         <div class="row">
             <div class="col-sm-8">
                 <h2><i class="fa-solid fa-database"></i> COMPRAS - PES BOLIVIA </h2>
@@ -83,6 +127,8 @@
             
         </div>
 
+        
+
 
 
 
@@ -90,7 +136,7 @@
         <hr style="background-color: green;">
 
         <div class="table-responsive" style="font-size: 11px; width:100%">
-            <table id="datos_usuario" class="table table-hover" style="width:100%" >
+            <table id="datos_usuario" class="table table-hover" style="width:100%;text-align:center" >
                 <thead>
                     <tr>
                         <?php
@@ -105,7 +151,7 @@
                         <th width="5px">COMPROBANTE</th>
                         <th>ESTADO</th>
                         <th></th>
-                        <th></th>
+                        
 
 
                         <?php
@@ -119,6 +165,7 @@
                         <th>TIPO DE PEDIDO</th>
                         <th>FECHA DE SOLICITUD</th>
                         <th>ESTADO</th>
+                        <th></th>
 
                         <?php
                                 
@@ -138,7 +185,7 @@
 
 <!-- Modal NUEVO -->
 <div class="modal fade" id="modalproductos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog ">
             <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-box"></i> SOLICITUD DE COMPRA</h1>
@@ -167,6 +214,15 @@
                                 <option value="PS4/PS5">PS4/PS5 Option File 2024</option>
                             </select>
                         </div>
+
+                        <div class="col-sm-12">
+                            <label for="estado" style="font-family: sans-serif;">Estado <span style="color:red"> *</span></label>
+                            <select name="estado" id="estado" class="form-control form-control-sm">
+                                <option value="">Selecciona un Estado</option>
+                                <option value="en espera">en espera</option>
+                                <option value="aprobado">Aprobado</option>
+                            </select>
+                        </div>
                                                 
 
                         <div class="col-sm-12">
@@ -186,7 +242,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <input type="hidden" name="id_activo" id="id_activo">
+                        <input type="hidden" name="id_compra" id="id_compra">
                         <input type="hidden" name="operacion" id="operacion">
 
                         
@@ -281,9 +337,11 @@
                 
                 $("#botonCrear").click(function(){
                 $("#formulario")[0].reset();
-                $(".modal-title").text("Solicitar Compra");
+                $(".modal-title").text("COMPRAS");
                 $("#action").val("Solicitar Compra");
                 $("#operacion").val("Crear");
+                $('#estado').closest('.col-sm-12').hide(); // Ocultar el campo "estado"
+                $('#foto').closest('.col-sm-12').show();
                 $('#imagen-subida').html("");
                 /* $('#pdf-subido').html("");
                 $('#certificado-subido').html(""); */
@@ -401,42 +459,30 @@
 
             //Funcionalidad de editar
             $(document).on('click', '.editar', function(){		
-            var id_activo = $(this).attr("id");		
+            var id_compra = $(this).attr("id");		
             $.ajax({
                 url:"obtener_registro.php",
                 method:"POST",
-                data:{id_activo:id_activo},
+                data:{id_compra:id_compra},
                 dataType:"json",
                 success:function(data)
                     {
                         
                         //console.log(data);				
+                        
                         $('#modalproductos').modal('show');
-                        $('#nombre').val(data.nombre);
-                        $('#categoria').val(data.categoria); 
-                        $('#responsable').val(data.responsable);
-                        $('#ubicacion').val(data.ubicacion);
+                        $('#estado').closest('.col-sm-12').show(); // Ocultar el campo "estado"
+                        $('#foto').closest('.col-sm-12').hide();
+
                         $('#estado').val(data.estado);
-                        $('#observacion').val(data.observacion);
-                        reloadCategoriaSelect();
-                        
+                        $('#tipo').val(data.tipo);
+                        $('#id_compra').val(id_compra);
 
-                       
-
+                        $('.modal-title2').text("Editar compra");
                         
-                        /* $('#categoria').selectpicker('refresh'); */
-        
-                        $('.modal-title').text("Editar Activo Fijo");
-                        $('#id_activo').val(id_activo);
-                        $('#imagen-subida').html(data.foto);
-                        $('#qr-subido').html(data.qr);
                       
-                        $('#action').val("Editar");
+                        $('#action').val("Editar compra");
                         $('#operacion').val("Editar");
-
-                        $('#modalproductos').on('hidden.bs.modal', function () {
-                            dataTableactivo.ajax.reload();
-                        });
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                     console.log(textStatus, errorThrown);
@@ -446,41 +492,61 @@
 
             //Funcionalidad de borrar
             $(document).on('click', '.borrar', function(){
-                var id_activo = $(this).attr("id");
+    var id_compra = $(this).attr("id");
 
-                Swal.fire({
-                title: 'Esta Seguro de Borrar ?',
-                text: "El Registro con el ID = " + id_activo,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#72db88',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, Borralo!'
-                }).then((result) => {
-                if (result.isConfirmed) {
-
-                    $.ajax({
-                        url:"borrar.php",
-                        method:"POST",
-                        data:{id_activo:id_activo},
-                        success:function(data)
-                        {
-                            dataTableactivo.ajax.reload();
-                        }
-                    });
-
+    Swal.fire({
+        title: '¿Está seguro de cancelar su Solicitud de Compra?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#72db88',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, Bórralo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                url: "borrar.php",
+                method: "POST",
+                data: { id_compra: id_compra },
+                success: function (data, textStatus, xhr) {
+                    if (xhr.status === 200) {
+                        // Eliminación exitosa
+                        Swal.fire(
+                            'Borrado con Éxito!',
+                            'Se canceló su Solicitud',
+                            'success'
+                        );
+                        dataTableactivo.ajax.reload();
+                    } else if (xhr.status === 403) {
+                        // No se puede cancelar
+                        Swal.fire(
+                            'Error!',
+                            'No se puede cancelar la solicitud.',
+                            'error'
+                        );
+                    } else {
+                        // Error interno del servidor
+                        Swal.fire(
+                            'Error!',
+                            'Error interno del servidor.',
+                            'error'
+                        );
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Error en la solicitud AJAX
                     Swal.fire(
-                    'Borrado con Exito!',
-                    'Se Elimino de la Base de datos el Activo Fijo ',
-                    'success'
-                    )
+                        'Error!',
+                        'No se puede cancelar la solicitud porque ya esta aprobado su solicitud',
+                        'error'
+                    );
                 }
-                else{
-                    return false;
-                }
-                });
-
             });
+        } else {
+            return false;
+        }
+    });
+});
+
 
         });         
     </script>

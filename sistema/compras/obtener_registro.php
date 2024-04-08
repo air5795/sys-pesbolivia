@@ -18,7 +18,7 @@ if (isset($_POST["id_compra"])) {
 
         /* FOTO */ 
         if ($fila["foto"] != "") {
-            $salida["foto"] = '<img src="productos/' . $fila["foto"] . '"  class="img-thumbnail" width="150" height="150" />
+            $salida["foto"] = '<img src="comprobantes/' . $fila["foto"] . '"  class="img-thumbnail" width="150" height="150" />
             <input type="hidden" name="img_o" value="'.$fila["foto"].'" />';
         }else{
             $salida["foto"] = '<div class="alert alert-danger" role="alert"> <input type="hidden" name="img_o" value="" /> <i class="bi bi-exclamation-octagon-fill"></i> Sin Foto</div>' ;

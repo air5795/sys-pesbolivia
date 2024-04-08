@@ -271,8 +271,10 @@ if (!empty($_SESSION['active'])) {
 
             <h1 class="h1 hero-title">PES BOLIVIA</h1>
 
-            <p class="hero-text">
-              Parche liga Boliviana 2024 , comunidad de PES en Bolivia.
+            <p class="">
+              <!-- Parche liga Boliviana 2024 , comunidad de PES en Bolivia. -->
+              <div class="btn btn-outline" id="contador" style="border-radius: 2px; "></div>
+              
             </p>
 
             <div class="btn-wrapper">
@@ -695,6 +697,33 @@ $(document).ready(function(){
     });
 });
 
+</script>
+
+<script>
+    // Función para actualizar el contador cada segundo
+    function actualizarContador() {
+        var fechaSalida = new Date("April 17, 2024 20:00:00").getTime(); // Fecha de salida
+        var ahora = new Date().getTime(); // Fecha actual
+        var diferencia = fechaSalida - ahora; // Diferencia de tiempo en milisegundos
+
+        // Cálculos para obtener días, horas, minutos y segundos restantes
+        var dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        var horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+        var segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+        // Mostrar el contador en el elemento con id "contador"
+        document.getElementById("contador").innerHTML = "FECHA DE SALIDA :  17 de Abril /  " + dias + "d " + horas + "h "
+        + minutos + "m " + segundos + "s " ;
+
+        // Actualizar el contador cada segundo
+        setTimeout(actualizarContador, 1000);
+    }
+
+    // Llamar a la función actualizarContador cuando se cargue la página
+    window.onload = function() {
+        actualizarContador();
+    };
 </script>
 
 

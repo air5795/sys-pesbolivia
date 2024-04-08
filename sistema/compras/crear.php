@@ -4,6 +4,7 @@ include("conexion.php");
 include("funciones.php");
 
 
+
 if ($_POST["operacion"] == "Crear") {
     $imagen = '';
     /* $ficha = '';
@@ -44,35 +45,15 @@ if ($_POST["operacion"] == "Crear") {
 
 
 if ($_POST["operacion"] == "Editar") {
-    $imagen = obtener_nombre_imagen($_POST["id_activo"]);
-
-
-    if ($_FILES["foto"]["name"] != '') {
-        unlink("productos/" . $imagen);
-         $imagen = subir_imagen();
-    }
-    else {
-
-        $imagen = @$_POST['img_o'];     
-    }
     
-
-
-
-
-    $stmt = $conexion->prepare("UPDATE activos_fijos SET nombre=:nombre, categoria=:categoria, responsable=:responsable, ubicacion=:ubicacion, estado=:estado, observacion=:observacion, 
-    foto=:foto WHERE id_activo = :id_activo");
+    $stmt = $conexion->prepare("UPDATE compras SET estado=:estado, tipo=:tipo WHERE id_compra = :id_compra");
 
     $resultado = $stmt->execute(
         array(
-            ':id_activo'      => $_POST["id_activo"],
-            ':nombre'           => $_POST["nombre"],
-            ':categoria'            => $_POST["categoria"],
-            ':responsable'           => $_POST["responsable"],
-            ':ubicacion'               => $_POST["ubicacion"],
-            ':estado'               => $_POST["estado"],
-            ':observacion'             => $_POST["observacion"],
-            ':foto'             => $imagen
+            ':id_compra'      => $_POST["id_compra"],
+            ':estado'           => $_POST["estado"],
+            ':tipo'           => $_POST["tipo"]
+            
 
         )
 
@@ -82,8 +63,9 @@ if ($_POST["operacion"] == "Editar") {
     );
 
     if (!empty($resultado)) {
-        // Llamar a la función para generar y actualizar el código QR
-        generarActualizarQR($conexion, $_POST["id_activo"], $_POST["nombre"], $_POST["categoria"], $_POST["responsable"], $_POST["ubicacion"], $_POST["observacion"]);
+
+        echo 'exito editado.';
+        
     } else {
         echo 'Error al actualizar el registro en la base de datos.';
     }
