@@ -84,7 +84,8 @@ if (empty($_SESSION['active'])) {
 
                             
 
-                            <!-- lista de menu  -->
+
+                            <!-- lista de menu as  -->
 
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapsei" aria-expanded="false" aria-controls="pagesCollapseError">
                             <div class="sb-nav-link-icon"><i class="bi bi-bag"></i></div>
