@@ -3,7 +3,14 @@
     session_start();
     include "../../conexion.php";
 
+    // Verifica si el rol del usuario es 1
+if ($_SESSION['rol'] == 1) {
+    $habilitado = true;
+} else {
+    $habilitado = false;
+}
 ?>
+
 
 
 <!DOCTYPE html>
@@ -53,9 +60,6 @@
 
 <div class="container-fluid  fondo ">    
 
-<div id="cargando" style="display: none;">
-    <i class="fa fa-spinner fa-spin"></i> Cargando...
-</div>
 
 
 
@@ -147,14 +151,14 @@
         <hr style="background-color: green;">
 
         <div class="table-responsive" style="font-size: 11px; width:100%">
-            <table id="datos_usuario" class="table table-hover" style="width:100%;text-align:center" >
+            <table id="datos_usuario" class="table table-hover" style="width:100%;text-align:center" cellpadding="0" >
                 <thead>
                     <tr>
                         <?php
                             if ($_SESSION['rol'] == '1') {
                                 
                         ?>
-                        <th>N°compra</th>
+                        <th>COD-COMPRA</th>
                         <th>USUARIO</th>
                         <th>CORREO</th>
                         <th>TIPO</th>
@@ -172,8 +176,8 @@
 
                         ?>
 
-                        <th>FECHA DE SOLICITUD</th>
-                        <th>TIPO DE PEDIDO</th>
+                        <th >FECHA DE SOLICITUD</th>
+                        <th >TIPO DE PEDIDO</th>
                         
                         <th>ESTADO</th>
                         <th></th>
@@ -345,10 +349,7 @@
         </script>
 
 <script type="text/javascript">
-        $(document).ready(function(){
-
-
-                
+                $(document).ready(function(){
                 $("#botonCrear").click(function(){
                 $("#formulario")[0].reset();
                 $(".modal-title").text("COMPRAS");
@@ -367,8 +368,17 @@
 
                 
             });
+
+            var habilitarFunciones = <?php echo ($_SESSION['rol'] != 1) ? 'true' : 'false'; ?>;
+
+            if (habilitarFunciones) {
+        dataTableactivo = $('#datos_usuario').DataTable({
             
-            var dataTableactivo = $('#datos_usuario').DataTable({
+            
+                
+                "paging": false,
+                "info": false,
+                "searching": false,
                 "pageLength": 10,
                 "processing":true,
                 "serverSide":true,
@@ -385,6 +395,7 @@
                     
                 ],
                 "language": {
+                    
                 "decimal": "",
                 "emptyTable": "No hay Compras",
                 "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
@@ -405,6 +416,54 @@
                 }
             }
             });
+
+            } else{
+                dataTableactivo = $('#datos_usuario').DataTable({
+            
+            
+                
+            "paging": true,
+            "info": true,
+            "searching": true,
+            "pageLength": 10,
+            "processing":true,
+            "serverSide":true,
+            "order":[],
+            "ajax":{
+                url: "obtener_registros.php",
+                type: "POST"
+            },
+            "columnsDefs":[
+                {
+                "targets":[0, 3, 4],
+                "orderable":false,
+                },
+                
+            ],
+            "language": {
+                
+            "decimal": "",
+            "emptyTable": "No hay Compras",
+            "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+                "first": "Primero",
+                "last": "Ultimo",
+                "next": "Siguiente",
+                "previous": "Anterior"
+            }
+        }
+        });
+
+            }
 
             
 
@@ -567,174 +626,6 @@ $(document).on('click', '.editar', function(){
 
         });         
     </script>
-
-
-
-
-<script type="text/javascript">
-        $(document).ready(function(){
-
-                
-                $("#botonCrearCategorias").click(function(){
-                $("#formulario2")[0].reset();
-                $(".modal-title2").text("Crear Categoria");
-                $("#action2").val("Crear Categoria");
-                $("#operacion2").val("Crear");
-                
-                
-
-                
-            });
-            
-            var dataTable = $('#datos_categoria').DataTable({
-                "pageLength": 25,
-                "processing":true,
-                "serverSide":true,
-                "order":[],
-                "ajax":{
-                    url: "obtener_categorias.php",
-                    type: "POST"
-                },
-                "columnsDefs":[
-                    {
-                    "targets":[0, 3, 4],
-                    "orderable":false,
-                    },
-                ],
-                "language": {
-                "decimal": "",
-                "emptyTable": "No hay registros",
-                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-                "infoPostFix": "",
-                "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ Entradas",
-                "loadingRecords": "Cargando...",
-                "processing": "Procesando...",
-                "search": "Buscar:",
-                "zeroRecords": "Sin resultados encontrados",
-                "paginate": {
-                    "first": "Primero",
-                    "last": "Ultimo",
-                    "next": "Siguiente",
-                    "previous": "Anterior"
-                }
-            }
-            });
-
-            
-            
-            //Aquí código inserción
-            $(document).on('submit', '#formulario2', function(event){
-            event.preventDefault();
-            var nombre_categoria = $('#nombre_categoria').val();
-            
-        	
-		    if(nombre_categoria != '')
-                {
-                    $.ajax({
-                        url:"crear_categoria.php",
-                        method:'POST',
-                        data:new FormData(this),
-                        contentType:false,
-                        processData:false,
-                        success:function(data)
-                        {
-                            Swal.fire(
-                            'Exitoso!',
-                            'Se registro correctamente',
-                            'success'
-                            ),
-                            $('#formulario2')[0].reset();
-                            
-                            /* $('#modalcategoria').modal('hide'); */
-                            dataTable.ajax.reload();
-                            
-                        }
-                    });
-                }
-                else
-                {
-                    Swal.fire(
-                    'Algunos Campos son Obligatorios ?',
-                    'Revisa el formulario',
-                    'warning'
-                    );
-                }
-	        });
-
-        
-
-
-            //Funcionalidad de editar
-            $(document).on('click', '.editarCategoria', function(){		
-            var id_categoria = $(this).attr("id");		
-            $.ajax({
-                url:"obtener_categoria.php",
-                method:"POST",
-                data:{id_categoria:id_categoria},
-                dataType:"json",
-                success:function(data)
-                    {
-                        
-                        //console.log(data);				
-                        
-                        $('#modalcategoria').modal('show');
-                        $('#nombre_categoria').val(data.nombre_categoria);
-                        $('.modal-title2').text("Editar Categoria");
-                        $('#id_categoria').val(id_categoria);
-                      
-                        $('#action2').val("Editar Categoria");
-                        $('#operacion2').val("Editar");
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus, errorThrown);
-                    }
-                })
-	        });
-
-            //Funcionalidad de borrar
-            $(document).on('click', '.borrarCategoria', function(){
-                var id_categoria = $(this).attr("id");
-
-                Swal.fire({
-                title: 'Esta Seguro de Borrar ?',
-                text: "El Registro con el ID = " + id_categoria,
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#72db88',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, Borralo!'
-                }).then((result) => {
-                if (result.isConfirmed) {
-
-                    $.ajax({
-                        url:"borrar_categoria.php",
-                        method:"POST",
-                        data:{id_categoria:id_categoria},
-                        success:function(data)
-                        {
-                            dataTable.ajax.reload();
-                        }
-                    });
-
-                    Swal.fire(
-                    'Borrado con Exito!',
-                    'Se Elimino de la Base de datos el Activo Fijo ',
-                    'success'
-                    )
-                }
-                else{
-                    return false;
-                }
-                });
-
-            });
-
-        });         
-    </script>
-
 
 
 

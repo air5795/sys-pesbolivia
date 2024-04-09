@@ -383,16 +383,17 @@ if (!empty($_SESSION['active'])) {
           
         </div>
         <div class="col-sm-6" id="formulario-registro" style=" display:none; background-color: rgb(20 20 20);padding: 30px;border-radius: 30px;color: #78c99d;border: 1px solid #78c99d;">
-        <h2>Registrarse</h2>
+        <h2 style="text-align: center;">Registrarse</h2>
+        <hr>
         <form action="" method="post" class="fields">
 
-                            <label for="nombre">Nombre y Apellidos</label>
+                            <label for="nombre" ><i class="bi bi-person-lines-fill"></i> Nombre y Apellidos</label>
                             <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Introdusca su nombre" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
-                            <label for="correo">Tu Correo Electronico<span style="color:red">(solo Gmail Importante) </span></label>
+                            <label for="correo"><i class="bi bi-envelope"></i> Tu Correo Electronico (solo gmail)</label>
                             <input class="form-control" type="email" name="correo" id="correo" placeholder="Introdusca su correo" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
-                            <label for="usuario">Usuario</label>
+                            <label for="usuario"> <i class="bi bi-person-circle"></i> Usuario</label>
                             <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Introdusca un nombre de usuario" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
-                            <label for="clave">Constraseña</label>
+                            <label for="clave"><i class="bi bi-lock"></i> Constraseña</label>
                             <input class="form-control" type="password" name="clave" id="clave" placeholder="Introdusca una contraseña de acceso" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
                             <hr class="w-100">
                             <!-- selector--> 

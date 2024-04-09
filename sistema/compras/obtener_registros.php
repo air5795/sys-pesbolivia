@@ -69,7 +69,7 @@ if ($_SESSION['rol'] == 1) {
 
 
         $sub_array = array();
-        $sub_array[] = $fila["id_compra"];
+        $sub_array[] = 'COD-PES00'.$fila["id_compra"];
         $sub_array[] = $fila["usuario"];
         $sub_array[] = $fila["correo"];
         $sub_array[] = $tipo;
@@ -128,15 +128,58 @@ if ($_SESSION['rol'] == 1) {
         }
 
         if ($fila['estado'] == 'en espera') {
-            $estado = '<span style="font-size:12px;background-color:#ffffc2;text-align: left; color:#5a5a5a;" class="btn   w-100"><i class="bi bi-sun"></i> EN ESPERA </span>'.'<br/>';
+            $estado = '<div class="card p-0 m-0">
+            <div class="card-header bg-warning text-black p-0">
+                <h5 class="card-title m-0"> Estado de la compra : En espera</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="alert alert-warning m-0" role="alert" >
+                      (Se le avisara a su correo  : '.$fila["correo"].' cuando este Aprobado) 
+                    
+                </div>
+            </div>
+            
+        </div>';
         } else {
-            $estado = '<span style="font-size:12px;background-color:#a7ff53;text-align: left; color:#5a5a5a;font-weight: 700;" class="btn  w-100"><i class="bi bi-check"></i> COMPRA EXITOSA (REVISE SU CORREO) </span>'.'<br/>';
+            $estado = '<div class="card p-0 m-0">
+              <div class="card-header bg-success text-white p-0">
+                  <h5 class="card-title m-0">Estado de la compra :  Aprobado</h5>
+              </div>
+              <div class="card-body p-0">
+                  <div class="alert alert-success m-0" role="alert" >
+                      <i class="bi bi-check"></i>  (REVISE SU CORREO: '.$fila["correo"].') 
+                  </div>
+              </div>
+              
+          </div>';
+
+
         }
 
         if ($fila['tipo'] == 'COMPUTADORA') {
-            $tipo = '<span style="font-size:12px;background-color:#939393;text-align: left; color:white;text-align:center" class="btn  w-100"> COMPUTADORA - AIRPATCH 2024</span>'.'<br/>';
+            $tipo= '<div class="card p-0 m-0">
+            <div class="card-header bg-secondary text-white p-0">
+                <h5 class="card-title m-0">Plataforma : COMPUTADORA </h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="alert alert-secondary m-0" role="alert" >
+                    PARCHE AIRPATCH 2024
+                </div>
+            </div>
+            
+        </div>';
         } else {
-            $tipo= '<span style="font-size:12px;background-color:#143885;text-align: left; color:white;text-align:center" class="btn  w-100"> PS4/PS5 OPTION FILE - AIRPATCH 2024 </span>'.'<br/>';
+            $tipo= '<div class="card p-0 m-0">
+            <div class="card-header bg-secondary text-white p-0">
+                <h5 class="card-title m-0">Plataforma : PLAYSTATION </h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="alert alert-secondary m-0" role="alert" >
+                    OPTION FILE AIRPATCH 2024
+                </div>
+            </div>
+            
+        </div>';
         }
 
 
@@ -159,7 +202,7 @@ if ($_SESSION['rol'] == 1) {
 
        
 
-        $sub_array[] = '<button type="button" name="borrar" id="'.$fila["id_compra"].'" class="btn btn-warning btn-sm boton-w  borrar" style="background-color: #ff6060;color: white; border:none;"><i class="bi bi-trash"></i> CANCELAR SOLICITUD </button>';
+        $sub_array[] = '<button type="button" name="borrar" id="'.$fila["id_compra"].'" class="btn btn-warning btn-sm boton-w  borrar" style="background-color: #ff6060;color: white; border:none;"><i class="bi bi-trash"></i>  </button>';
        
         $datos[] = $sub_array;
     }
