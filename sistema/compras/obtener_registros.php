@@ -128,10 +128,17 @@ if ($_SESSION['rol'] == 1) {
         }
 
         if ($fila['estado'] == 'en espera') {
-            $estado = '<span style="font-size:12px;background-color:#ffffc2;text-align: left; color:#5a5a5a;" class="btn  btn-sm w-100"><i class="bi bi-sun"></i> EN ESPERA </span>'.'<br/>';
+            $estado = '<span style="font-size:12px;background-color:#ffffc2;text-align: left; color:#5a5a5a;" class="btn   w-100"><i class="bi bi-sun"></i> EN ESPERA </span>'.'<br/>';
         } else {
-            $estado = '<span style="font-size:12px;background-color:#a7ff53;text-align: left; color:#5a5a5a;font-weight: 700;" class="btn  btn-sm w-100"><i class="bi bi-check"></i> COMPRA EXITOSA (REVISE SU CORREO) </span>'.'<br/>';
+            $estado = '<span style="font-size:12px;background-color:#a7ff53;text-align: left; color:#5a5a5a;font-weight: 700;" class="btn  w-100"><i class="bi bi-check"></i> COMPRA EXITOSA (REVISE SU CORREO) </span>'.'<br/>';
         }
+
+        if ($fila['tipo'] == 'COMPUTADORA') {
+            $tipo = '<span style="font-size:12px;background-color:#939393;text-align: left; color:white;text-align:center" class="btn  w-100"> COMPUTADORA - AIRPATCH 2024</span>'.'<br/>';
+        } else {
+            $tipo= '<span style="font-size:12px;background-color:#143885;text-align: left; color:white;text-align:center" class="btn  w-100"> PS4/PS5 OPTION FILE - AIRPATCH 2024 </span>'.'<br/>';
+        }
+
 
        
 
@@ -139,15 +146,20 @@ if ($_SESSION['rol'] == 1) {
 
         $sub_array = array();
         
-        $sub_array[] = $fila["tipo"];
         
         $sub_array[] = $fila["fecha"];
+        $sub_array[] = $tipo;
+        
+        
         
         $sub_array[] = $estado;
        /*  $sub_array[] = $ficha;
         $sub_array[] = $certificado; */
 
-        $sub_array[] = '<button type="button" name="borrar" id="'.$fila["id_compra"].'" class="btn btn-warning btn-sm boton-w  borrar" style="background-color: #fbe806;color: #505050; color:#767676;">CANCELAR SOLICITUD </button>';
+
+       
+
+        $sub_array[] = '<button type="button" name="borrar" id="'.$fila["id_compra"].'" class="btn btn-warning btn-sm boton-w  borrar" style="background-color: #ff6060;color: white; border:none;"><i class="bi bi-trash"></i> CANCELAR SOLICITUD </button>';
        
         $datos[] = $sub_array;
     }

@@ -52,6 +52,7 @@ if ($_POST["operacion"] == "Crear") {
 
 
 	$correo = $_POST["email"];
+    $usuar = $_POST["usuario"];
 
 
 
@@ -85,12 +86,18 @@ if ($_POST["operacion"] == "Editar") {
             
             $mail->addAddress($correo); // Agrega el destinatario del correo electrónico
             $mail->Subject = 'Compra Exitosa ! - PESBOLIVIA ';
-            $mail->Body = 'Este es el link de ACCESO Descarga y disfruta ';
+            $mail->Body = 'Gracias por tu compra !!!, Enseguida se te dará acceso a la carpeta de Google Drive en este correo.';
+
+            // Adjuntar la imagen
+            $mail->AddEmbeddedImage('img/AIRPATCH.png', 'imagen1', 'AIRPATCH.png');
             
             if (!$mail->send()) {
                 echo 'Error al enviar el correo electrónico: ' . $mail->ErrorInfo;
             } else {
                 echo 'Correo electrónico enviado correctamente.';
+
+
+                
             }
         }
     } else {

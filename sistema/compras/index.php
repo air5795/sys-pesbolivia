@@ -53,6 +53,11 @@
 
 <div class="container-fluid  fondo ">    
 
+<div id="cargando" style="display: none;">
+    <i class="fa fa-spinner fa-spin"></i> Cargando...
+</div>
+
+
 
 
 
@@ -61,6 +66,8 @@
                             if ($_SESSION['rol'] != '1') {
                                 
                         ?>
+
+
 
                         
 
@@ -78,9 +85,10 @@
                 <li>- Realiza el pago y guarda tu comprobante (foto o captura de pantalla)</li>
                 <li>- Dar al Boton Solicitar Compra</li>
                 <li>- Coloca si quieres para (COMPUTADORA) O (PS4/PS5) y carga tu comprobante</li>
-                <li>- Envia Tu Solicitud (Esto puede demorar  30 min hasta 45 min , o ser inmediato)</li>
-                <li>- despues de esperar la solicitud entrar de nuevo a nuestra web con tu usuario y te saldra un mensaje donde dice estado en espera , que confirmara que se aprobo su solicitud. </li>
-                <li>- Si durante el tiempo esperado no cambio el estado (en espera),  comunicate por mensaje al numero 79441119 (por whatssap)</li>
+                <li>- Envia Tu Solicitud (Esto puede demorar  30 min hasta 45 min o ser inmediato , para ser aprobado) </li>
+                <li>- Una ves aprobado te llegara un correo de Compra Exitosa ! que confirmara que se aprobo su solicitud. </li>
+                <li>- Inmediatamente se te dara acceso al correo. para la posterior descarga del parche o Option file </li>
+                <li>- Si durante el tiempo esperado no cambio el estado y sigue (en espera),  comunicate por mensaje al numero 79441119 (por whatssap - Alejandro ) </li>
             </ol>
             </div>
             </div>
@@ -164,9 +172,9 @@
 
                         ?>
 
-                        
-                        <th>TIPO DE PEDIDO</th>
                         <th>FECHA DE SOLICITUD</th>
+                        <th>TIPO DE PEDIDO</th>
+                        
                         <th>ESTADO</th>
                         <th></th>
 
@@ -464,39 +472,40 @@
 
 
             //Funcionalidad de editar
-            $(document).on('click', '.editar', function(){		
-            var id_compra = $(this).attr("id");		
-            $.ajax({
-                url:"obtener_registro.php",
-                method:"POST",
-                data:{id_compra:id_compra},
-                dataType:"json",
-                success:function(data)
-                    {
-                        
-                        //console.log(data);				
-                        
-                        $('#modalproductos').modal('show');
-                        $('#estado').closest('.col-sm-12').show(); // Ocultar el campo "estado"
-                        $('#foto').closest('.col-sm-12').hide();
+$(document).on('click', '.editar', function(){     
+    var id_compra = $(this).attr("id");     
+    // Mostrar el elemento de carga
+    $('#cargando').show();
+    $.ajax({
+        url:"obtener_registro.php",
+        method:"POST",
+        data:{id_compra:id_compra},
+        dataType:"json",
+        success:function(data) {
+            // Ocultar el elemento de carga
+            $('#cargando').hide();
+            $('#modalproductos').modal('show');
+            $('#estado').closest('.col-sm-12').show(); // Ocultar el campo "estado"
+            $('#foto').closest('.col-sm-12').hide();
 
-                        $('#estado').val(data.estado);
-                        $('#tipo').val(data.tipo);
-                        $('#email').val(data.correo);
+            $('#estado').val(data.estado);
+            $('#tipo').val(data.tipo);
+            $('#email').val(data.correo);
 
-                        $('#id_compra').val(id_compra);
+            $('#id_compra').val(id_compra);
 
-                        $('.modal-title2').text("Editar compra");
-                        
-                      
-                        $('#action').val("Editar compra");
-                        $('#operacion').val("Editar");
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                    console.log(textStatus, errorThrown);
-                    }
-                })
-	        });
+            $('.modal-title2').text("Editar compra");
+            $('#action').val("Editar compra");
+            $('#operacion').val("Editar");
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.log(textStatus, errorThrown);
+            // Ocultar el elemento de carga en caso de error
+            $('#cargando').hide();
+        }
+    });
+});
+
 
             //Funcionalidad de borrar
             $(document).on('click', '.borrar', function(){

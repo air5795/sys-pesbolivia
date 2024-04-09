@@ -279,9 +279,11 @@ if (!empty($_SESSION['active'])) {
 
             <div class="btn-wrapper">
 
-              <a href="airpatch.php" class="btn btn-outline"> AIRPATCH 2024 PC </a>
+            <p class=" btn btn-success" style="font-size:medium;">Inicia Sesion !  para realizar la compra y ver las novedades de este 2024 !</p>
 
-              <a href="optionFile.php" class="btn btn-outline"> OPTION FILE 2024 PS4/PS5 </a>
+              <!-- <a href="airpatch.php" class="btn btn-outline"> AIRPATCH 2024 PC </a>
+
+              <a href="optionFile.php" class="btn btn-outline"> OPTION FILE 2024 PS4/PS5 </a> -->
 
 
             </div>
@@ -385,7 +387,7 @@ if (!empty($_SESSION['active'])) {
 
                             <label for="nombre">Nombre y Apellidos</label>
                             <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Introdusca su nombre" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
-                            <label for="correo">Correo Electronico</label>
+                            <label for="correo">Tu Correo Electronico<span style="color:red">(solo Gmail Importante)</span></label>
                             <input class="form-control" type="email" name="correo" id="correo" placeholder="Introdusca su correo" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
                             <label for="usuario">Usuario</label>
                             <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Introdusca un nombre de usuario" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
