@@ -98,7 +98,7 @@ if (empty($_SESSION['active'])) {
                                     
                                    
                                     
-                                    <a class="nav-link" href="../compras">Mis Compras</a>
+                                    <a class="nav-link" href="../compras">Mis Compras </a>
                                 </nav>
                             </div>
 
