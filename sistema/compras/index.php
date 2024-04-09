@@ -57,9 +57,12 @@
 
 
                         <?php
+                        
                             if ($_SESSION['rol'] != '1') {
                                 
                         ?>
+
+                        
 
         <div class="row">
             <div class="col-sm-12">
@@ -236,6 +239,9 @@
                         
                             <input type="hidden" name="usuario" id="usuario" class="form-control form-control-sm" value="<?php echo $_SESSION['user'] ?>">
                             <input type="hidden" name="correo" id="correo" class="form-control form-control-sm" value="<?php echo $_SESSION['correo'] ?>">
+
+                            <input type="hidden" name="email" id="email" class="form-control form-control-sm">
+                            
                             
                         
  
@@ -476,6 +482,8 @@
 
                         $('#estado').val(data.estado);
                         $('#tipo').val(data.tipo);
+                        $('#email').val(data.correo);
+
                         $('#id_compra').val(id_compra);
 
                         $('.modal-title2').text("Editar compra");
