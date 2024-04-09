@@ -279,7 +279,7 @@ if (!empty($_SESSION['active'])) {
 
             <div class="btn-wrapper">
 
-            <p class=" btn btn-success" style="font-size:medium;">Inicia Sesion !  para realizar la compra y ver las novedades de este 2024 !</p>
+            <p class=" btn btn-success" style="font-size:medium;">Inicia Sesion !  para realizar la compra y ver las novedades 2024 !</p>
 
               <!-- <a href="airpatch.php" class="btn btn-outline"> AIRPATCH 2024 PC </a>
 
