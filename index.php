@@ -374,6 +374,7 @@ if (!empty($_SESSION['active'])) {
             
 
             
+
               
           </form>
 
@@ -387,7 +388,7 @@ if (!empty($_SESSION['active'])) {
 
                             <label for="nombre">Nombre y Apellidos</label>
                             <input class="form-control " type="text" name="nombre" id="nombre" placeholder="Introdusca su nombre" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
-                            <label for="correo">Tu Correo Electronico<span style="color:red">(solo Gmail Importante)</span></label>
+                            <label for="correo">Tu Correo Electronico<span style="color:red">(solo Gmail Importante) </span></label>
                             <input class="form-control" type="email" name="correo" id="correo" placeholder="Introdusca su correo" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
                             <label for="usuario">Usuario</label>
                             <input class="form-control" type="text" name="usuario" id="usuario" placeholder="Introdusca un nombre de usuario" style="font-size: 18px;background-color: aquamarine;color: #393939;" required>
