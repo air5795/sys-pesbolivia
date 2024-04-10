@@ -35,6 +35,57 @@ if ($_SESSION['rol'] == 1) {
         <meta name="author" content="" />
         <title>PONCELET</title>
 
+        <style>
+    /* Personaliza el tamaño del modal solo para el modal específico */
+    .modal-custom .modal-dialog {
+        max-width: 90%;
+        margin: 1.75rem auto;
+    }
+
+    .table-responsive {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Cambia la orientación de la tabla para que los datos se muestren en vertical */
+@media screen and (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  th {
+    display: none; /* Oculta los encabezados */
+  }
+
+  /* Estilos adicionales para mejorar la visualización en vertical */
+  td {
+    border: none;
+    position: relative;
+  }
+
+  td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+ 
+}
+</style>
+
         
 
 
@@ -75,7 +126,7 @@ if ($_SESSION['rol'] == 1) {
 
                         
 
-        <div class="row">
+        <div class="row" style="font-size: small;">
             <div class="col-sm-12">
             
             <div class="card">
@@ -270,6 +321,148 @@ if ($_SESSION['rol'] == 1) {
                     </div>
                     </div>
                 </form>
+            </div>
+
+
+            
+        </div>
+
+
+
+        </div>
+
+        <!-- Modal NUEVO -->
+<div class="modal fade modal-custom" id="modalpagar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content" style="border-radius: 30px;" >
+            <div class="modal-header" style="text-align:center">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"> </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="color: white;border-radius:30px;background-color: crimson;"></button>
+            </div>
+            
+                
+                    
+                    
+
+                    <div class="modal-body" style="margin: 10px; text-align:center;">
+
+                    <h5>FORMAS DE PAGO</h5> <hr>
+                    <p> Elegir el metodo de pago (Transferencia, QR , Paypal , Tigo Money) </p>
+                    <p style="background-color: #198754;color: white;"> Cada Metodo de pago tiene un precio diferente por las comisiones de la plataforma, revisar </p>
+
+                    
+
+                 
+                    <div class="row">
+
+                    
+                       
+                
+                        <div class="col-sm-4" style="color: #6e6e6e;">
+
+                        
+                       
+
+                        
+
+                            <div class="row" style="background-color: #000469;color: white;padding: 10px;border-radius: 15px;font-size:small;margin-right:1px; ">
+                                <div class="col-sm-6">
+                                    <h6 style="background-color: orangered;color:white;padding:10px;border-radius: 15px;text-align: center;">TRANFERENCIA BANCARIA  </h6>
+                                    <p style="margin-top:0; margin-bottom:0;" >Banco :  <strong> Banco de Credito (BCP) </strong></p>
+                                    <p style="margin-top:0; margin-bottom:0;" >Numero de Cuenta :  <strong> 20151776129301 </strong></p>
+                                    <p style="margin-top:0; margin-bottom:0;" >Nombre : Alejandro Iglesias Raldes</p>
+                                    <p style="margin-top:0; margin-bottom:0;" >Cuenta : Cuenta Ahorro</p>
+                                    <p style="margin-top:0; margin-bottom:0;" >CI : 10478330</p>
+
+                                    <hr>
+                                    <a href="" class="btn btn-secondary disabled w-100"> 50/Bs (PC) </a> 
+                                    <hr>
+                                    <a href="" class="btn btn-secondary disabled w-100">40/Bs (Ps4/Ps5)</a>
+                                    <hr>
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6 style="background-color: orangered;color:white;padding:10px;border-radius: 15px;text-align: center;">PAGO QR  </h6>
+                                    <img src="../img/qr.jpeg" alt="" style="width: 100%;">
+                                    <a href="../img/qr.jpeg"  class="btn btn-primary w-100" download="QR.jpeg" style="padding:5px;font-size:14px;background-color: orangered;color: white;border: none;border-radius: 5px 5px 25px 25px;"">Descargar QR  </a>
+                                </div>
+                            
+
+                            
+                            </div>
+
+                        </div>
+                        
+
+                        <div class="col-sm-4" style="color: #6e6e6e;">
+
+                        <div class="row" style="background-color: #fcc10f;color: #00377c;padding: 10px;border-radius: 15px;font-size:small;margin-right:1px;">
+                                <div class="col-sm-6">
+                                    <h6 style="background-color: #00377c;color:white;padding:10px;border-radius: 15px;text-align: center;">TIGO MONEY  </h6>
+                                    <p style="margin-top:0; margin-bottom:0;" >CELULAR :  <strong> 69644019 </strong></p>
+                                    <p style="margin-top:0; margin-bottom:0;" >se cobra en tigo money un adicional de 2bs por la comision de tigo </p>
+                                    
+
+                                    <hr>
+                                    <a href="" class="btn btn-dark disabled w-100"> 52/Bs (PC) </a> 
+                                    <hr>
+                                    <a href="" class="btn btn-dark disabled w-100">42/Bs (Ps4/Ps5)</a>
+                                    <hr>
+                                    
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6 style="background-color: #00377c;color:white;padding:10px;border-radius: 15px;text-align: center;">PAGO QR  </h6>
+                                    <img src="../img/qr2.png" alt="" style="width: 100%;">
+                                    <a href="../img/qr2.png"  class="btn btn-primary w-100" download="QR.jpeg" style="padding:5px;font-size:14px;background-color: #00377c;color: white;border: none;border-radius: 5px 5px 25px 25px;"">Descargar QR  </a>
+                                </div>
+                            
+
+                            
+                            </div>
+
+                        
+                            
+                        </div>
+                        
+
+                        <div class="col-sm-4" style="color: #6e6e6e;">
+
+                        <div class="row" style="background-color: #ababab;color: #00377c;padding: 10px;border-radius: 15px;font-size:small;margin-right:1px; ">
+                                <div class="col-sm-6">
+                                    <h6 style="background-color: #00377c;color:white;padding:10px;border-radius: 15px;text-align: center;">PAYPAL  </h6>
+                                    <p style="margin-top:0; margin-bottom:0;" >se cobra en Paypal el precio de 9$ por la comision de la plataforma </p>
+                                    <script src="https://www.paypal.com/sdk/js?client-id=BAAbR13ioh5lH0_IoB5k5Zm8u19Pu6bmZK6DXTfH_VCiKFjGDV7D3jvYJftd6kxz2DSi3V-akfQ1GG-AVg&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+                                    <div id="paypal-container-CJ5BYW4EHBDTC"></div>
+                                    <script>
+                                    paypal.HostedButtons({
+                                        hostedButtonId: "CJ5BYW4EHBDTC",
+                                    }).render("#paypal-container-CJ5BYW4EHBDTC")
+                                    </script>
+                                    
+                                </div>
+                                <div class="col-sm-6">
+                                    <h6 style="background-color: #00377c;color:white;padding:10px;border-radius: 15px;text-align: center;">PAGO QR  </h6>
+                                    <img src="../img/qr3.png" alt="" style="width: 100%;">
+                                    <a href="../img/qr3.png"  class="btn btn-primary w-100" download="QR.jpeg" style="padding:5px;font-size:14px;background-color: #00377c;color: white;border: none;border-radius: 5px 5px 25px 25px;"">Descargar QR  </a>
+                                </div>
+                            
+
+                            
+                            </div>
+
+                        
+                            
+                        </div>
+
+                        
+                                                
+                        
+
+
+                    </div>
+                   
+                    </div>
+                 
+                
             </div>
 
 
