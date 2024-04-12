@@ -46,40 +46,48 @@ if ($_SESSION['rol'] == 1) {
 
         $imagen = '';
         if($fila["foto"] != '' ){
-            $imagen = '<img class="gallery-item boton-w" src="comprobantes/'.$fila['foto'].'" height="70px"   id="comprobantes/'.$fila['foto'].'">';
+            /* $imagen = '<img class="gallery-item " src="comprobantes/'.$fila['foto'].'" height="50px" width="30px"   id="comprobantes/'.$fila['foto'].'">'; */
+            $imagen = '<a style="font-size:12px;background-color:#4b4b4b;text-align: left; color:white; text-align:center" class="btn  w-100 gallery-item" id="comprobantes/'.$fila['foto'].'"> <i class="fa-solid fa-eye"></i> Ver Comprobante  </a>';
             //$image = '<a class="btn btn-outline-primary btn-sm gallery-item boton-w"  id="actas/'.$fila['image'].'"><i class="fa-solid fa-image"></i> </a>';
         }else{
             $imagen = '<a class="btn btn-outline-secondary btn-sm gallery-item boton-w disabled" id=""><i class="fa-solid fa-ban"></i> </a>';
         }
 
         if ($fila['estado'] == 'en espera') {
-            $estado = '<span style="font-size:12px;background-color:#ffc3c3;text-align: left; color:#5a5a5a;" class="btn  w-100"><i class="bi bi-exclamation-circle"></i> EN ESPERA </span>'.'<br/>';
+            $estado = '<span style="font-size:12px;background-color:#d91212;text-align: left; color:white; text-align:center" class="btn  w-100"><i class="bi bi-exclamation-circle"></i> EN ESPERA </span>'.'<br/>';
         } else {
-            $estado = '<span style="font-size:12px;background-color:#cbff9a;text-align: left; color:#5a5a5a;" class="btn  w-100"><i class="bi bi-check"></i> COMPRA APROBADA </span>'.'<br/>';
+            $estado = '<span style="font-size:12px;background-color:#cbff9a;text-align: left; color:#5a5a5a;text-align:center" class="btn  w-100"><i class="bi bi-check"></i> COMPRA APROBADA </span>'.'<br/>';
         }
 
         if ($fila['tipo'] == 'COMPUTADORA') {
-            $tipo = '<span style="font-size:12px;background-color:#939393;text-align: left; color:white;text-align:center" class="btn  w-100"> COMPUTADORA</span>'.'<br/>';
+            $tipo = '<span style="font-size:12px;background-color:#212529;text-align: left; color:white;text-align:center" class="btn  w-100"> COMPUTADORA</span>'.'<br/>';
         } else {
             $tipo= '<span style="font-size:12px;background-color:#143885;text-align: left; color:white;text-align:center" class="btn  w-100"> PS4/PS5 </span>'.'<br/>';
         }
+
+
+        $compra =  '<span style="font-size:12px;background-color:#1e953c;text-align: left; color:white;text-align:center" class="btn  w-100">COMPRA COD-00'.$fila["id_compra"].' </span>'.'<br/>';
+        $person =  '<span style="font-size:12px;background-color:white;text-align: left; color:black;text-align:center;user-select: text;border-bottom: 1px solid #28c750" class="btn  w-100"> '.$fila["usuario"].' </span>'.'<br/>';
+        $corre = '<span style="font-size:12px;background-color:white;text-align: left; color:black;text-align:center; user-select: text;border-bottom: 1px solid #28c750" class="btn  w-100"> '.$fila["correo"].' </span>'.'<br/>';
+        $fech = '<span style="font-size:12px;background-color:white;text-align: left; color:black;text-align:center; user-select: text;border-bottom: 1px solid #28c750" class="btn  w-100"> '.$fila["fecha"].' </span>'.'<br/>';
 
        
 
 
 
         $sub_array = array();
-        $sub_array[] = 'COD-PES00'.$fila["id_compra"];
-        $sub_array[] = $fila["usuario"];
-        $sub_array[] = $fila["correo"];
+        $sub_array[] = $compra;
         $sub_array[] = $tipo;
+        $sub_array[] = $person;
+        $sub_array[] = $corre;
         
-        $sub_array[] = $fila["fecha"];
+        
+        $sub_array[] = $fech;
         $sub_array[] = $imagen;
         $sub_array[] = $estado;
        /*  $sub_array[] = $ficha;
         $sub_array[] = $certificado; */
-        $sub_array[] = '<button type="button" name="editar" id="'.$fila["id_compra"].'" class="btn btn-warning btn-sm boton-w  editar" style="background-color: #fbe806;color: #505050; color:#767676;"><i class="fa-solid fa-pencil"></i> </button>';
+        $sub_array[] = '<button type="button" name="editar" id="'.$fila["id_compra"].'" class="btn btn-warning btn-sm boton-w  editar" style="background-color: #fbe806;color: #505050; color:#767676;"><i class="fa-solid fa-pencil"></i> Editar </button>';
         
         $datos[] = $sub_array;
     }
@@ -128,7 +136,7 @@ if ($_SESSION['rol'] == 1) {
         }
 
         if ($fila['estado'] == 'en espera') {
-            $estado = '<div class="card p-0 m-0">
+            $estado = '<div class="card p-0 m-0" style="text-align:center">
             <div class="card-header bg-warning text-black p-0">
                 <h5 class="card-title m-0"> Estado de la compra : En espera</h5>
             </div>
@@ -141,7 +149,7 @@ if ($_SESSION['rol'] == 1) {
             
         </div>';
         } else {
-            $estado = '<div class="card p-0 m-0">
+            $estado = '<div class="card p-0 m-0" style="text-align:center">
               <div class="card-header bg-success text-white p-0">
                   <h5 class="card-title m-0">Estado de la compra :  Aprobado</h5>
               </div>
@@ -157,7 +165,7 @@ if ($_SESSION['rol'] == 1) {
         }
 
         if ($fila['tipo'] == 'COMPUTADORA') {
-            $tipo= '<div class="card p-0 m-0">
+            $tipo= '<div class="card p-0 m-0" style="text-align:center">
             <div class="card-header bg-secondary text-white p-0">
                 <h5 class="card-title m-0">Plataforma : COMPUTADORA </h5>
             </div>
@@ -169,7 +177,7 @@ if ($_SESSION['rol'] == 1) {
             
         </div>';
         } else {
-            $tipo= '<div class="card p-0 m-0">
+            $tipo= '<div class="card p-0 m-0" style="text-align:center">
             <div class="card-header bg-secondary text-white p-0">
                 <h5 class="card-title m-0">Plataforma : PLAYSTATION </h5>
             </div>
@@ -182,7 +190,7 @@ if ($_SESSION['rol'] == 1) {
         </div>';
         }
 
-
+        $fec = '<span style="font-size:12px;background-color:white;text-align: left; color:black;text-align:center; user-select: text;border-bottom: 1px solid #28c750" class="btn  w-100"> Solicitud: '.$fila["fecha"].' </span>'.'<br/>';
        
 
 
@@ -190,7 +198,7 @@ if ($_SESSION['rol'] == 1) {
         $sub_array = array();
         
         
-        $sub_array[] = $fila["fecha"];
+        $sub_array[] = $fec;
         $sub_array[] = $tipo;
         
         

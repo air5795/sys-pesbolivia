@@ -51,10 +51,9 @@ table {
   border-collapse: collapse;
 }
 
-td {
+th, td {
   padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
 /* Cambia la orientación de la tabla para que los datos se muestren en vertical */
@@ -71,19 +70,31 @@ td {
   td {
     border: none;
     position: relative;
+    padding-left: 80px; /* Espacio para el título en la vista móvil */
   }
 
-  td:before {
+  /* Establecer estilos para el título en la vista móvil */
+  th {
     position: absolute;
-    top: 6px;
-    left: 6px;
-    width: 45%;
-    padding-right: 10px;
-    white-space: nowrap;
+    left: 8px;
+    width: 70px; /* Ancho del título en la vista móvil */
+    border-bottom: 5px solid #ddd; /* Agregar borde inferior al título */
+    margin-top: 10px; /* Espaciado superior entre grupos */
   }
 
- 
+  /* Agregar bordes entre grupos de datos */
+  tr {
+    border-bottom: 5px solid black;
+    margin-bottom: 20px; /* Espaciado inferior entre grupos */
+    background-color: white !important;
+  }
+
+  tr:last-child {
+    border-bottom: none; /* Eliminar borde inferior para la última fila */
+  }
 }
+
+
 </style>
 
         
@@ -144,6 +155,9 @@ td {
                 <li>- Una ves aprobado te llegara un correo de Compra Exitosa ! que confirmara que se aprobo su solicitud. </li>
                 <li>- Inmediatamente se te dara acceso al correo. para la posterior descarga del parche o Option file </li>
                 <li>- Si durante el tiempo esperado no cambio el estado y sigue (en espera),  comunicate por mensaje al numero 79441119 (por whatssap - Alejandro ) </li>
+                <hr>
+                <p> <STRONG>NOTA - FECHA DE SALIDA : 17 DE ABRIL DE 2024 (YA PUEDE ESTAR REALIZANDO SU SOLICITUD PERO SE ENTREGARA EL DIA DE LANZAMIENTO ) </STRONG></p>
+
             </ol>
             </div>
             </div>
@@ -209,14 +223,15 @@ td {
                             if ($_SESSION['rol'] == '1') {
                                 
                         ?>
-                        <th>COD-COMPRA</th>
-                        <th>USUARIO</th>
-                        <th>CORREO</th>
-                        <th>TIPO</th>
-                        <th>FECHA DE SOLICITUD</th>
-                        <th width="5px">COMPROBANTE</th>
-                        <th>ESTADO</th>
-                        <th></th>
+                        <th >COD-COMPRA</th>
+                        <th >TIPO</th>
+                        <th >USUARIO</th>
+                        <th >CORREO</th>
+                        
+                        <th >FECHA DE SOLICITUD</th>
+                        <th >COMPROBANTE</th>
+                        <th >ESTADO</th>
+                        <th ></th>
                         
 
 
@@ -230,8 +245,8 @@ td {
                         <th >FECHA DE SOLICITUD</th>
                         <th >TIPO DE PEDIDO</th>
                         
-                        <th>ESTADO</th>
-                        <th></th>
+                        <th >ESTADO</th>
+                        <th ></th>
 
                         <?php
                                 
@@ -618,7 +633,7 @@ td {
             "paging": true,
             "info": true,
             "searching": true,
-            "pageLength": 10,
+            "pageLength": 15,
             "processing":true,
             "serverSide":true,
             "order":[],
