@@ -286,7 +286,8 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
 
                                                 
                                                 </ul>
-                                                <button type="button" class="w-100 btn btn-lg btn-outline-primary"><i class="bi bi-bag"></i> Comprar Ahora</button> <hr>
+                                                <a class="w-100 btn btn-lg btn-outline-primary" href="compras/"><i class="bi bi-bag"></i>Comprar Ahora</a> 
+                                                <hr>
                                                 <button style="font-size: x-large;" type="button" class="btn btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#pc">
                                                 <i class="bi bi-eye"></i> Ver Novedades</button>
 

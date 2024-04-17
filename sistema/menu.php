@@ -104,6 +104,31 @@ if (empty($_SESSION['active'])) {
                             </div>
 
 
+
+
+                            <?php
+    // Suponiendo que ya tienes una conexión a la base de datos establecida
+    // y que el ID del usuario actual está almacenado en $_SESSION['usuario_id']
+    
+    // Realizar una consulta para obtener el estado de la compra y el nombre de usuario del usuario actual
+    
+    $consulta = "SELECT estado, usuario FROM compras WHERE usuario = '{$_SESSION['user']}' LIMIT 1";
+
+    $resultado = mysqli_query($conexion, $consulta);
+
+    
+    // Verificar si se encontró una fila en el resultado
+    if ($resultado && mysqli_num_rows($resultado) > 0) {
+        // Obtener el estado de la compra y el nombre de usuario de la primera fila
+        $fila = mysqli_fetch_assoc($resultado);
+        $estado_compras = $fila['estado'];
+        $nombre_usuario = $fila['usuario'];
+
+        // Verificar si el estado de las compras es 'aprobado'
+        if ($_SESSION['rol'] != 1 && $estado_compras == 'aprobado') {
+?>
+
+
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseis" aria-expanded="false" aria-controls="pagesCollapseError">
                             <div class="sb-nav-link-icon"><i class="bi bi-file-text"></i></div>
                                 Instalación
@@ -129,12 +154,13 @@ if (empty($_SESSION['active'])) {
 
 
 
-                        <?php
+                            <?php
+                        } } 
                         
                         if ($_SESSION['rol'] == 1) {
-                            # code..
+                            
                         
-                        ?>      
+                        ?> 
                         
                         
 
