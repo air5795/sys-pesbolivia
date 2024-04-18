@@ -90,8 +90,8 @@ if (!empty($resultado)) {
         $mail->Subject = 'Compra Exitosa ! - PESBOLIVIA ';
         $mail->Body = 'Gracias por tu compra !!!, Enseguida se te dará acceso a la carpeta de Google Drive en este correo.';
 
-        // Adjuntar la imagen
-        $mail->AddEmbeddedImage('img/AIRPATCH.png', 'imagen1', 'AIRPATCH.png');
+        /* // Adjuntar la imagen
+        $mail->AddEmbeddedImage('img/AIRPATCH.png', 'imagen1', 'AIRPATCH.png'); */
 
         if (!$mail->send()) {
             echo 'Error al enviar el correo electrónico: ' . $mail->ErrorInfo;
