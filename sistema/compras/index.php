@@ -572,7 +572,7 @@ th, td {
                 /* $("#ficha").html("");
                 $("#certificado").html(""); */
                 // Llamada a la función al cargar la página para inicializar las opciones del select
-                reloadCategoriaSelect();
+                
 
                 
             });
@@ -723,7 +723,7 @@ th, td {
                             $('#formulario')[0].reset();
                             $('#modalproductos').modal('hide');
                             dataTableactivo.ajax.reload();
-                            reloadCategoriaSelect();
+                            
                         }
                     });
                 }
