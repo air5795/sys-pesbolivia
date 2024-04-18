@@ -84,7 +84,7 @@ if ($_POST["operacion"] == "Editar") {
             $mail->SMTPSecure = 'tls';
             $mail->setFrom('airpatch@pesbolivia.airsoftbol.com', 'pesbolivia');
             
-            $mail->addAddress($correo); // Agrega el destinatario del correo electrónico
+            $mail->addAddress('ale.empresa2@gmail.com'); // Agrega el destinatario del correo electrónico
             $mail->Subject = 'Compra Exitosa ! - PESBOLIVIA ';
             $mail->Body = 'Gracias por tu compra !!!, Enseguida se te dará acceso a la carpeta de Google Drive en este correo.';
 
