@@ -30,10 +30,10 @@ if ($_SESSION['rol'] == 1) {
 
         
 
-        <link rel="shortcut icon" href="../img/ICONO.png">
+        
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>PONCELET</title>
+        <title>PESBOLIVIA</title>
 
         <style>
     /* Personaliza el tamaño del modal solo para el modal específico */
