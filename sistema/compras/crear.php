@@ -68,39 +68,38 @@ if ($_POST["operacion"] == "Editar") {
         )
     );
 
-    if (!empty($resultado)) {
-        echo 'exito editado.';
+    // Definir una variable para controlar el envío del correo electrónico
+$enviarCorreo = false;
 
-        
-        // Verifica si el estado ha cambiado a "Enviado" y envía un correo electrónico
-        if ($_POST["estado"] == "aprobado") {
-            $mail = new PHPMailer(true);
-            $mail->isSMTP();
-            $mail->Host = 'smtp.titan.email';
-            $mail->Port = 587; // Puedes cambiarlo según la configuración de tu servidor
-            $mail->SMTPAuth = true;
-            $mail->Username = 'airpatch@pesbolivia.airsoftbol.com';
-            $mail->Password = '123456789Ale*';
-            $mail->SMTPSecure = 'tls';
-            $mail->setFrom('airpatch@pesbolivia.airsoftbol.com', 'pesbolivia');
-            
-            $mail->addAddress($correo); // Agrega el destinatario del correo electrónico
-            $mail->Subject = 'Compra Exitosa ! - PESBOLIVIA ';
-            $mail->Body = 'Gracias por tu compra !!!, Enseguida se te dará acceso a la carpeta de Google Drive en este correo.';
+if (!empty($resultado)) {
+    echo 'exito editado.';
 
-            // Adjuntar la imagen
-            $mail->AddEmbeddedImage('img/AIRPATCH.png', 'imagen1', 'AIRPATCH.png');
-            
-            if (!$mail->send()) {
-                echo 'Error al enviar el correo electrónico: ' . $mail->ErrorInfo;
-            } else {
-                echo 'Correo electrónico enviado correctamente.';
+    // Verifica si el estado ha cambiado a "Enviado" o si se debe forzar el envío del correo electrónico
+    if ($_POST["estado"] == "aprobado" || $enviarCorreo) {
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host = 'smtp.titan.email';
+        $mail->Port = 587; // Puedes cambiarlo según la configuración de tu servidor
+        $mail->SMTPAuth = true;
+        $mail->Username = 'airpatch@pesbolivia.airsoftbol.com';
+        $mail->Password = '123456789Ale*';
+        $mail->SMTPSecure = 'tls';
+        $mail->setFrom('airpatch@pesbolivia.airsoftbol.com', 'pesbolivia');
 
+        $mail->addAddress($correo); // Agrega el destinatario del correo electrónico
+        $mail->Subject = 'Compra Exitosa ! - PESBOLIVIA ';
+        $mail->Body = 'Gracias por tu compra !!!, Enseguida se te dará acceso a la carpeta de Google Drive en este correo.';
 
-                
-            }
+        // Adjuntar la imagen
+        $mail->AddEmbeddedImage('img/AIRPATCH.png', 'imagen1', 'AIRPATCH.png');
+
+        if (!$mail->send()) {
+            echo 'Error al enviar el correo electrónico: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Correo electrónico enviado correctamente.';
         }
-    } else {
-        echo 'Error al actualizar el registro en la base de datos.';
     }
+} else {
+    echo 'Error al actualizar el registro en la base de datos.';
+}
 }
