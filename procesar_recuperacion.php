@@ -43,7 +43,7 @@ if(isset($_POST['email'])){
         $mail->Subject = 'Recuperacion de Clave de Acceso';
 
         // Obtener la URL base del sitio web (localhost)
-        $base_url = 'http://localhost';
+        $base_url = 'https://pesbolivia.airsoftbol.com';
 
         // Componer la URL completa para la página de restablecimiento
         $reset_url = $base_url . '/sys-pesbolivia/restablecer.php?email=' . urlencode($email) . '&token=' . $token;
