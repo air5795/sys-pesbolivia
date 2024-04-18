@@ -283,10 +283,14 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
                                                 <li>Libertadores 2024</li>
                                                 <li>Champions league 2024</li>
                                                 <li>Futura actualización Copa América</li>
+                                                <hr>
+                                                <li class="btn btn-sm btn-outline-dark ">
+                                                    La compra solo es válida para la temporada 2024. Cualquier actualización gratuita estará disponible siempre que sea para la temporada adquirida.
+                                                </li>
 
                                                 
                                                 </ul>
-                                                <a class="w-100 btn btn-lg btn-outline-primary" href="compras/"><i class="bi bi-bag"></i>Comprar Ahora</a> 
+                                                <a class="w-100 btn btn-lg btn-outline-danger" href="compras/"><i class="bi bi-bag"></i> Comprar Ahora</a> 
                                                 <hr>
                                                 <button style="font-size: x-large;" type="button" class="btn btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#pc">
                                                 <i class="bi bi-eye"></i> Ver Novedades</button>
@@ -311,15 +315,20 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
                                                 <li>Libertadores 2024</li>
                                                 <li>Champions league 2024</li>
                                                 <li>Futura actualización Copa América</li>
+                                                <hr>
+                                                <li class="btn btn-sm btn-outline-dark ">
+                                                    La compra solo es válida para la temporada 2024. Cualquier actualización gratuita estará disponible siempre que sea para la temporada adquirida.
+                                                </li>
 
                                                 
                                                 </ul>
-                                                <a class="w-100 btn btn-lg btn-outline-primary" href="compras/"><i class="bi bi-bag"></i>Comprar Ahora</a>
+                                                <a class="w-100 btn btn-lg btn-outline-danger" href="compras/"><i class="bi bi-bag"></i> Comprar Ahora</a>
                                                 <hr>
                                                
 
-                                                <button style="font-size: x-large;" type="button" class="btn btn-outline-secondary  w-100" data-bs-toggle="modal" data-bs-target="#ps4">
-                                        <i class="bi bi-eye"></i> Ver Novedades</button>
+                                                <button style="font-size: x-large;" type="button" class="btn btn-outline-secondary  w-100" 
+                                                data-bs-toggle="modal" data-bs-target="#ps4">
+                                                <i class="bi bi-eye"></i> Ver Novedades</button>
                                             </div>
                                             </div>
                                         </div>
@@ -363,54 +372,37 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
 
                     <!-- Modal pc-->
                     <div class="modal fade" id="pc" tabindex="-1" aria-labelledby="pc" aria-hidden="true">
-                    <div class="modal-dialog modal-fullscreen modal-dialog-dark">
+                    <div class="modal-dialog modal-xl modal-dialog-dark">
                         <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="pc">Airpatch 2024 PC</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
+
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                                <img src="img/1.png" alt="">
+
+
+                            </div>
+                            <div class="col-sm-6">
+
+                                
+                            <img src="img/A.png" alt="">
+
+                            </div>
+
+
+
+                        </div>
                         
-                        <div class="card-group">
-                            <div class="card">
-                                <img src="../assets/images/AIR/12.jpg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                </div>
-                                <div class="card-footer">
-                                <small class="text-body-secondary">Last updated 3 mins ago</small>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                </div>
-                                <div class="card-footer">
-                                <small class="text-body-secondary">Last updated 3 mins ago</small>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                </div>
-                                <div class="card-footer">
-                                <small class="text-body-secondary">Last updated 3 mins ago</small>
-                                </div>
-                            </div>
-                            </div>
-                            
+                        
+                        
                         
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                        </div>
+                    </div>
                     </div>
                     </div>
 
@@ -418,14 +410,30 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
 
                     <!-- Modal ps4/ps5 -->
                     <div class="modal fade" id="ps4" tabindex="-1" aria-labelledby="ps4" aria-hidden="true">
-                    <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-dialog modal-xl">
                         <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="ps4">Option File Airptach 2024 ps4/ps5</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            ...
+                        <div class="row">
+                            <div class="col-sm-6">
+
+                                <img src="img/2.png" alt="">
+
+
+                            </div>
+                            <div class="col-sm-6">
+
+                                
+                            <img src="img/B.png" alt="">
+
+                            </div>
+
+
+
+                        </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
