@@ -156,7 +156,7 @@ th, td {
                 <li>- Inmediatamente se te dara acceso al correo. para la posterior descarga del parche o Option file </li>
                 <li>- Si durante el tiempo esperado no cambio el estado y sigue (en espera),  comunicate por mensaje al numero 79441119 (por whatssap - Alejandro ) </li>
                 <hr>
-                <p> <STRONG>NOTA - FECHA DE SALIDA : 17 DE ABRIL DE 2024 (YA PUEDE ESTAR REALIZANDO SU SOLICITUD PERO SE ENTREGARA EL DIA DE LANZAMIENTO ) </STRONG></p>
+                <p> <STRONG>NOTA - FECHA DE SALIDA : 20 DE ABRIL DE 2024 hr:20:00 (YA PUEDE ESTAR REALIZANDO SU SOLICITUD PERO SE ENTREGARA POR ORDEN EL DIA DE LANZAMIENTO ) </STRONG></p>
 
             </ol>
             </div>

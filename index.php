@@ -706,7 +706,7 @@ $(document).ready(function(){
 <script>
     // Función para actualizar el contador cada segundo
     function actualizarContador() {
-        var fechaSalida = new Date("April 17, 2024 20:00:00").getTime(); // Fecha de salida
+        var fechaSalida = new Date("April 20, 2024 20:00:00").getTime(); // Fecha de salida
         var ahora = new Date().getTime(); // Fecha actual
         var diferencia = fechaSalida - ahora; // Diferencia de tiempo en milisegundos
 
@@ -717,7 +717,7 @@ $(document).ready(function(){
         var segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
 
         // Mostrar el contador en el elemento con id "contador"
-        document.getElementById("contador").innerHTML = "FECHA DE SALIDA :  17 de Abril /  " + dias + "d " + horas + "h "
+        document.getElementById("contador").innerHTML = "FECHA DE SALIDA :  20 de Abril /  " + dias + "d " + horas + "h "
         + minutos + "m " + segundos + "s " ;
 
         // Actualizar el contador cada segundo
