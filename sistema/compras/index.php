@@ -703,7 +703,7 @@ th, td {
                 }
             }
 
-           
+            $("#action").prop("disabled", true);
             	
 		    if(usuario != '' && correo != '' && tipo != '')
                 {
@@ -715,6 +715,9 @@ th, td {
                         processData:false,
                         success:function(data)
                         {
+                            // Habilitar el botón después de que se complete la solicitud
+                            $("#action").prop("disabled", false);
+
                             Swal.fire(
                             'Exitoso!',
                             'Se registro correctamente',
