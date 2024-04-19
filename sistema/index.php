@@ -263,7 +263,9 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
                                     </div>
                                         
 
-                                        <hr>
+                                        
+
+                                       
                                         
                                         <div class="row  text-center">
                                         <div class="col-sm-6">
@@ -286,6 +288,9 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
                                                 <hr>
                                                 <li class="btn btn-sm btn-outline-dark ">
                                                     La compra solo es válida para la temporada 2024. Cualquier actualización gratuita estará disponible siempre que sea para la temporada adquirida.
+                                                </li>
+                                                <li class="btn btn-sm btn-outline-success">
+                                                Para los usuarios de PC : que tengan el juego original corre sin problemas , los de la version CPY Pirata crakeada tiene crasheos inesperados solo en liga master
                                                 </li>
 
                                                 

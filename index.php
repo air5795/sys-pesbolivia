@@ -74,7 +74,7 @@ if (!empty($_SESSION['active'])) {
     - primary meta tags
   -->
   <title>PES-BOLIVIA</title>
-  <meta name="title" content="Adex">
+  <meta name="title" content="PESBOLIVIA">
   <meta name="description" content="PESBOLIVIA EDICION PARACHE LIGA BOLIVIANA">
 
   <!-- 
