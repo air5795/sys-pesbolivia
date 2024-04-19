@@ -38,7 +38,7 @@ if(isset($_POST['email'])){
         $base_url = 'https://pesbolivia.airsoftbol.com';
 
         // Componer la URL completa para la página de restablecimiento
-        $reset_url = $base_url . '/sys-pesbolivia/restablecer.php?email=' . urlencode($email) . '&token=' . $token;
+        $reset_url = $base_url . '/restablecer.php?email=' . urlencode($email) . '&token=' . $token;
 
         // Configurar el contenido del correo electrónico con el enlace de restablecimiento de contraseña
         $mail->Body = 'Haz clic en el siguiente enlace para restablecer tu contraseña: <a href="' . $reset_url . '">Restablecer Contraseña</a>';
