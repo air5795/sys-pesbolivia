@@ -68,14 +68,13 @@ if ($_POST["operacion"] == "Editar") {
         )
     );
 
-    // Definir una variable para controlar el envío del correo electrónico
-$enviarCorreo = false;
+
 
 if (!empty($resultado)) {
     echo 'exito editado.';
 
     // Verifica si el estado ha cambiado a "Enviado" o si se debe forzar el envío del correo electrónico
-    if ($_POST["estado"] == "aprobado" || $enviarCorreo) {
+    if ($_POST["estado"] == "aprobado" ) {
         $mail = new PHPMailer(true);
         $mail->isSMTP();
         $mail->Host = 'smtp.titan.email';

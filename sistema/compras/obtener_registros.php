@@ -54,9 +54,13 @@ if ($_SESSION['rol'] == 1) {
         }
 
         if ($fila['estado'] == 'en espera') {
-            $estado = '<span style="font-size:12px;background-color:#d91212;text-align: left; color:white; text-align:center" class="btn  w-100"><i class="bi bi-exclamation-circle"></i> EN ESPERA </span>'.'<br/>';
-        } else {
+            $estado = '<span style="font-size:12px;background-color:#fff37a;text-align: left; color:black; text-align:center" class="btn  w-100"><i class="bi bi-exclamation-circle"></i> EN ESPERA </span>'.'<br/>';
+        } if ($fila['estado'] == 'aprobado') {
             $estado = '<span style="font-size:12px;background-color:#cbff9a;text-align: left; color:#5a5a5a;text-align:center" class="btn  w-100"><i class="bi bi-check"></i> COMPRA APROBADA </span>'.'<br/>';
+        } if ($fila['estado'] == 'rechazado') {
+            $estado = '<span style="font-size:12px;background-color:#c11414;text-align: left; color:#f9f9f9;text-align:center" class="btn  w-100"><i class="bi bi-ban"></i> SOLICITUD RECHAZADA </span>'.'<br/>';
+        } if ($fila['estado'] == 'regalo') {
+            $estado = '<span style="font-size:12px;background-color:#673ca3;text-align: left; color:#f9f9f9;text-align:center" class="btn  w-100"><i class="bi bi-gift"></i> REGALO </span>'.'<br/>';
         }
 
         if ($fila['tipo'] == 'COMPUTADORA') {

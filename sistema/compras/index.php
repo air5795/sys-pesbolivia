@@ -301,7 +301,10 @@ th, td {
                             <select name="estado" id="estado" class="form-control form-control-sm">
                                 <option value="">Selecciona un Estado</option>
                                 <option value="en espera">en espera</option>
-                                <option value="aprobado">Aprobado</option>
+                                <option value="aprobado">Aprobar</option>
+                                <option value="rechazado">Rechazar</option>
+                                <option value="regalo">Regalar</option>
+
                             </select>
                         </div>
                                                 

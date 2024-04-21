@@ -271,11 +271,7 @@ if (!empty($_SESSION['active'])) {
 
             <h1 class="h1 hero-title">PES BOLIVIA</h1>
 
-            <p class="">
-              <!-- Parche liga Boliviana 2024 , comunidad de PES en Bolivia. -->
-              <div class="btn btn-outline" id="contador" style="border-radius: 2px; "></div>
-              
-            </p>
+            
 
             <div class="btn-wrapper">
 
@@ -287,6 +283,8 @@ if (!empty($_SESSION['active'])) {
 
 
             </div>
+
+            <br><br>
 
           </div>
 
