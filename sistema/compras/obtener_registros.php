@@ -152,7 +152,7 @@ if ($_SESSION['rol'] == 1) {
             </div>
             
         </div>';
-        } else {
+        } if ($fila['estado'] == 'aprobado') {
             $estado = '<div class="card p-0 m-0" style="text-align:center">
               <div class="card-header bg-success text-white p-0">
                   <h5 class="card-title m-0">Estado de la compra :  Aprobado</h5>
@@ -160,6 +160,36 @@ if ($_SESSION['rol'] == 1) {
               <div class="card-body p-0">
                   <div class="alert alert-success m-0" role="alert" >
                       <i class="bi bi-check"></i>  (REVISE SU CORREO: '.$fila["correo"].') 
+                  </div>
+              </div>
+              
+          </div>';
+
+
+        } if ($fila['estado'] == 'rechazado'){
+
+            $estado = '<div class="card p-0 m-0" style="text-align:center">
+              <div class="card-header bg-danger text-white p-0">
+                  <h5 class="card-title m-0">Estado de la compra :  RECHAZADO</h5>
+              </div>
+              <div class="card-body p-0">
+                  <div class="alert alert-danger m-0" role="alert" >
+                        (SOLICITUD RECHAZADA ) 
+                  </div>
+              </div>
+              
+          </div>';
+
+
+        } if ($fila['estado'] == 'regalo'){
+
+            $estado = '<div class="card p-0 m-0" style="text-align:center">
+              <div class="card-header bg-info text-white p-0">
+                  <h5 class="card-title m-0">REGALO</h5>
+              </div>
+              <div class="card-body p-0">
+                  <div class="alert alert-info m-0" role="alert" >
+                        (REGALO DE PARTE AIRPATCH : REVISA TU CORREO  ) 
                   </div>
               </div>
               
