@@ -105,7 +105,7 @@ include '../conexion.php';
 
                             
                         
-                        <?php
+    <?php
     // Suponiendo que ya tienes una conexión a la base de datos establecida
     // y que el ID del usuario actual está almacenado en $_SESSION['usuario_id']
     
@@ -143,8 +143,8 @@ include '../conexion.php';
                                     <!--<a class="nav-link" href="categorias_i.php">Categorias mercaderia</a> 
                                     <a class="nav-link" href="inventario_i.php">Gestor Inventario</a>-->
                                     
-                                    <a class="nav-link" href="instalacionpc/">Instalacion PC</a>
-                                    <a class="nav-link" href="instalacionplay/">Instalacion Ps4/Ps5</a>
+                                    <a class="nav-link" href="instalacionpc.php">Instalacion PC</a>
+                                    <a class="nav-link" href="instalacionps4.php">Instalacion Ps4/Ps5</a>
                                 </nav>
                             </div>
 

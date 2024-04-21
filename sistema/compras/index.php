@@ -661,84 +661,97 @@ th, td {
             });
         }
 
-        //Aquí código inserción
-        $(document).on('submit', '#formulario', function(event){
-            event.preventDefault();
-            // Verificar si ya hay una solicitud en curso
-            if (isProcessing) {
-                return; // Ignorar la solicitud si ya se está procesando una
-            }
-            // Establecer la bandera en true para indicar que se está procesando una solicitud
-            isProcessing = true;
+       //Aquí código inserción
+$(document).on('submit', '#formulario', function(event){
+    event.preventDefault();
+    // Verificar si ya hay una solicitud en curso
+    if (isProcessing) {
+        return; // Ignorar la solicitud si ya se está procesando una
+    }
+    // Establecer la bandera en true para indicar que se está procesando una solicitud
+    isProcessing = true;
 
-            var usuario = $('#usuario').val();
-            var correo = $('#tipo').val();
-            var tipo = $('#tipo').val();
-            /* var estado = $('#estado').val(); */
-            
-            var extension = $('#foto').val().split('.').pop().toLowerCase();
-            /* var extension2 = $('#ficha').val().split('.').pop().toLowerCase();
-            var extension3 = $('#certificado').val().split('.').pop().toLowerCase(); */
-            if(extension != '') {
-                if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1) {
-                    alert("Fomato de imagen inválido");
-                    $('#foto').val('');
-                    isProcessing = false; // Restablecer la bandera en caso de error
-                    return false;
-                }
-            }
+    var usuario = $('#usuario').val();
+    var correo = $('#tipo').val();
+    var tipo = $('#tipo').val();
+    /* var estado = $('#estado').val(); */
+    
+    var extension = $('#foto').val().split('.').pop().toLowerCase();
+    /* var extension2 = $('#ficha').val().split('.').pop().toLowerCase();
+    var extension3 = $('#certificado').val().split('.').pop().toLowerCase(); */
+    if(extension != '') {
+        if(jQuery.inArray(extension, ['gif','png','jpg','jpeg']) == -1) {
+            alert("Fomato de imagen inválido");
+            $('#foto').val('');
+            isProcessing = false; // Restablecer la bandera en caso de error
+            return false;
+        }
+    }
 
-            // Deshabilitar el botón al enviar la solicitud
-            $("#action").prop("disabled", true);
-                
-            if(usuario != '' && correo != '' && tipo != '') {
+    // Deshabilitar el botón al enviar la solicitud
+    $("#action").prop("disabled", true);
+        
+    if(usuario != '' && correo != '' && tipo != '') {
+        $.ajax({
+            url:"crear.php",
+            method:'POST',
+            data:new FormData(this),
+            contentType:false,
+            processData:false,
+            success:function(data) {
+                // Restablecer la bandera a false una vez completada la solicitud
+                isProcessing = false;
+                // Habilitar el botón después de que se complete la solicitud
+                $("#action").prop("disabled", false);
+
+                // Llamar al archivo PHP separado para enviar el correo electrónico
                 $.ajax({
-                    url:"crear.php",
-                    method:'POST',
-                    data:new FormData(this),
-                    contentType:false,
-                    processData:false,
-                    success:function(data) {
-                        // Restablecer la bandera a false una vez completada la solicitud
-                        isProcessing = false;
-                        // Habilitar el botón después de que se complete la solicitud
-                        $("#action").prop("disabled", false);
-
-                        Swal.fire(
-                            'Exitoso!',
-                            'Se registro correctamente',
-                            'success'
-                        );
-                        $('#formulario')[0].reset();
-                        $('#modalproductos').modal('hide');
-                        dataTableactivo.ajax.reload();
+                    url: 'enviar_correo.php',
+                    method: 'POST',
+                    success: function(response) {
+                        console.log(response); // Muestra la respuesta en la consola del navegador
                     },
-                    error:function() {
-                        // Restablecer la bandera a false en caso de error
-                        isProcessing = false;
-                        // Habilitar el botón en caso de error
-                        $("#action").prop("disabled", false);
-
-                        Swal.fire(
-                            'Error!',
-                            'Ha ocurrido un error al procesar la solicitud',
-                            'error'
-                        );
+                    error: function(xhr, status, error) {
+                        console.error('Error al llamar al archivo enviar_correo.php:', error);
                     }
                 });
-            } else {
+
+                Swal.fire(
+                    'Exitoso!',
+                    'Se registro correctamente',
+                    'success'
+                );
+                $('#formulario')[0].reset();
+                $('#modalproductos').modal('hide');
+                dataTableactivo.ajax.reload();
+            },
+            error:function() {
                 // Restablecer la bandera a false en caso de error
                 isProcessing = false;
                 // Habilitar el botón en caso de error
                 $("#action").prop("disabled", false);
 
                 Swal.fire(
-                    'Algunos Campos son Obligatorios ?',
-                    'Revisa el formulario',
-                    'warning'
+                    'Error!',
+                    'Ha ocurrido un error al procesar la solicitud',
+                    'error'
                 );
             }
         });
+    } else {
+        // Restablecer la bandera a false en caso de error
+        isProcessing = false;
+        // Habilitar el botón en caso de error
+        $("#action").prop("disabled", false);
+
+        Swal.fire(
+            'Algunos Campos son Obligatorios ?',
+            'Revisa el formulario',
+            'warning'
+        );
+    }
+});
+
 
         //Funcionalidad de editar
         $(document).on('click', '.editar', function(){     
