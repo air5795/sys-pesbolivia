@@ -4,7 +4,7 @@
 
 // Consulta para obtener la cantidad de compras por mes y por tipo de compra
 $sql = "SELECT MONTH(fecha) AS mes, YEAR(fecha) AS año, tipo, COUNT(*) AS cantidad
-        FROM compras
+        FROM compras WHERE estado = 'aprobado'
         GROUP BY YEAR(fecha), MONTH(fecha), tipo
         ORDER BY YEAR(fecha), MONTH(fecha), tipo";
 
