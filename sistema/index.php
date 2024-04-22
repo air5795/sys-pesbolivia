@@ -243,6 +243,8 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
 
 
 
+
+
                         <?php
                         }
 
@@ -532,61 +534,73 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
 
 
         <script>
-    // Obtener los datos del servidor
-    fetch('obtener_datos.php')
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-            // Procesar los datos para la gráfica
-            const meses = [];
-            const comprasPS4 = [];
-            const comprasComputadora = [];
+// Obtener los datos del servidor
+fetch('obtener_datos.php')
+    .then(response => response.json())
+    .then(data => {
+        // Procesar los datos para la gráfica
+        const meses = [];
+        const comprasPS4 = [];
+        const comprasComputadora = [];
 
-            data.forEach(item => {
-                const mes = `${item.año}-${item.mes}`;
-                if (!meses.includes(mes)) {
-                    meses.push(mes);
-                }
+        const nombreMeses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
-                if (item.tipo === 'PS4/PS5') {
-                    comprasPS4.push(item.cantidad);
-                } else {
-                    comprasComputadora.push(item.cantidad);
-                }
-            });
+        data.forEach(item => {
+            const mes = `${nombreMeses[parseInt(item.mes) - 1]} ${item.año}`;
+            if (!meses.includes(mes)) {
+                meses.push(mes);
+            }
 
-            // Crear la gráfica de barras
-            const ctx = document.getElementById('grafico').getContext('2d');
-            const myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: meses,
-                    datasets: [{
-                        label: 'Compras PS4',
-                        data: comprasPS4,
-                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                        borderColor: 'rgba(255, 99, 132, 1)',
-                        borderWidth: 1
-                    }, {
-                        label: 'Compras Computadora',
-                        data: comprasComputadora,
-                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-        })
-        .catch(error => {
-            console.error('Error al obtener los datos:', error);
+            if (item.tipo === 'PS4/PS5') {
+                comprasPS4.push(parseInt(item.cantidad));
+            } else {
+                comprasComputadora.push(parseInt(item.cantidad));
+            }
         });
+
+        // Crear la gráfica de barras
+        // Crear la gráfica de barras
+const ctx = document.getElementById('grafico').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: meses,
+        datasets: [{
+            label: 'Compras PS4',
+            data: comprasPS4,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }, {
+            label: 'Compras Computadora',
+            data: comprasComputadora,
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales:{
+                yAxes:[{
+                    ticks: { 
+                        beginAtZero: true, // Comenzar desde 0 en el eje Y
+                stepSize: 1, // Define el paso de la escala del eje Y
+                
+                ticks: {
+                    precision: 0 // Evitar decimales en los ticks del eje Y
+                }
+                    }
+                }]
+            }
+    }
+});
+
+    })
+    .catch(error => {
+        console.error('Error al obtener los datos:', error);
+    });
+
+
 </script>
     </body>
 </html>
