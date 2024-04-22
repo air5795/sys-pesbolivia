@@ -584,7 +584,7 @@ const myChart = new Chart(ctx, {
                 yAxes:[{
                     ticks: { 
                         beginAtZero: true, // Comenzar desde 0 en el eje Y
-                stepSize: 1, // Define el paso de la escala del eje Y
+                stepSize: 5, // Define el paso de la escala del eje Y
                 
                 ticks: {
                     precision: 0 // Evitar decimales en los ticks del eje Y
