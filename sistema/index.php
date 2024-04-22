@@ -50,6 +50,7 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
         <title>PES-BOLIVIA</title>
         
     </head>
+    
     <body class="sb-nav-fixed" >
     
 
@@ -233,6 +234,14 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
                         </div>
 
                         <hr>
+
+                        <div style="width: 80%; margin: 0 auto;">
+    <!-- Utilizamos un div contenedor para controlar el ancho del canvas -->
+    <canvas id="grafico" width="100" height="20"></canvas>
+</div>
+
+
+
 
                         <?php
                         }
@@ -508,6 +517,9 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
             </div>
         </div>
 
+
+        
+
    
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -517,5 +529,64 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
+
+
+        <script>
+    // Obtener los datos del servidor
+    fetch('obtener_datos.php')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            // Procesar los datos para la gráfica
+            const meses = [];
+            const comprasPS4 = [];
+            const comprasComputadora = [];
+
+            data.forEach(item => {
+                const mes = `${item.año}-${item.mes}`;
+                if (!meses.includes(mes)) {
+                    meses.push(mes);
+                }
+
+                if (item.tipo === 'PS4/PS5') {
+                    comprasPS4.push(item.cantidad);
+                } else {
+                    comprasComputadora.push(item.cantidad);
+                }
+            });
+
+            // Crear la gráfica de barras
+            const ctx = document.getElementById('grafico').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: meses,
+                    datasets: [{
+                        label: 'Compras PS4',
+                        data: comprasPS4,
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: 'Compras Computadora',
+                        data: comprasComputadora,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error al obtener los datos:', error);
+        });
+</script>
     </body>
 </html>
