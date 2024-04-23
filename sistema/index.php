@@ -87,10 +87,10 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
                             </div>
 
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
 
                             <div class="alert alert-dark" role="alert">
-                                <h4 class="alert-heading">SALDO ACUMULADO</h4>
+                                <h4 class="alert-heading">ACUMULADO</h4>
                                 <hr>
                                 <p class="mb-0"><strong>
                                     <?php echo '<button style="border-radius: 50px;" class="btn btn-dark btn-sm w-50">' . number_format($saldo_total,2,'.',',') . ' Bs </button>';?></strong></p>
@@ -100,18 +100,36 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
 
                             <?php
                                 if ($_SESSION['user']!='admin') {
+                                    $name = $_SESSION['nombre'];
+
+                                    /* numero de compras de computadora */
+                                    $sqlpago = mysqli_query($conexion, "SELECT * FROM pagos WHERE nombre='$name' ;");
+                                    $result_pago = mysqli_fetch_array($sqlpago);
+                                    $pago = $result_pago['saldo_pagado'];
+
+                                    $deuda = $saldo_total - $pago;
                                     
                                 
                             ?>
 
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
 
                             <div class="alert alert-success" role="alert">
-                                <h4 class="alert-heading">SALDO PAGADO</h4>
+                                <h4 class="alert-heading">SALDO CANCELADO</h4>
                                 <hr>
                                 <p class="mb-0"> <strong>
-                                    <?php echo '<button style="border-radius: 50px;" class="btn btn-success btn-sm w-50">' . $PENDIENTES . '</button>';?></strong></p>
+                                    <?php echo '<button style="border-radius: 50px;" class="btn btn-success btn-sm w-50">' . number_format($pago,2,'.',',') . ' Bs</button>';?></strong></p>
+                            </div>
+
+                            </div>
+                            <div class="col-sm-2">
+
+                            <div class="alert alert-DANGER" role="alert">
+                                <h4 class="alert-heading">DEUDA </h4>
+                                <hr>
+                                <p class="mb-0"> <strong>
+                                    <?php echo '<button style="border-radius: 50px;" class="btn btn-DANGER btn-sm w-50">' . number_format($deuda,2,'.',',') . ' Bs</button>';?></strong></p>
                             </div>
 
                             </div>
@@ -124,7 +142,7 @@ $saldo_totalPESBOLIVIA = $saldo_pesboliviaPC + $saldo_pesboliviaPLAY;
                                 
                             ?>
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
 
                             <div class="alert alert-dark" role="alert">
                                 <h4 class="alert-heading">SALDO PES-BOLIVIA</h4>
