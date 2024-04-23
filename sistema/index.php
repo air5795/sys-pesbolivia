@@ -1,5 +1,13 @@
 <?php
+    
     session_start();
+    if (!isset($_SESSION['user'])) {
+        header("Location: index.php");
+        exit;
+    }
+
+    $tiempo_vida = 1800; // 30 minutos en segundos
+    session_set_cookie_params($tiempo_vida);
     include "includes/scripts.php";
     include "includes/header.php";
     include "../conexion.php"; 
