@@ -264,7 +264,7 @@ if (!empty($_SESSION['active'])) {
         - #HERO
       -->
 
-      <section class="section hero has-bg-image w-100" aria-label="home" style="background-image: url('./assets/images/hero-bg3.png')">
+      <section class="section hero has-bg-image w-100" aria-label="home" style="background-image: url('./assets/images/bann2.png')">
         <div class="container">
 
           <div class="hero-content">

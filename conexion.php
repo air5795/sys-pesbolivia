@@ -6,7 +6,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost' || $_SERVER['SERVER_NAME'] == '127.0.
 }
 
 if ($entorno == 'local') {
-    $db_host = 'localhost:3316';
+    $db_host = 'localhost:3306';
     $db_user = 'root';
     $db_password = '';
     $db_name = 'pesbolivia';

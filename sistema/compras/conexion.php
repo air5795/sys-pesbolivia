@@ -5,7 +5,7 @@
 if ($_SERVER['SERVER_NAME'] == 'localhost') {
     $usuario = "root";
     $password = "";
-    $host = "localhost:3316";
+    $host = "localhost:3306";
     $dbname = "pesbolivia";
 } else {
     // Configuración para entorno de producción
