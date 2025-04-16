@@ -162,9 +162,9 @@ th, td {
                 <li>- Una ves aprobado te llegara un correo de Compra Exitosa ! que confirmara que se aprobo su solicitud. </li>
                 <li>- Inmediatamente se te dara acceso al correo. para la posterior descarga del parche o Option file </li>
                 <li>- Si durante el tiempo esperado no cambio el estado y sigue (en espera),  comunicate por mensaje al numero 79441119 (por whatssap - Alejandro ) </li>
-                <hr>
-                <p> <STRONG>NOTA - FECHA DE SALIDA : 20 DE ABRIL DE 2024 hr:20:00 (YA PUEDE ESTAR REALIZANDO SU SOLICITUD PERO SE ENTREGARA POR ORDEN EL DIA DE LANZAMIENTO ) </STRONG></p>
-
+<hr>
+                <strong>REALIZA TU PREVENTA , ENTREGA DEL CONTENIDO PARA PREVENTAS EN ORDEN DE COMPRA </strong>
+                <br><span style="color:red"><strong>SALIDA DEL PARCHE PC , PS4 Y PS5 , SABADO 19 DE ABRIL HRS 21:00 </strong></span>
             </ol>
             </div>
             </div>

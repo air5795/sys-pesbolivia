@@ -275,11 +275,11 @@ if (!empty($_SESSION['active'])) {
 
             <div class="btn-wrapper">
 
-            <p class=" btn btn-success" style="font-size:medium;">Inicia Sesion !  para realizar la compra y ver las novedades 2024 !</p>
+            <p class=" btn btn-success" style="font-size:medium;">Inicia Sesion !  para realizar la compra y ver las novedades 2025 !</p>
 
-              <!-- <a href="airpatch.php" class="btn btn-outline"> AIRPATCH 2024 PC </a>
+              <!-- <a href="airpatch.php" class="btn btn-outline"> AIRPATCH 2025 PC </a>
 
-              <a href="optionFile.php" class="btn btn-outline"> OPTION FILE 2024 PS4/PS5 </a> -->
+              <a href="optionFile.php" class="btn btn-outline"> OPTION FILE 2025 PS4/PS5 </a> -->
 
 
             </div>
@@ -459,11 +459,11 @@ if (!empty($_SESSION['active'])) {
                 <div class="card-content">
 
                   <h3 class="h3">
-                    <a href="#" class="card-title"> AirPatch 2024 (PC) <i class="bi bi-laptop"></i> </a>
+                    <a href="#" class="card-title"> AirPatch 2025 (PC) <i class="bi bi-laptop"></i> </a>
                   </h3>
 
                   <p class="card-text">
-                    Parche de la liga Boliviana Temporada 2024 PES 21 para Computadora. 
+                    Parche de la liga Boliviana Temporada 2025 PES 21 para Computadora. 
                   </p>
 
                   <ul class="card-meta-list">
@@ -477,7 +477,7 @@ if (!empty($_SESSION['active'])) {
                     <li class="card-meta-item">
                       <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
 
-                      <span class="meta-text">2024</span>
+                      <span class="meta-text">2025</span>
                     </li>
 
                   </ul>
@@ -498,11 +498,11 @@ if (!empty($_SESSION['active'])) {
                 <div class="card-content">
 
                   <h3 class="h3">
-                    <a href="#" class="card-title">Option File 2024 (PS4/PS5) <i class="bi bi-controller"></i> </a>
+                    <a href="#" class="card-title">Option File 2025 (PS4/PS5) <i class="bi bi-controller"></i> </a>
                   </h3>
 
                   <p class="card-text">
-                   Option File para pes 21 de la Liga profesional Boliviana temporada 2024.
+                   Option File para pes 21 de la Liga profesional Boliviana temporada 2025.
                   </p>
 
                   <ul class="card-meta-list">
@@ -516,7 +516,7 @@ if (!empty($_SESSION['active'])) {
                     <li class="card-meta-item">
                       <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
 
-                      <span class="meta-text">2024</span>
+                      <span class="meta-text">2025</span>
                     </li>
 
                   </ul>
@@ -555,7 +555,7 @@ if (!empty($_SESSION['active'])) {
                     <li class="card-meta-item">
                       <ion-icon name="document-text-outline" aria-hidden="true"></ion-icon>
 
-                      <span class="meta-text">2024</span>
+                      <span class="meta-text">2025</span>
                     </li>
 
                   </ul>
@@ -606,7 +606,7 @@ if (!empty($_SESSION['active'])) {
 
   <footer class="footer">
     <p >
-      &copy; 2024 PESBOLIVIA.  Todos los Derechos Reservados.
+      &copy; 2025 PESBOLIVIA.  Todos los Derechos Reservados.
     </p>
 
     <p>@leigles , je$u$s , j0s3</p>

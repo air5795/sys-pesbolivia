@@ -62,82 +62,67 @@ $saldo_total = $saldo_jesus + $saldo_jose + $saldo_alejandro;
         <title>PES-BOLIVIA Dashboard</title>
         
         <style>
-            body {
-                background-color: #f5f7fa;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            }
-            .sidebar {
-                background: #ffffff;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-                padding: 20px;
-                height: fit-content;
-            }
-            .content-card {
-                background: #ffffff;
-                border-radius: 8px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-                padding: 20px;
-            }
-            .stat-box {
-                padding: 10px;
-                border-radius: 6px;
-                margin-bottom: 10px;
-                transition: all 0.2s;
-                text-align: center;
-            }
-            .stat-box:hover {
-                opacity: 0.9;
-            }
-            .stat-box h6 {
-                margin-bottom: 5px;
-                /* color: #495057; */
-                font-weight: 600;
-                font-size: 0.95rem;
-            }
-            .stat-box span {
-                font-size: 1.1rem;
-                font-weight: 700;
-            }
-            .table-compact {
-                font-size: 0.9rem;
-                margin-bottom: 0;
-            }
-            .table-compact th, .table-compact td {
-                padding: 8px;
-                border: none;
-            }
-            .table-compact thead th {
-                background: #e9ecef;
-                color: #495057;
-            }
-            .section-title {
-                color: #212529;
-                font-weight: 600;
-                margin-bottom: 15px;
-                font-size: 1.25rem;
-            }
-            .small-text {
-                font-size: 0.8rem;
-                color: #6c757d;
-            }
-            /* Colores diferenciados */
-            .pc-color { color: #007bff; } /* Azul para PC */
-            .play-color { color: #28a745; } /* Verde para PS4/PS5 */
-            .pending-alert { 
-                background: linear-gradient(45deg, #ff6b6b, #ff8787); 
-                color: white; 
-                box-shadow: 0 2px 6px rgba(255, 107, 107, 0.3); 
-            }
-            .pending-ok { 
-                background: linear-gradient(45deg,rgb(23, 184, 136), #48c9b0); 
-                color: white; 
-                box-shadow: 0 2px 6px rgba(23, 162, 184, 0.3); 
-            }
-            .approved-box { background: #f8f9fa; }
-            .total-box { background: #f8f9fa; }
-            .pc-box { background: #e7f1ff; }
-            .play-box { background: #e6ffe6; }
+ .modal-content {
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #ffffff, #f3f4f6);
+        }
+        .modal-header {
+            background: #1e40af;
+            color: white;
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
+        .modal-title {
+            font-weight: 700;
+        }
+        .carousel-item img {
+            border-radius: 0.5rem;
+            max-height: 400px;
+            object-fit: cover;
+            margin: auto;
+        }
+        .description-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .description-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+        .description-list li::before {
+            content: '✔';
+            color: #1e40af;
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+        .btn-close {
+            filter: invert(1);
+        }
+        .thumbnail-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            margin-top: 1rem;
+        }
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: transform 0.2s, border 0.2s;
+            border: 2px solid transparent;
+        }
+        .thumbnail:hover {
+            transform: scale(1.1);
+            border: 2px solid #1e40af;
+        }
+        .thumbnail.active {
+            border: 2px solid #1e40af;
+        }
         </style>
     </head>
     
@@ -402,88 +387,232 @@ $saldo_total = $saldo_jesus + $saldo_jose + $saldo_alejandro;
                     <?php } ?>
 
                     <?php if ($_SESSION['rol'] != 1) { ?> 
-                    <div class="row g-4">
-                        <div class="col-12">
-                            <div class="content-card">
-                                <div class="section-title"><i class="bi bi-shop me-1"></i> Tienda</div>
-                                <div class="row g-3">
-                                    <div class="col-md-4">
-                                        <img src="../assets/images/AIR/portada.png" class="img-fluid rounded" alt="...">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="row g-3">
-                                            <div class="col-sm-6">
-                                                <div class="stat-box pc-box text-center">
-                                                    <h6>AIRPATCH 2024 PC</h6>
-                                                    <p class="mb-2"><strong class="pc-color">50 Bs</strong> <small class="text-muted">/anual</small></p>
-                                                    <ul class="list-unstyled small mb-3">
-                                                        <li>Temporada 2024 liga boliviana</li>
-                                                        <li>Copa Simón Bolívar</li>
-                                                        <li>Libertadores 2024</li>
-                                                    </ul>
-                                                    <a class="btn btn-sm btn-outline-danger w-100 mb-2" href="compras/"><i class="bi bi-bag"></i> Comprar</a>
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#pc">
-                                                        <i class="bi bi-eye"></i> Novedades
-                                                    </button>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="stat-box play-box text-center">
-                                                    <h6>OPTION FILE PS4/PS5</h6>
-                                                    <p class="mb-2"><strong class="play-color">40 Bs</strong> <small class="text-muted">/anual</small></p>
-                                                    <ul class="list-unstyled small mb-3">
-                                                        <li>Temporada 2024 liga boliviana</li>
-                                                        <li>Plantillas 2024</li>
-                                                        <li>Libertadores 2024</li>
-                                                    </ul>
-                                                    <a class="btn btn-sm btn-outline-danger w-100 mb-2" href="compras/"><i class="bi bi-bag"></i> Comprar</a>
-                                                    <button type="button" class="btn btn-sm btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#ps4">
-                                                        <i class="bi bi-eye"></i> Novedades
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+<div class="row g-4">
+    <div class="col-12">
+        <div class="content-card" style="background: #ffffff; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); padding: 20px;">
+            <div class="section-title" style="color: #212529; font-weight: 600; margin-bottom: 20px; font-size: 1.25rem;">
+                <i class="bi bi-shop me-1"></i> Tienda
+            </div>
+            <div class="row g-3">
+                <!-- Tarjeta PC -->
+                <div class="col-md-3 col-sm-3 col-12">
+                    <div class="shop-card" style="background: linear-gradient(135deg, #e7f1ff, #ffffff); border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.2s;">
+                        <div class="card-img" style="height: 450px; overflow: hidden;">
+                            <img src="../assets/images/PC1.png" alt="AIRPATCH 2025 PC" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="card-body" style="padding: 15px; text-align: center;">
+                            <h6 style="font-size: 1.1rem; font-weight: 600; color: #007bff; margin-bottom: 10px;">
+                                <i class="bi bi-laptop me-1"></i> AIRPATCH 2025 PC
+                            </h6>
+                            <p style="margin-bottom: 10px;">
+                                <strong class="pc-color" style="font-size: 1.2rem;">50 Bs</strong>
+                                <small class="text-muted" style="font-size: 0.85rem;">/Temporada 2025</small>
+                            </p>
+                            <ul style="list-style: none; padding: 0; margin-bottom: 15px; font-size: 0.9rem; color: #495057;">
+                                <li>Temporada 2025 liga boliviana</li>
+                                <li>Copa Simón Bolívar</li>
+                                <li>Libertadores 2025</li>
+                            </ul>
+                            <div style="display: flex; gap: 10px; justify-content: center;">
+                                <a class="btn btn-sm btn-outline-danger" href="compras/" style="width: 120px; font-size: 0.9rem;">
+                                    <i class="bi bi-bag me-1"></i> Comprar
+                                </a>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#pc" style="width: 120px; font-size: 0.9rem;">
+                                    <i class="bi bi-eye me-1"></i> Novedades
+                                </button>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                </div>
+                <!-- Tarjeta PS4/PS5 -->
+                <div class="col-md-3 col-sm-3 col-12">
+                    <div class="shop-card" style="background: linear-gradient(135deg, #e6ffe6, #ffffff); border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.2s;">
+                        <div class="card-img" style="height: 450px; overflow: hidden;">
+                            <img src="../assets/images/PS4.png" alt="OPTION FILE PS4/PS5" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="card-body" style="padding: 15px; text-align: center;">
+                            <h6 style="font-size: 1.1rem; font-weight: 600; color: #28a745; margin-bottom: 10px;">
+                                <i class="bi bi-joystick me-1"></i> OPTION FILE PS4/PS5
+                            </h6>
+                            <p style="margin-bottom: 10px;">
+                                <strong class="play-color" style="font-size: 1.2rem;">40 Bs</strong>
+                                <small class="text-muted" style="font-size: 0.85rem;">/Temporada 2025</small>
+                            </p>
+                            <ul style="list-style: none; padding: 0; margin-bottom: 15px; font-size: 0.9rem; color: #495057;">
+                                <li>Temporada 2025 liga boliviana</li>
+                                <li>Plantillas 2025</li>
+                                <li>Libertadores 2025</li>
+                            </ul>
+                            <div style="display: flex; gap: 10px; justify-content: center;">
+                                <a class="btn btn-sm btn-outline-danger" href="compras/" style="width: 120px; font-size: 0.9rem;">
+                                    <i class="bi bi-bag me-1"></i> Comprar
+                                </a>
+                                <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#ps4" style="width: 120px; font-size: 0.9rem;">
+                                    <i class="bi bi-eye me-1"></i> Novedades
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php } ?>
 
                     <!-- Modales -->
-                    <div class="modal fade" id="pc" tabindex="-1" aria-labelledby="pc" aria-hidden="true">
-                        <div class="modal-dialog modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5">Airpatch 2024 PC</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-sm-6"><img src="img/1.png" alt="" class="img-fluid"></div>
-                                        <div class="col-sm-6"><img src="img/A.png" alt="" class="img-fluid"></div>
+<!-- Modal PC -->
+<div class="modal fade" id="pc" tabindex="-1" aria-labelledby="pcLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="pcLabel">Airpatch 2025 PC</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Carousel for PC -->
+                            <div id="carouselPC" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="img/pc/1.png" class="d-block w-100" alt="PC Image 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/pc/2.png" class="d-block w-100" alt="PC Image 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/pc/3.png" class="d-block w-100" alt="PC Image 3">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/pc/4.png" class="d-block w-100" alt="PC Image 4">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/pc/5.png" class="d-block w-100" alt="PC Image 5">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/pc/6.png" class="d-block w-100" alt="PC Image 6">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/pc/7.png" class="d-block w-100" alt="PC Image 7">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/pc/8.png" class="d-block w-100" alt="PC Image 8">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/pc/9.png" class="d-block w-100" alt="PC Image 9">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/pc/10.png" class="d-block w-100" alt="PC Image 10">
                                     </div>
                                 </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselPC" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselPC" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <!-- Thumbnails for PC -->
+                            <div class="thumbnail-container">
+                                <img src="img/pc/1.png" class="thumbnail active" data-bs-target="#carouselPC" data-bs-slide-to="0" alt="Thumbnail 1">
+                                <img src="img/pc/2.png" class="thumbnail" data-bs-target="#carouselPC" data-bs-slide-to="1" alt="Thumbnail 2">
+                                <img src="img/pc/3.png" class="thumbnail" data-bs-target="#carouselPC" data-bs-slide-to="2" alt="Thumbnail 3">
+                                <img src="img/pc/4.png" class="thumbnail" data-bs-target="#carouselPC" data-bs-slide-to="3" alt="Thumbnail 4">
+                                <img src="img/pc/5.png" class="thumbnail" data-bs-target="#carouselPC" data-bs-slide-to="4" alt="Thumbnail 5">
+                                <img src="img/pc/6.png" class="thumbnail" data-bs-target="#carouselPC" data-bs-slide-to="5" alt="Thumbnail 6">
+                                <img src="img/pc/7.png" class="thumbnail" data-bs-target="#carouselPC" data-bs-slide-to="6" alt="Thumbnail 7">
+                                <img src="img/pc/8.png" class="thumbnail" data-bs-target="#carouselPC" data-bs-slide-to="7" alt="Thumbnail 8">
+                                <img src="img/pc/9.png" class="thumbnail" data-bs-target="#carouselPC" data-bs-slide-to="8" alt="Thumbnail 9">
+                                <img src="img/pc/10.png" class="thumbnail" data-bs-target="#carouselPC" data-bs-slide-to="9" alt="Thumbnail 10">
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <h3 class="font-bold text-lg mb-4">Características:</h3>
+                            <ul class="description-list">
+                                <li>Nuevo menú de inicio</li>
+                                <li>Menú de Primera División</li>
+                                <li>Plantillas Actualizadas a Abril 2025</li>
+                                <li>Todos los kits de equipos bolivianos</li>
+                                <li>Scoreboard Torneo Cotas, Primera División y Simón Bolívar</li>
+                                <li>Balón Penalty 2025</li>
+                                <li>Estadios Bolivianos</li>
+                                <li>Cánticos de equipos bolivianos</li>
+                                <li>Más de 300 faces en jugadores de equipos bolivianos</li>
+                                <li>Más de 600 minifaces de solo equipos bolivianos</li>
+                                <li>Adboards Actualizados 2025</li>
+                                <li>Relatos de Mariano Closs con equipos bolivianos</li>
+                                <li>Plantilla, Kits y Faces Bolivia 1994</li>
+                                <li>Intros de cada competición actualizada</li>
+                                <li>Kits de Árbitros Bolivianos</li>
+                                <li>* Futura actualizacion copa Paceña</li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <div class="modal fade" id="ps4" tabindex="-1" aria-labelledby="ps4" aria-hidden="true">
-                        <div class="modal-dialog modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5">Option File Airpatch 2024 PS4/PS5</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-sm-6"><img src="img/2.png" alt="" class="img-fluid"></div>
-                                        <div class="col-sm-6"><img src="img/B.png" alt="" class="img-fluid"></div>
+    <!-- Modal PS4/PS5 -->
+    <div class="modal fade" id="ps4" tabindex="-1" aria-labelledby="ps4Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="ps4Label">Option File Airpatch 2025 PS4/PS5</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-5">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- Carousel for PS4/PS5 -->
+                            <div id="carouselPS4" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="img/ps4/A.png" class="d-block w-100" alt="PS4 Image 1">
                                     </div>
+                                    <div class="carousel-item">
+                                        <img src="img/ps4/B.png" class="d-block w-100" alt="PS4 Image 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="img/ps4/C.png" class="d-block w-100" alt="PS4 Image 3">
+                                    </div>
+
                                 </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselPS4" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Previous</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselPS4" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <!-- Thumbnails for PS4/PS5 -->
+                            <div class="thumbnail-container">
+                                <img src="img/ps4/A.png" class="thumbnail active" data-bs-target="#carouselPS4" data-bs-slide-to="0" alt="Thumbnail A">
+                                <img src="img/ps4/B.png" class="thumbnail" data-bs-target="#carouselPS4" data-bs-slide-to="1" alt="Thumbnail B">
+                                <img src="img/ps4/C.png" class="thumbnail" data-bs-target="#carouselPS4" data-bs-slide-to="2" alt="Thumbnail C">
+
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <h3 class="font-bold text-lg mb-4">Características:</h3>
+                            <ul class="description-list">
+                                <li>Kits Actualizados 2025</li>
+                                <li>Plantillas Actualizadas a 2025</li>
+                                <li>Logos de Liga y Equipos Actualizado</li>
+                                <li>Ligas Externas a Bolivia Actualizadas</li>
+                            </ul>
+                        </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                    
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
