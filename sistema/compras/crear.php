@@ -1,98 +1,104 @@
 <?php
-session_start();
+
 include("conexion.php");
 include("funciones.php");
 
+/* require_once 'C:/xampp/htdocs/sys-pesbolivia/vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require_once 'C:/xampp/htdocs/sys-pesbolivia/vendor/phpmailer/phpmailer/src/SMTP.php';
+require_once 'C:/xampp/htdocs/sys-pesbolivia/vendor/phpmailer/phpmailer/src/Exception.php';
+
+use PHPMailer\PHPMailer\PHPMailer; */
+
+// Incluir PHPMailer
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 require '../../vendor/autoload.php';
 
-if (!isset($_SESSION['user'])) {
-    echo 'Error: Sesión no iniciada.';
-    exit;
-}
 
-$esAdmin = isset($_SESSION['rol']) && $_SESSION['rol'] == 1;
 
 if ($_POST["operacion"] == "Crear") {
     $imagen = '';
-
-    // Si no es administrador, la imagen es obligatoria
-    if (!$esAdmin && empty($_FILES["foto"]["name"])) {
-        echo 'Error: Debes subir una captura de comprobante de pago.';
-        exit;
-    }
-
-    if (!empty($_FILES["foto"]["name"])) {
+    /* $ficha = '';
+    $certificado = ''; */
+    if ($_FILES["foto"]["name"] != '') {
         $imagen = subir_imagen();
     }
+   /*  if ($_FILES["ficha"]["name"] != '') {
+        $ficha = subir_ficha();
+    }
+    if ($_FILES["certificado"]["name"] != '') {
+        $certificado = subir_certificado();
+    } */
+    $stmt = $conexion->prepare("INSERT INTO compras(usuario, correo, tipo,foto)
+                                VALUES(:usuario, :correo, :tipo, :foto )");
 
-    $stmt = $conexion->prepare("INSERT INTO compras(usuario, correo, tipo, foto, estado) VALUES(:usuario, :correo, :tipo, :foto, :estado)");
-    $resultado = $stmt->execute([
-        ':usuario' => $_POST["usuario"],
-        ':correo' => $_POST["correo"],
-        ':tipo' => $_POST["tipo"],
-        ':foto' => $imagen,
-        ':estado' => $esAdmin && !empty($_POST["estado"]) ? $_POST["estado"] : 'en espera'
-    ]);
+    $resultado = $stmt->execute(
+        array(
+            ':usuario'           => $_POST["usuario"],
+            ':correo'            => $_POST["correo"],
+            ':tipo'           => $_POST["tipo"],
+            ':foto'             => $imagen
+        )
+    );
 
-    if ($resultado) {
-        echo 'Se registró correctamente.';
+    if (!empty($resultado)) {
+        echo 'Se registro Correctamente.';
     } else {
         echo 'Error al insertar el registro en la base de datos.';
     }
 }
 
+
+
+	$correo = $_POST["email"];
+    $usuar = $_POST["usuario"];
+
+
+
+
 if ($_POST["operacion"] == "Editar") {
-    if (!$esAdmin) {
-        echo 'Error: No tienes permisos para editar.';
-        exit;
-    }
+    $stmt = $conexion->prepare("UPDATE compras SET estado=:estado, tipo=:tipo WHERE id_compra = :id_compra");
 
-    $params = [
-        ':id_compra' => $_POST["id_compra"],
-        ':estado' => $_POST["estado"],
-        ':tipo' => $_POST["tipo"]
-    ];
+    $resultado = $stmt->execute(
+        array(
+            ':id_compra' => $_POST["id_compra"],
+            ':estado'    => $_POST["estado"],
+            ':tipo'      => $_POST["tipo"]
+        )
+    );
 
-    $sql = "UPDATE compras SET estado=:estado, tipo=:tipo";
-    if (!empty($_FILES["foto"]["name"])) {
-        $params[':foto'] = subir_imagen();
-        $sql .= ", foto=:foto";
-    }
-    $sql .= " WHERE id_compra = :id_compra";
 
-    $stmt = $conexion->prepare($sql);
-    $resultado = $stmt->execute($params);
 
-    if ($resultado) {
-        echo 'Éxito al editar.';
-        if ($_POST["estado"] == "aprobado") {
-            $mail = new PHPMailer(true);
-            try {
-                $mail->isSMTP();
-                $mail->Host = 'smtp.titan.email';
-                $mail->Port = 587;
-                $mail->SMTPAuth = true;
-                $mail->Username = 'airpatch@pesbolivia.airsoftbol.com';
-                $mail->Password = '123456789Ale*';
-                $mail->SMTPSecure = 'tls';
-                $mail->setFrom('airpatch@pesbolivia.airsoftbol.com', 'PES Bolivia');
-                $mail->addAddress($_POST["correo"]);
-                $mail->Subject = 'Compra Exitosa! - PESBOLIVIA';
-                $mail->Body = 'Gracias por tu compra! Se te dará acceso a la carpeta de Google Drive en este correo. toda atualizacion se subira a esta misma carpeta ';
-                
-                if ($mail->send()) {
-                    echo 'Correo electrónico enviado correctamente.';
-                } else {
-                    echo 'Error al enviar el correo electrónico: ' . $mail->ErrorInfo;
-                }
-            } catch (Exception $e) {
-                echo 'Error al enviar el correo electrónico: ' . $e->getMessage();
-            }
+if (!empty($resultado)) {
+    echo 'exito editado.';
+
+    // Verifica si el estado ha cambiado a "Enviado" o si se debe forzar el envío del correo electrónico
+    if ($_POST["estado"] == "aprobado" ) {
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host = 'smtp.titan.email';
+        $mail->Port = 587; // Puedes cambiarlo según la configuración de tu servidor
+        $mail->SMTPAuth = true;
+        $mail->Username = 'airpatch@pesbolivia.airsoftbol.com';
+        $mail->Password = '123456789Ale*';
+        $mail->SMTPSecure = 'tls';
+        $mail->setFrom('airpatch@pesbolivia.airsoftbol.com', 'pesbolivia');
+
+        $mail->addAddress($correo); // Agrega el destinatario del correo electrónico
+        $mail->Subject = 'Compra Exitosa ! - PESBOLIVIA ';
+        $mail->Body = 'Gracias por tu compra !!!, Enseguida se te dará acceso a la carpeta de Google Drive en este correo.';
+
+        /* // Adjuntar la imagen
+        $mail->AddEmbeddedImage('img/AIRPATCH.png', 'imagen1', 'AIRPATCH.png'); */
+
+        if (!$mail->send()) {
+            echo 'Error al enviar el correo electrónico: ' . $mail->ErrorInfo;
+        } else {
+            echo 'Correo electrónico enviado correctamente.';
         }
-    } else {
-        echo 'Error al actualizar el registro en la base de datos.';
     }
+} else {
+    echo 'Error al actualizar el registro en la base de datos.';
+}
 }
