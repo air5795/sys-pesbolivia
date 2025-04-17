@@ -729,7 +729,7 @@ if ($_SESSION['rol'] == 1) {
                 isProcessing = true;
 
                 var usuario = $('#usuario').val();
-                var correo = $('#tipo').val();
+                var correo = $('#correo').val();
                 var tipo = $('#tipo').val();
                 /* var estado = $('#estado').val(); */
 
