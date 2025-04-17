@@ -123,6 +123,50 @@ $saldo_total = $saldo_jesus + $saldo_jose + $saldo_alejandro;
         .thumbnail.active {
             border: 2px solid #1e40af;
         }
+        .conCompras{
+            color: #3ba165;
+            background: #d9ffd7;
+            padding: 12px;
+            border-radius: 14px;
+            margin: 8px;
+            border-bottom: 2px solid #3ba165;
+        }
+        .sinCompras{
+            color: #3d3d3d;
+            background: #e5e5e5;
+            padding: 12px;
+            border-radius: 14px;
+            margin: 8px;
+            border-bottom: 2px solid #797979;
+        }
+        .tarjeta1{
+            color: #3a874e;
+            background: #e6ffe6;
+            padding: 12px;
+            border-radius: 14px;
+            margin: 8px;
+            border-bottom: 2px solid #474747;
+        }
+        .tarjeta2{
+            color: #060d16;
+            background: #d2e1fb;
+            padding: 12px;
+            border-radius: 14px;
+            margin: 8px;
+            border-bottom: 2px solid #797979;
+        }
+        .tarjeta3{
+            background: #e6ffe6;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid gray;
+        }
+        .tarjeta4{
+            background: #e7f1ff;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid gray;
+        }
         </style>
     </head>
     
@@ -138,25 +182,25 @@ $saldo_total = $saldo_jesus + $saldo_jose + $saldo_alejandro;
                     <?php if ($_SESSION['rol'] == 1) { ?> 
                     <div class="row g-4">
                         <!-- Columna Izquierda: Información (6) -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-6" style="padding: 15px; background: #fbfbfb;border: 1px solid #e5e5e5;">
                             <div class="sidebar">
                                 <div class="section-title"><i class="bi bi-bar-chart-line me-1"></i> Estadísticas</div>
                                 
                                 <div class="row g-3">
                                     <div class="col-md-4 col-sm-6 col-12">
-                                        <div class="stat-box <?php echo $PENDIENTES > 0 ? 'pending-alert' : 'pending-ok'; ?>">
+                                        <div class="stat-box  <?php echo $PENDIENTES > 0 ? 'conCompras' : 'sinCompras'; ?>">
                                             <h6>Compras Pendientes</h6>
                                             <span><?php echo $PENDIENTES;?></span>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6 col-12">
-                                        <div class="stat-box approved-box">
+                                        <div class="stat-box approved-box tarjeta1">
                                             <h6>Compras Aprobadas</h6>
-                                            <span class="text-success"><?php echo $total_compras;?></span>
+                                            <span class="text-success "><?php echo $total_compras;?></span>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-6 col-12">
-                                        <div class="stat-box total-box">
+                                        <div class="stat-box total-box tarjeta2">
                                             <h6>Total Acumulado</h6>
                                             <span class="text-dark"><?php echo number_format($saldo_total,2,'.',',');?> Bs</span>
                                         </div>
@@ -164,7 +208,7 @@ $saldo_total = $saldo_jesus + $saldo_jose + $saldo_alejandro;
                                 </div>
                                 <div class="row g-3">
                                 <div class="col-md-6 col-sm-6 col-12">
-                                    <div class="stat-card pc-card">
+                                    <div class="stat-card pc-card tarjeta4">
                                         <div class="card-header">
                                             <i class="bi bi-laptop me-2"></i> Ventas PC
                                         </div>
@@ -182,7 +226,7 @@ $saldo_total = $saldo_jesus + $saldo_jose + $saldo_alejandro;
                                 </div>
                                 
                                 <div class="col-md-6 col-sm-6 col-12">
-                                    <div class="stat-card play-card">
+                                    <div class="stat-card play-card tarjeta3">
                                         <div class="card-header">
                                             <i class="bi bi-joystick me-2"></i> Ventas PS4/PS5
                                         </div>
@@ -314,6 +358,8 @@ $saldo_total = $saldo_jesus + $saldo_jose + $saldo_alejandro;
             td:first-child:before {
                 content: none;
             }
+            
+            
         }
     </style>
 </table>
@@ -338,7 +384,7 @@ $saldo_total = $saldo_jesus + $saldo_jose + $saldo_alejandro;
                         </div>
 
                         <!-- Columna Derecha: Gráfico (6) -->
-                        <div class="col-lg-6">
+                        <div class="col-lg-6" style="padding: 15px; background: #fbfbfb;border: 1px solid #e5e5e5;">
                             <div class="content-card">
                                 <div class="section-title"><i class="bi bi-graph-up me-1"></i> Estadísticas de Ventas</div>
                                 <canvas id="grafico" height="200"></canvas>
