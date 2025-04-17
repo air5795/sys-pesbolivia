@@ -323,89 +323,62 @@ if ($_SESSION['rol'] == 1) {
                     <!-- FINAL tabla-->
 
                     <!-- Modal NUEVO -->
-                    <div class="modal fade" id="modalproductos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog ">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-box"></i> SOLICITUD DE COMPRA</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: azure;"></button>
-                                </div>
+                    
+<div class="modal fade" id="modalproductos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fa-solid fa-box"></i> SOLICITUD DE COMPRA</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: azure;"></button>
+            </div>
 
-                                <form action="" method="POST" id="formulario" enctype="multipart/form-data">
-
-                                    <div class="modal-content">
-
-                                        <div class="modal-body">
-
-
-
-
-                                            <div class="row">
-
-
-
-
-                                                <div class="col-sm-12">
-                                                    <label for="tipo" style="font-family: sans-serif;">Elija la Plataforma <span style="color:red"> *</span></label>
-                                                    <select name="tipo" id="tipo" class="form-control form-control-sm">
-                                                        <option value="">Selecciona una Opcion</option>
-                                                        <option value="COMPUTADORA">Computadora Airpatch 2025</option>
-                                                        <option value="PS4/PS5">PS4/PS5 Option File 2025</option>
-                                                    </select>
-                                                </div>
-
-                                                <div class="col-sm-12">
-                                                    <label for="estado" style="font-family: sans-serif;">Estado <span style="color:red"> *</span></label>
-                                                    <select name="estado" id="estado" class="form-control form-control-sm">
-                                                        <option value="">Selecciona un Estado</option>
-                                                        <option value="en espera">en espera</option>
-                                                        <option value="aprobado">Aprobar</option>
-                                                        <option value="rechazado">Rechazar</option>
-                                                        <option value="regalo">Regalar</option>
-
-                                                    </select>
-                                                </div>
-
-
-                                                <div class="col-sm-12">
-                                                    <label for="foto" style="font-family: sans-serif;">Ingrese Foto o captura de comprobante de pago </label>
-                                                    <input type="file" class="form-control form-control-sm" name="foto" id="foto" required>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <span id="imagen-subida"></span>
-                                                </div>
-
-
-                                                <input type="hidden" name="usuario" id="usuario" class="form-control form-control-sm" value="<?php echo $_SESSION['user'] ?>">
-                                                <input type="hidden" name="correo" id="correo" class="form-control form-control-sm" value="<?php echo $_SESSION['correo'] ?>">
-
-                                                <input type="hidden" name="email" id="email" class="form-control form-control-sm">
-
-
-
-
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <input type="hidden" name="id_compra" id="id_compra">
-                                                <input type="hidden" name="operacion" id="operacion">
-
-
-                                                <input type="submit" name="action" id="action" class="btn btn-success" value="Registrar">
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+            <form action="" method="POST" id="formulario" enctype="multipart/form-data">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label for="tipo" style="font-family: sans-serif;">Elija la Plataforma <span style="color:red"> *</span></label>
+                                <select name="tipo" id="tipo" class="form-control form-control-sm" required>
+                                    <option value="">Selecciona una Opcion</option>
+                                    <option value="COMPUTADORA">Computadora Airpatch 2025</option>
+                                    <option value="PS4/PS5">PS4/PS5 Option File 2025</option>
+                                </select>
                             </div>
 
+                            <div class="col-sm-12" id="estado-container" style="display: none;">
+                                <label for="estado" style="font-family: sans-serif;">Estado <span style="color:red"> *</span></label>
+                                <select name="estado" id="estado" class="form-control form-control-sm" >
+                                    <option value="">Selecciona un Estado</option>
+                                    <option value="en espera">En espera</option>
+                                    <option value="aprobado">Aprobar</option>
+                                    <option value="rechazado">Rechazar</option>
+                                    <option value="regalo">Regalar</option>
+                                </select>
+                            </div>
 
+                            <div class="col-sm-12" id="foto-container">
+                                <label for="foto" style="font-family: sans-serif;">Ingrese Foto o captura de comprobante de pago </label>
+                                <input type="file" class="form-control form-control-sm" name="foto" id="foto" accept="image/*">
+                            </div>
+                            <div class="col-sm-12">
+                                <span id="imagen-subida"></span>
+                            </div>
 
+                            <input type="hidden" name="usuario" id="usuario" class="form-control form-control-sm" value="<?php echo $_SESSION['user'] ?>">
+                            <input type="hidden" name="correo" id="correo" class="form-control form-control-sm" value="<?php echo $_SESSION['correo'] ?>">
+                            <input type="hidden" name="email" id="email" class="form-control form-control-sm">
                         </div>
-
-
-
+                        <div class="modal-footer">
+                            <input type="hidden" name="id_compra" id="id_compra">
+                            <input type="hidden" name="operacion" id="operacion">
+                            <input type="submit" name="action" id="action" class="btn btn-success" value="Registrar">
+                        </div>
                     </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
                     <!-- Modal NUEVO -->
                     <div class="modal fade modal-custom" id="modalpagar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -617,296 +590,307 @@ if ($_SESSION['rol'] == 1) {
         });
     </script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Variable global para controlar el estado de la solicitud
-            var isProcessing = false;
+<script type="text/javascript">
+$(document).ready(function() {
+    // Variable global para controlar el estado de la solicitud
+    var isProcessing = false;
 
-            $("#botonCrear").click(function() {
-                $("#formulario")[0].reset();
-                $(".modal-title").text("COMPRAS");
-                $("#action").val("Solicitar Compra");
-                $("#operacion").val("Crear");
-                $('#estado').closest('.col-sm-12').hide(); // Ocultar el campo "estado"
-                $('#foto').closest('.col-sm-12').show();
-                $('#imagen-subida').html("");
-                /* $('#pdf-subido').html("");
-                $('#certificado-subido').html(""); */
-                $("#foto").html("");
-                /* $("#ficha").html("");
-                $("#certificado").html(""); */
-                // Llamada a la función al cargar la página para inicializar las opciones del select
-            });
+    // Determinar si el usuario es administrador
+    var esAdmin = <?php echo ($_SESSION['rol'] == 1) ? 'true' : 'false'; ?>;
 
-            var habilitarFunciones = <?php echo ($_SESSION['rol'] != 1) ? 'true' : 'false'; ?>;
+    // Función para configurar el formulario
+    function configurarFormulario(operacion) {
+        const fotoInput = $('#foto');
+        const estadoContainer = $('#estado').closest('.col-sm-12');
+        const fotoContainer = $('#foto').closest('.col-sm-12');
+        const actionButton = $('#action');
+        const modalTitle = $('.modal-title');
 
-            if (habilitarFunciones) {
-                dataTableactivo = $('#datos_usuario').DataTable({
-                    "paging": false,
-                    "info": false,
-                    "searching": false,
-                    "pageLength": 10,
-                    "processing": true,
-                    "serverSide": true,
-                    "order": [],
-                    "ajax": {
-                        url: "obtener_registros.php",
-                        type: "POST"
-                    },
-                    "columnsDefs": [{
-                        "targets": [0, 3, 4],
-                        "orderable": false,
-                    }, ],
-                    "language": {
-                        "decimal": "",
-                        "emptyTable": "No hay Compras",
-                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-                        "infoPostFix": "",
-                        "thousands": ",",
-                        "lengthMenu": "Mostrar _MENU_ Entradas",
-                        "loadingRecords": "Cargando...",
-                        "processing": "Procesando...",
-                        "search": "Buscar:",
-                        "zeroRecords": "Sin resultados encontrados",
-                        "paginate": {
-                            "first": "Primero",
-                            "last": "Ultimo",
-                            "next": "Siguiente",
-                            "previous": "Anterior"
-                        }
-                    }
-                });
+        if (operacion === 'Crear') {
+            $('#formulario')[0].reset();
+            modalTitle.text('SOLICITUD DE COMPRA');
+            actionButton.val('Solicitar Compra');
+            $('#operacion').val('Crear');
+            $('#imagen-subida').html('');
+            $("#foto").val('');
+
+            if (esAdmin) {
+                // Administradores: estado visible, foto opcional
+                estadoContainer.show();
+                fotoContainer.show();
+                fotoInput.removeAttr('required');
             } else {
-                dataTableactivo = $('#datos_usuario').DataTable({
-                    "paging": true,
-                    "info": true,
-                    "searching": true,
-                    "pageLength": 15,
-                    "processing": true,
-                    "serverSide": true,
-                    "order": [],
-                    "ajax": {
-                        url: "obtener_registros.php",
-                        type: "POST"
-                    },
-                    "columnsDefs": [{
-                        "targets": [0, 3, 4],
-                        "orderable": false,
-                    }, ],
-                    "language": {
-                        "decimal": "",
-                        "emptyTable": "No hay Compras",
-                        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-                        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-                        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-                        "infoPostFix": "",
-                        "thousands": ",",
-                        "lengthMenu": "Mostrar _MENU_ Entradas",
-                        "loadingRecords": "Cargando...",
-                        "processing": "Procesando...",
-                        "search": "Buscar:",
-                        "zeroRecords": "Sin resultados encontrados",
-                        "paginate": {
-                            "first": "Primero",
-                            "last": "Ultimo",
-                            "next": "Siguiente",
-                            "previous": "Anterior"
-                        }
-                    }
-                });
+                // Compradores: estado oculto, foto obligatoria
+                estadoContainer.hide();
+                fotoContainer.show();
+                fotoInput.attr('required', 'required');
             }
+        } else if (operacion === 'Editar') {
+            modalTitle.text('EDITAR COMPRA');
+            actionButton.val('Editar Compra');
+            $('#operacion').val('Editar');
 
-            //Aquí código inserción
-            $(document).on('submit', '#formulario', function(event) {
-                event.preventDefault();
-                // Verificar si ya hay una solicitud en curso
-                if (isProcessing) {
-                    return; // Ignorar la solicitud si ya se está procesando una
+            if (esAdmin) {
+                // Administradores: estado visible, foto oculta y opcional
+                estadoContainer.show();
+                fotoContainer.hide();
+                fotoInput.removeAttr('required');
+            } else {
+                // Compradores no deberían editar, pero por si acaso
+                estadoContainer.hide();
+                fotoContainer.show();
+                fotoInput.removeAttr('required');
+            }
+        }
+    }
+
+    // Configurar el formulario al abrir el modal para crear
+    $("#botonCrear").click(function() {
+        configurarFormulario('Crear');
+    });
+
+    // Configurar DataTable según el rol
+    var habilitarFunciones = <?php echo ($_SESSION['rol'] != 1) ? 'true' : 'false'; ?>;
+    var dataTableactivo;
+
+    if (habilitarFunciones) {
+        dataTableactivo = $('#datos_usuario').DataTable({
+            "paging": false,
+            "info": false,
+            "searching": false,
+            "pageLength": 10,
+            "processing": true,
+            "serverSide": true,
+            "order": [],
+            "ajax": {
+                url: "obtener_registros.php",
+                type: "POST"
+            },
+            "columnDefs": [{
+                "targets": [0, 3],
+                "orderable": false,
+            }],
+            "language": {
+                "decimal": "",
+                "emptyTable": "No hay Compras",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
                 }
-                // Establecer la bandera en true para indicar que se está procesando una solicitud
-                isProcessing = true;
-
-                var usuario = $('#usuario').val();
-                var correo = $('#tipo').val();
-                var tipo = $('#tipo').val();
-                /* var estado = $('#estado').val(); */
-
-                var extension = $('#foto').val().split('.').pop().toLowerCase();
-                /* var extension2 = $('#ficha').val().split('.').pop().toLowerCase();
-                var extension3 = $('#certificado').val().split('.').pop().toLowerCase(); */
-                if (extension != '') {
-                    if (jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -1) {
-                        alert("Fomato de imagen inválido");
-                        $('#foto').val('');
-                        isProcessing = false; // Restablecer la bandera en caso de error
-                        return false;
-                    }
+            }
+        });
+    } else {
+        dataTableactivo = $('#datos_usuario').DataTable({
+            "paging": true,
+            "info": true,
+            "searching": true,
+            "pageLength": 15,
+            "processing": true,
+            "serverSide": true,
+            "order": [],
+            "ajax": {
+                url: "obtener_registros.php",
+                type: "POST"
+            },
+            "columnDefs": [{
+                "targets": [0, 7],
+                "orderable": false,
+            }],
+            "language": {
+                "decimal": "",
+                "emptyTable": "No hay Compras",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
                 }
+            }
+        });
+    }
 
-                // Deshabilitar el botón al enviar la solicitud
-                $("#action").prop("disabled", true);
+    // Aquí código inserción
+    $(document).on('submit', '#formulario', function(event) {
+        event.preventDefault();
+        if (isProcessing) {
+            return;
+        }
+        isProcessing = true;
 
-                if (usuario != '' && correo != '' && tipo != '') {
-                    $.ajax({
-                        url: "crear.php",
-                        method: 'POST',
-                        data: new FormData(this),
-                        contentType: false,
-                        processData: false,
-                        success: function(data) {
-                            // Restablecer la bandera a false una vez completada la solicitud
-                            isProcessing = false;
-                            // Habilitar el botón después de que se complete la solicitud
-                            $("#action").prop("disabled", false);
+        var usuario = $('#usuario').val();
+        var tipo = $('#tipo').val();
+        var extension = $('#foto').val().split('.').pop().toLowerCase();
 
-                            // Llamar al archivo PHP separado para enviar el correo electrónico
-                            $.ajax({
-                                url: 'enviar_correo.php',
-                                method: 'POST',
-                                success: function(response) {
-                                    console.log(response); // Muestra la respuesta en la consola del navegador
-                                },
-                                error: function(xhr, status, error) {
-                                    console.error('Error al llamar al archivo enviar_correo.php:', error);
-                                }
-                            });
+        if (!esAdmin && $('#operacion').val() === 'Crear' && extension === '') {
+            Swal.fire(
+                'Error!',
+                'Debes subir una captura de comprobante de pago.',
+                'error'
+            );
+            isProcessing = false;
+            return false;
+        }
 
-                            Swal.fire(
-                                'Exitoso!',
-                                'Se registro correctamente',
-                                'success'
-                            );
-                            $('#formulario')[0].reset();
-                            $('#modalproductos').modal('hide');
-                            dataTableactivo.ajax.reload();
-                        },
-                        error: function() {
-                            // Restablecer la bandera a false en caso de error
-                            isProcessing = false;
-                            // Habilitar el botón en caso de error
-                            $("#action").prop("disabled", false);
+        if (extension !== '') {
+            if (jQuery.inArray(extension, ['gif', 'png', 'jpg', 'jpeg']) == -110 == -1) {
+                Swal.fire(
+                    'Error!',
+                    'Formato de imagen inválido.',
+                    'error'
+                );
+                $('#foto').val('');
+                isProcessing = false;
+                return false;
+            }
+        }
 
-                            Swal.fire(
-                                'Error!',
-                                'Ha ocurrido un error al procesar la solicitud',
-                                'error'
-                            );
-                        }
-                    });
-                } else {
-                    // Restablecer la bandera a false en caso de error
+        $("#action").prop("disabled", true);
+
+        if (usuario !== '' && tipo !== '') {
+            $.ajax({
+                url: "crear.php",
+                method: 'POST',
+                data: new FormData(this),
+                contentType: false,
+                processData: false,
+                success: function(data) {
                     isProcessing = false;
-                    // Habilitar el botón en caso de error
                     $("#action").prop("disabled", false);
 
                     Swal.fire(
-                        'Algunos Campos son Obligatorios ?',
-                        'Revisa el formulario',
-                        'warning'
+                        'Exitoso!',
+                        data.includes('Error') ? data : 'Se registró correctamente.',
+                        data.includes('Error') ? 'error' : 'success'
+                    );
+                    $('#formulario')[0].reset();
+                    $('#modalproductos').modal('hide');
+                    dataTableactivo.ajax.reload();
+                },
+                error: function() {
+                    isProcessing = false;
+                    $("#action").prop("disabled", false);
+                    Swal.fire(
+                        'Error!',
+                        'Ha ocurrido un error al procesar la solicitud.',
+                        'error'
                     );
                 }
             });
+        } else {
+            isProcessing = false;
+            $("#action").prop("disabled", false);
+            Swal.fire(
+                'Error!',
+                'Algunos campos son obligatorios.',
+                'warning'
+            );
+        }
+    });
 
+    // Funcionalidad de editar
+    $(document).on('click', '.editar', function() {
+        var id_compra = $(this).attr("id");
+        $('#cargando').show();
+        $.ajax({
+            url: "obtener_registro.php",
+            method: "POST",
+            data: { id_compra: id_compra },
+            dataType: "json",
+            success: function(data) {
+                $('#cargando').hide();
+                $('#modalproductos').modal('show');
+                configurarFormulario('Editar');
 
-            //Funcionalidad de editar
-            $(document).on('click', '.editar', function() {
-                var id_compra = $(this).attr("id");
-                // Mostrar el elemento de carga
-                $('#cargando').show();
-                $.ajax({
-                    url: "obtener_registro.php",
-                    method: "POST",
-                    data: {
-                        id_compra: id_compra
-                    },
-                    dataType: "json",
-                    success: function(data) {
-                        // Ocultar el elemento de carga
-                        $('#cargando').hide();
-                        $('#modalproductos').modal('show');
-                        $('#estado').closest('.col-sm-12').show(); // Ocultar el campo "estado"
-                        $('#foto').closest('.col-sm-12').hide();
-
-                        $('#estado').val(data.estado);
-                        $('#tipo').val(data.tipo);
-                        $('#email').val(data.correo);
-
-                        $('#id_compra').val(id_compra);
-
-                        $('.modal-title2').text("Editar compra");
-                        $('#action').val("Editar compra");
-                        $('#operacion').val("Editar");
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.log(textStatus, errorThrown);
-                        // Ocultar el elemento de carga en caso de error
-                        $('#cargando').hide();
-                    }
-                });
-            });
-
-            //Funcionalidad de borrar
-            $(document).on('click', '.borrar', function() {
-                var id_compra = $(this).attr("id");
-
-                Swal.fire({
-                    title: '¿Está seguro de cancelar su Solicitud de Compra?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#72db88',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Sí, Bórralo!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url: "borrar.php",
-                            method: "POST",
-                            data: {
-                                id_compra: id_compra
-                            },
-                            success: function(data, textStatus, xhr) {
-                                if (xhr.status === 200) {
-                                    // Eliminación exitosa
-                                    Swal.fire(
-                                        'Borrado con Éxito!',
-                                        'Se canceló su Solicitud',
-                                        'success'
-                                    );
-                                    dataTableactivo.ajax.reload();
-                                } else if (xhr.status === 403) {
-                                    // No se puede cancelar
-                                    Swal.fire(
-                                        'Error!',
-                                        'No se puede cancelar la solicitud.',
-                                        'error'
-                                    );
-                                } else {
-                                    // Error interno del servidor
-                                    Swal.fire(
-                                        'Error!',
-                                        'Error interno del servidor.',
-                                        'error'
-                                    );
-                                }
-                            },
-                            error: function(xhr, status, error) {
-                                // Error en la solicitud AJAX
-                                Swal.fire(
-                                    'Error!',
-                                    'No se puede cancelar la solicitud porque ya esta aprobado su solicitud',
-                                    'error'
-                                );
-                            }
-                        });
-                    } else {
-                        return false;
-                    }
-                });
-            });
+                $('#estado').val(data.estado);
+                $('#tipo').val(data.tipo);
+                $('#email').val(data.correo);
+                $('#id_compra').val(id_compra);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+                $('#cargando').hide();
+                Swal.fire(
+                    'Error!',
+                    'No se pudo cargar el registro.',
+                    'error'
+                );
+            }
         });
-    </script>
+    });
+
+    // Funcionalidad de borrar
+    $(document).on('click', '.borrar', function() {
+        var id_compra = $(this).attr("id");
+        Swal.fire({
+            title: '¿Está seguro de cancelar su Solicitud de Compra?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#72db88',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, Bórralo!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "borrar.php",
+                    method: "POST",
+                    data: { id_compra: id_compra },
+                    success: function(data, textStatus, xhr) {
+                        if (xhr.status === 200) {
+                            Swal.fire(
+                                'Borrado con Éxito!',
+                                'Se canceló su Solicitud.',
+                                'success'
+                            );
+                            dataTableactivo.ajax.reload();
+                        } else if (xhr.status === 403) {
+                            Swal.fire(
+                                'Error!',
+                                'No se puede cancelar la solicitud.',
+                                'error'
+                            );
+                        } else {
+                            Swal.fire(
+                                'Error!',
+                                'Error interno del servidor.',
+                                'error'
+                            );
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire(
+                            'Error!',
+                            'No se puede cancelar la solicitud porque ya está aprobada.',
+                            'error'
+                        );
+                    }
+                });
+            }
+        });
+    });
+});
+</script>
 
 
 
