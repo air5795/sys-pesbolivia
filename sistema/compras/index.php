@@ -369,7 +369,7 @@ if ($_SESSION['rol'] == 1) {
 
                                                 <div class="col-sm-12">
                                                     <label for="foto" style="font-family: sans-serif;">Ingrese Foto o captura de comprobante de pago </label>
-                                                    <input type="file" class="form-control form-control-sm" name="foto" id="foto" required>
+                                                    <input type="file" class="form-control form-control-sm" name="foto" id="foto" >
                                                 </div>
                                                 <div class="col-sm-12">
                                                     <span id="imagen-subida"></span>
